@@ -26,6 +26,48 @@ Web Component built with `Stencil.js` to use [Web Animations API](https://develo
 </animatable-component>
 ```
 
+To animate things you can use the `createAnimatableComponent` utility:
+
+```
+const SendMessageButton = (props) =>(
+  <ion-fab-button {...props}>
+    <ion-icon name='send' />
+  </ion-fab-button>
+)
+const AnimatableSendMessageButton = createAnimatableComponent(SendMessageButton)
+
+
+const keyFramesSendMessage: Keyframe[] = [
+  {
+    opacity: '0',
+    transform: 'rotate(0deg)'
+  },
+  {
+    opacity: '1',
+    transform: 'rotate(360deg)'
+  }
+]
+
+const optionsSendMessage: KeyframeAnimationOptions = {
+  duration: 500,
+  easing: 'ease-in-out'
+}
+
+...
+  render() {
+    return (
+       <AnimatableSendMessageButton
+        keyFrames={keyFramesSendMessage}
+        options={optionsSendMessage}
+        onClick={() => alert('Eureka!')}
+      />
+    )
+  }
+...
+```
+
+## Properties
+
 ## Properties
 
 | Property             | Attribute             | Description                                                                                                                                                                                                  | Type                                                          | Default     |
@@ -51,10 +93,10 @@ Web Component built with `Stencil.js` to use [Web Animations API](https://develo
 
 ## Events
 
-| Event    | Description                                             | Type               |
-| -------- | ------------------------------------------------------- | ------------------ |
-| `cancel` | This event is sent when the animation is cancelled.     | `CustomEvent<any>` |
-| `finish` | This event is sent when the animation finishes playing. | `CustomEvent<any>` |
+| Event    | Description                                             | Type                   |
+| -------- | ------------------------------------------------------- | ---------------------- |
+| `cancel` | This event is sent when the animation is cancelled.     | `CustomEvent<Element>` |
+| `finish` | This event is sent when the animation finishes playing. | `CustomEvent<Element>` |
 
 
 ## Methods
@@ -160,23 +202,21 @@ Reverses the playback direction, meaning the animation ends at its beginning.
 
 Type: `Promise<void>`
 
-
 ## Using this component
 
 ### Script tag
 
-- [Publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages)
-- Put a script tag similar to this `<script src='https://unpkg.com/animatable-component@0.0.1/dist/mycomponent.js'></script>` in the head of your index.html
+- Put a script tag similar to this `<script src='https://unpkg.com/animatable-component@0.0.1/dist/animatable-component.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
-- Run `npm install animatable-component --save`
-- Put a script tag similar to this `<script src='node_modules/animatable-component/dist/mycomponent.js'></script>` in the head of your index.html
+- Run `npm install @proyecto26/animatable-component --save`
+- Put a script tag similar to this `<script src='node_modules/@proyecto26/animatable-component/dist/animatable-component.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### In a stencil-starter app
-- Run `npm install animatable-component --save`
-- Add an import to the npm packages `import animatable-component;`
+- Run `npm install @proyecto26/animatable-component --save`
+- Add an import to the npm packages `import @proyecto26/animatable-component;`
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ## Supporting 🍻

@@ -1,7 +1,7 @@
 import {
   Component,
   h,
-  Element,
+  Element as ElementDecorator,
   Prop,
   Host,
   Event,
@@ -16,7 +16,7 @@ import {
 export class AnimatableComponent {
   private animation: Animation
 
-  @Element() el!: HTMLElement
+  @ElementDecorator() el!: HTMLElement
   /**
    * Keyframes of the animation.
    */
@@ -152,13 +152,13 @@ export class AnimatableComponent {
    */
   @Event({
     eventName: 'finish'
-  }) onfinish: EventEmitter
+  }) onfinish: EventEmitter<Element>
   /**
    * This event is sent when the animation is cancelled.
    */
   @Event({
     eventName: 'cancel'
-  }) oncancel: EventEmitter
+  }) oncancel: EventEmitter<Element>
 
   /**
    * Clears all `KeyframeEffects` caused by this animation and aborts its playback.

@@ -30,10 +30,10 @@
 
 ## Events
 
-| Event    | Description                                             | Type               |
-| -------- | ------------------------------------------------------- | ------------------ |
-| `cancel` | This event is sent when the animation is cancelled.     | `CustomEvent<any>` |
-| `finish` | This event is sent when the animation finishes playing. | `CustomEvent<any>` |
+| Event    | Description                                             | Type                   |
+| -------- | ------------------------------------------------------- | ---------------------- |
+| `cancel` | This event is sent when the animation is cancelled.     | `CustomEvent<Element>` |
+| `finish` | This event is sent when the animation finishes playing. | `CustomEvent<Element>` |
 
 
 ## Methods
