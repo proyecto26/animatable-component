@@ -238,7 +238,7 @@ export class AnimatableComponent {
 
   getAnimationOptions(): KeyframeAnimationOptions {
     const animationOptions = this.options
-      || this.optionsData && JSON.parse(this.optionsData)
+      || (this.optionsData && JSON.parse(this.optionsData))
       || {};
     if(this.delay) animationOptions.delay = this.delay;
     if(this.duration) animationOptions.duration = this.duration;
@@ -256,10 +256,12 @@ export class AnimatableComponent {
   }
 
   createAnimation() {
-    const element = this.el;
+    const element = (this.el.firstElementChild
+      || (this.el.children.length && this.el.children[0])
+      || this.el) as HTMLElement;
     const options = this.getAnimationOptions();
     const keyFrames = this.keyFrames
-      || this.keyFramesData && JSON.parse(this.keyFramesData)
+      || (this.keyFramesData && JSON.parse(this.keyFramesData))
       || [];
     const animation = element.animate(keyFrames, options);
     animation.onfinish = () => this.onfinish.emit(element);
@@ -270,14 +272,22 @@ export class AnimatableComponent {
     this.animation = animation;
   }
 
+  private playAnimation() {
+    if (this.animation 
+      && (!this.animation.playState || this.animation.playState !== 'running')
+    ) {
+      this.animation.play();
+    }
+  }
+
   componentWillLoad() {
     this.createAnimation()
-    if (this.autoPlay) this.animation.play()
+    if (this.autoPlay) this.playAnimation()
   }
 
   componentDidUpdate() {
     this.createAnimation()
-    if (this.autoPlay) this.animation.play()
+    if (this.autoPlay) this.playAnimation()
   }
 
   render() {
