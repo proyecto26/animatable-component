@@ -1,9 +1,8 @@
 import {
   Component,
   h,
-  Element as ElementDecorator,
+  Element,
   Prop,
-  Host,
   Event,
   EventEmitter,
   Method,
@@ -16,7 +15,7 @@ import {
 export class AnimatableComponent {
   private animation: Animation
 
-  @ElementDecorator() el!: HTMLElement
+  @Element() el!: HTMLElement
   /**
    * Keyframes of the animation.
    */
@@ -152,13 +151,13 @@ export class AnimatableComponent {
    */
   @Event({
     eventName: 'finish'
-  }) onfinish: EventEmitter<Element>
+  }) onfinish: EventEmitter<HTMLElement>
   /**
    * This event is sent when the animation is cancelled.
    */
   @Event({
     eventName: 'cancel'
-  }) oncancel: EventEmitter<Element>
+  }) oncancel: EventEmitter<HTMLElement>
 
   /**
    * Clears all `KeyframeEffects` caused by this animation and aborts its playback.
@@ -219,7 +218,7 @@ export class AnimatableComponent {
   }
 
   createAnimation() {
-    const element = this.el.querySelectorAll(':first-child')[0];
+    const element = this.el as HTMLElement;
 
     const options = this.getAnimationOptions();
     const animation = element.animate(this.keyFrames, options);
@@ -242,6 +241,6 @@ export class AnimatableComponent {
   }
 
   render() {
-    return <Host><slot /></Host>
+    return <slot />
   }
 }

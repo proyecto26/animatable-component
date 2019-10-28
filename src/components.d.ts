@@ -196,11 +196,11 @@ declare namespace LocalJSX {
     /**
     * This event is sent when the animation is cancelled.
     */
-    'onCancel'?: (event: CustomEvent<Element>) => void;
+    'onCancel'?: (event: CustomEvent<HTMLElement>) => void;
     /**
     * This event is sent when the animation finishes playing.
     */
-    'onFinish'?: (event: CustomEvent<Element>) => void;
+    'onFinish'?: (event: CustomEvent<HTMLElement>) => void;
     /**
     * Default options of the animation.
     */

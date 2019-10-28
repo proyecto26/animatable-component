@@ -68,8 +68,6 @@ const optionsSendMessage: KeyframeAnimationOptions = {
 
 ## Properties
 
-## Properties
-
 | Property             | Attribute             | Description                                                                                                                                                                                                  | Type                                                          | Default     |
 | -------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- | ----------- |
 | `animateId`          | `animate-id`          | A DOMString with which to reference the animation.                                                                                                                                                           | `string`                                                      | `undefined` |
@@ -93,10 +91,10 @@ const optionsSendMessage: KeyframeAnimationOptions = {
 
 ## Events
 
-| Event    | Description                                             | Type                   |
-| -------- | ------------------------------------------------------- | ---------------------- |
-| `cancel` | This event is sent when the animation is cancelled.     | `CustomEvent<Element>` |
-| `finish` | This event is sent when the animation finishes playing. | `CustomEvent<Element>` |
+| Event    | Description                                             | Type                       |
+| -------- | ------------------------------------------------------- | -------------------------- |
+| `cancel` | This event is sent when the animation is cancelled.     | `CustomEvent<HTMLElement>` |
+| `finish` | This event is sent when the animation finishes playing. | `CustomEvent<HTMLElement>` |
 
 
 ## Methods
