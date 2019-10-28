@@ -15,15 +15,42 @@ import {
 export class AnimatableComponent {
   private animation: Animation
 
-  @Element() el!: HTMLElement
+  @Element() el: HTMLElement
   /**
    * Keyframes of the animation.
    */
-  @Prop() keyFrames: Keyframe[]
+  @Prop({
+    mutable: true,
+    reflect: true,
+    attribute: 'keyFrames'
+  }) keyFrames: Keyframe[]
+
+  /**
+   * Get keyFrames of the animation from string data.
+   * @param text - The string with the keyFrames of the animation.
+   */
+  @Watch('keyFramesData')
+  keyFramesDidChangeHandler(text: string) {
+    if (text) this.keyFrames = JSON.parse(text);
+  }
+
   /**
    * Default options of the animation.
    */
-  @Prop() options: KeyframeAnimationOptions
+  @Prop({
+    mutable: true,
+    reflect: true,
+    attribute: 'options'
+  }) options: KeyframeAnimationOptions
+
+  /**
+   * Get options of the animation from string data.
+   * @param text - The string with the options of the animation.
+   */
+  @Watch('optionsData')
+  optionsDidChangeHandler(text: string) {
+    if (text) this.options = JSON.parse(text);
+  }
   /**
    * A DOMString with which to reference the animation.
    */
@@ -218,8 +245,7 @@ export class AnimatableComponent {
   }
 
   createAnimation() {
-    const element = this.el as HTMLElement;
-
+    const element = this.el;
     const options = this.getAnimationOptions();
     const animation = element.animate(this.keyFrames, options);
     animation.onfinish = () => this.onfinish.emit(element);
