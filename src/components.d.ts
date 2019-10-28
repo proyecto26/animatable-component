@@ -96,9 +96,17 @@ export namespace Components {
     */
     'keyFrames': Keyframe[];
     /**
+    * Keyframes of the animation in string format.
+    */
+    'keyFramesData': string;
+    /**
     * Default options of the animation.
     */
     'options': KeyframeAnimationOptions;
+    /**
+    * Default options of the animation in string format.
+    */
+    'optionsData': string;
     /**
     * Suspends playback of the animation.
     */
@@ -194,6 +202,10 @@ declare namespace LocalJSX {
     */
     'keyFrames'?: Keyframe[];
     /**
+    * Keyframes of the animation in string format.
+    */
+    'keyFramesData'?: string;
+    /**
     * This event is sent when the animation is cancelled.
     */
     'onCancel'?: (event: CustomEvent<HTMLElement>) => void;
@@ -205,6 +217,10 @@ declare namespace LocalJSX {
     * Default options of the animation.
     */
     'options'?: KeyframeAnimationOptions;
+    /**
+    * Default options of the animation in string format.
+    */
+    'optionsData'?: string;
     /**
     * Sets the playback rate of the animation.
     */

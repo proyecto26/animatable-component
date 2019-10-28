@@ -26,6 +26,11 @@ export class AnimatableComponent {
   }) keyFrames: Keyframe[]
 
   /**
+   * Keyframes of the animation in string format.
+   */
+  @Prop() keyFramesData: string
+
+  /**
    * Get keyFrames of the animation from string data.
    * @param text - The string with the keyFrames of the animation.
    */
@@ -43,6 +48,10 @@ export class AnimatableComponent {
     attribute: 'options'
   }) options: KeyframeAnimationOptions
 
+  /**
+   * Default options of the animation in string format.
+   */
+  @Prop() optionsData: string
   /**
    * Get options of the animation from string data.
    * @param text - The string with the options of the animation.
@@ -228,11 +237,13 @@ export class AnimatableComponent {
   }
 
   getAnimationOptions(): KeyframeAnimationOptions {
-    const animationOptions = this.options || {}
-    if(this.delay) animationOptions.delay = this.delay
-    if(this.duration) animationOptions.duration = this.duration
-    if(this.direction) animationOptions.direction = this.direction
-    if(this.composite) animationOptions.composite = this.composite
+    const animationOptions = this.options
+      || this.optionsData && JSON.parse(this.optionsData)
+      || {};
+    if(this.delay) animationOptions.delay = this.delay;
+    if(this.duration) animationOptions.duration = this.duration;
+    if(this.direction) animationOptions.direction = this.direction;
+    if(this.composite) animationOptions.composite = this.composite;
     if(this.easing) animationOptions.easing = this.easing;
     if(this.endDelay) animationOptions.endDelay = this.endDelay;
     if(this.fill) animationOptions.fill = this.fill;
@@ -241,13 +252,16 @@ export class AnimatableComponent {
     if(this.iterationStart) animationOptions.iterationStart = this.iterationStart;
     if(this.iterationComposite) animationOptions.iterationComposite = this.iterationComposite;
 
-    return animationOptions
+    return animationOptions;
   }
 
   createAnimation() {
     const element = this.el;
     const options = this.getAnimationOptions();
-    const animation = element.animate(this.keyFrames, options);
+    const keyFrames = this.keyFrames
+      || this.keyFramesData && JSON.parse(this.keyFramesData)
+      || [];
+    const animation = element.animate(keyFrames, options);
     animation.onfinish = () => this.onfinish.emit(element);
     animation.oncancel = () => this.oncancel.emit(element);
     if (this.currentTime) animation.currentTime = this.currentTime;
