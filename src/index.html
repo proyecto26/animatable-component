@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Stencil Component Starter</title>
+
+  <script type="module" src="/build/animatable-component.esm.js"></script>
+  <script nomodule src="/build/animatable-component.js"></script>
+
+  <style>
+    @import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:700";
+    *,
+    *::before,
+    *::after {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+    body {
+      padding: 0px;
+      margin: 0;
+      font-family: "Source Sans Pro", sans-serif;
+      background: #24252A;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 5em;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <animatable-component
+    autoPlay
+    easing="ease-in-out"
+    duration="800"
+    delay="300">
+    <h1>Hello World</h1>
+  </animatable-component>
+  <script>
+    const animatableHelloWorld = document.querySelector('animatable-component');
+    animatableHelloWorld.keyFrames = [
+      {
+        offset: 0,
+        opacity: '0',
+        transform: 'translateY(100px) scale(1, 1)'
+      },
+      {
+        offset: 0.4,
+        opacity: '1',
+        transform: 'translateY(-10px) scale(1, 1)'
+      },
+      {
+        offset: 0.6,
+        opacity: '1',
+        transform: 'translateY(0px) scale(1, 1)'
+      },
+      {
+        offset: 0.8,
+        opacity: '1',
+        transform: 'translateY(0px) scale(2, 2)'
+      },
+      {
+        offset: 1,
+        opacity: '1',
+        transform: 'translateY(0px) scale(1, 1)',
+      }
+    ];
+    animatableHelloWorld.addEventListener("finish", function(){
+      animatableHelloWorld.direction = ''
+      animatableHelloWorld.delay = 500
+      animatableHelloWorld.options = {
+        easing: 'linear',
+        direction: 'alternate',
+        iterations: 2,
+        intervals: Infinity,
+        duration: 800,
+        endDelay: 1000
+      }
+      animatableHelloWorld.keyFrames = [
+        {
+          transform: 'rotate(0deg)'
+        },
+        {
+          transform: 'rotate(360deg)'
+        }
+      ];
+    });
+  </script>
+</body>
+</html>
