@@ -1,6 +1,7 @@
 import {
-  Component,
   h,
+  Component,
+  ComponentInterface,
   Element,
   Prop,
   Event,
@@ -12,7 +13,7 @@ import {
 @Component({
   tag: 'animatable-component'
 })
-export class AnimatableComponent {
+export class AnimatableComponent implements ComponentInterface {
   private animation: Animation
 
   @Element() el: HTMLElement

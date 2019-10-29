@@ -1,13 +1,67 @@
-import { h, FunctionalComponent } from '@stencil/core';
-
-import { AnimatableComponent } from '../components/animatable-component/animatable-component'
+import { h, FunctionalComponent, ComponentInterface } from '@stencil/core';
+import { JSXBase } from '@stencil/core/internal';
+import { JSX } from '../components'
 
 export function createAnimatableComponent<Props> (
-  WrappedComponent: FunctionalComponent<Props>
-): FunctionalComponent<AnimatableComponent | Props> {
-  return (props) => (
-    <animatable-component {...props as AnimatableComponent}>
-      <WrappedComponent {...props as Props} />
+  WrappedComponent: FunctionalComponent
+) {
+  type ComponentProps = Props
+    & ComponentInterface
+    & JSX.AnimatableComponent
+    & JSXBase.HTMLAttributes<HTMLAnimatableComponentElement>;
+
+  return (props: ComponentProps): FunctionalComponent<ComponentProps> => {
+    const {
+      ref,
+      keyFrames,
+      keyFramesData,
+      options,
+      optionsData,
+      animateId,
+      delay,
+      endDelay,
+      duration,
+      direction,
+      composite,
+      easing,
+      fill,
+      iterations,
+      iterationStart,
+      iterationComposite,
+      autoPlay,
+      currentTime,
+      startTime,
+      playbackRate,
+      onFinish,
+      onCancel,
+      ...rest
+    } = props
+    return <animatable-component
+      ref={ref}
+      keyFrames={keyFrames}
+      keyFramesData={keyFramesData}
+      options={options}
+      optionsData={optionsData}
+      animateId={animateId}
+      delay={delay}
+      endDelay={endDelay}
+      duration={duration}
+      direction={direction}
+      composite={composite}
+      easing={easing}
+      fill={fill}
+      iterations={iterations}
+      iterationStart={iterationStart}
+      iterationComposite={iterationComposite}
+      autoPlay={autoPlay}
+      currentTime={currentTime}
+      startTime={startTime}
+      playbackRate={playbackRate}
+      onFinish={onFinish}
+      onCancel={onCancel}
+
+    >
+      <WrappedComponent {...rest} />
     </animatable-component>
-  )
+  }
 };
