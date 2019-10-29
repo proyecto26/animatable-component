@@ -75,7 +75,7 @@ const optionsSendMessage: KeyframeAnimationOptions = {
        <AnimatableSendMessageButton
         keyFrames={keyFramesSendMessage}
         options={optionsSendMessage}
-        onClick={() => alert('Eureka!')}
+        onFinish={() => alert('Eureka!')}
       />
     )
   }
