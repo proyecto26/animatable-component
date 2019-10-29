@@ -1,4 +1,5 @@
 export enum ANIMATIONS {
+  // ATTENTION SEEKERS
   BOUNCE = 'bounce',
   FLASH  = 'flash',
   JELLO  = 'jello',

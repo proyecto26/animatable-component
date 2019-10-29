@@ -15,6 +15,8 @@ import Animations, {
   ANIMATION_KEY_ERROR
 } from '../../animations/animations'
 
+import { EASING, EASING_FUNCTIONS } from '../../easing/easing'
+
 @Component({
   tag: 'animatable-component'
 })
@@ -42,8 +44,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Prop({
     mutable: true,
-    reflect: true,
-    attribute: 'keyFrames'
+    reflect: true
   }) keyFrames: Keyframe[]
 
   /**
@@ -65,8 +66,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Prop({
     mutable: true,
-    reflect: true,
-    attribute: 'options'
+    reflect: true
   }) options: KeyframeAnimationOptions
 
   /**
@@ -112,7 +112,7 @@ export class AnimatableComponent implements ComponentInterface {
   /**
    * The rate of the animation's change over time.
    */
-  @Prop() easing?: string
+  @Prop() easing?: EASING | string
   /**
    * Dictates whether the animation's effects should be reflected
    * by the element(s) prior to playing ("backwards"), retained after the animation
@@ -258,14 +258,16 @@ export class AnimatableComponent implements ComponentInterface {
   }
 
   getAnimationOptions(): KeyframeAnimationOptions {
-    const animationOptions = this.options
+    const animationOptions: KeyframeAnimationOptions = this.options
       || (this.optionsData && JSON.parse(this.optionsData))
       || {};
     if(this.delay) animationOptions.delay = this.delay;
     if(this.duration) animationOptions.duration = this.duration;
     if(this.direction) animationOptions.direction = this.direction;
     if(this.composite) animationOptions.composite = this.composite;
-    if(this.easing) animationOptions.easing = this.easing;
+    if(this.easing) {
+      animationOptions.easing = EASING_FUNCTIONS[this.easing] || this.easing;
+    }
     if(this.endDelay) animationOptions.endDelay = this.endDelay;
     if(this.fill) animationOptions.fill = this.fill;
     if(this.animateId) animationOptions.id = this.animateId;
@@ -296,7 +298,10 @@ export class AnimatableComponent implements ComponentInterface {
 
   private playAnimation() {
     if (this.currentAnimation 
-      && (!this.currentAnimation.playState || this.currentAnimation.playState !== 'running')
+      && (
+        !this.currentAnimation.playState
+        || this.currentAnimation.playState !== 'running'
+      )
     ) {
       this.currentAnimation.play();
     }

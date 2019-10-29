@@ -10,6 +10,9 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
   ANIMATIONS,
 } from './animations/animations';
+import {
+  EASING,
+} from './easing/easing';
 
 export namespace Components {
   interface AnimatableComponent {
@@ -52,7 +55,7 @@ export namespace Components {
     /**
     * The rate of the animation's change over time.
     */
-    'easing'?: string;
+    'easing'?: EASING | string;
     /**
     * The number of milliseconds to delay after the end of an animation.
     */
@@ -186,7 +189,7 @@ declare namespace LocalJSX {
     /**
     * The rate of the animation's change over time.
     */
-    'easing'?: string;
+    'easing'?: EASING | string;
     /**
     * The number of milliseconds to delay after the end of an animation.
     */
