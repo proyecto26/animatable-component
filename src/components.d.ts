@@ -7,7 +7,9 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  ANIMATIONS,
+} from './animations/animations';
 
 export namespace Components {
   interface AnimatableComponent {
@@ -15,6 +17,10 @@ export namespace Components {
     * A DOMString with which to reference the animation.
     */
     'animateId': string;
+    /**
+    * Name of the animation to get the keyFrames
+    */
+    'animation'?: ANIMATIONS;
     /**
     * Start the animation when the component is mounted.
     */
@@ -149,6 +155,10 @@ declare namespace LocalJSX {
     * A DOMString with which to reference the animation.
     */
     'animateId'?: string;
+    /**
+    * Name of the animation to get the keyFrames
+    */
+    'animation'?: ANIMATIONS;
     /**
     * Start the animation when the component is mounted.
     */

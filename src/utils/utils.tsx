@@ -1,5 +1,5 @@
 import { h, FunctionalComponent, ComponentInterface } from '@stencil/core';
-import { JSXBase } from '@stencil/core/internal';
+import { JSXBase, HTMLStencilElement } from '@stencil/core/internal';
 import { JSX } from '../components'
 
 export function createAnimatableComponent<Props> (
@@ -8,7 +8,9 @@ export function createAnimatableComponent<Props> (
   type ComponentProps = Props
     & ComponentInterface
     & JSX.AnimatableComponent
-    & JSXBase.HTMLAttributes<HTMLAnimatableComponentElement>;
+    & JSXBase.HTMLAttributes<HTMLAnimatableComponentElement>
+    & JSXBase.HTMLAttributes<HTMLElement>
+    & JSXBase.HTMLAttributes<HTMLStencilElement>;
 
   return (props: ComponentProps): FunctionalComponent<ComponentProps> => {
     const {

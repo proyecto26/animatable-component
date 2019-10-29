@@ -75,25 +75,17 @@
         transform: 'translateY(0px) scale(1, 1)',
       }
     ];
-    animatableHelloWorld.addEventListener("finish", function(){
-      animatableHelloWorld.direction = ''
+    animatableHelloWorld.addEventListener("finish", function() {
+      animatableHelloWorld.cancel()
       animatableHelloWorld.delay = 500
       animatableHelloWorld.options = {
         easing: 'linear',
-        direction: 'alternate',
         iterations: 2,
         intervals: Infinity,
         duration: 800,
         endDelay: 1000
       }
-      animatableHelloWorld.keyFrames = [
-        {
-          transform: 'rotate(0deg)'
-        },
-        {
-          transform: 'rotate(360deg)'
-        }
-      ];
+      animatableHelloWorld.animation = 'heartBeat'
     });
   </script>
 </body>

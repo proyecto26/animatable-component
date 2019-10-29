@@ -10,13 +10,33 @@ import {
   Watch
 } from '@stencil/core';
 
+import Animations, {
+  ANIMATIONS,
+  ANIMATION_KEY_ERROR
+} from '../../animations/animations'
+
 @Component({
   tag: 'animatable-component'
 })
 export class AnimatableComponent implements ComponentInterface {
-  private animation: Animation
+  private currentAnimation: Animation
 
-  @Element() el: HTMLElement
+  @Element() el!: HTMLElement
+
+  /**
+   * Name of the animation to get the keyFrames
+   */
+  @Prop() animation?: ANIMATIONS
+  @Watch('animation')
+  animationDidChangeHandler(animation: ANIMATIONS) {
+    const keyFrames = Animations[animation];
+    if (keyFrames && keyFrames.length) {
+      this.keyFrames = keyFrames;
+    } else {
+      throw new Error(ANIMATION_KEY_ERROR);
+    }
+  }
+
   /**
    * Keyframes of the animation.
    */
@@ -123,14 +143,14 @@ export class AnimatableComponent implements ComponentInterface {
   @Prop() currentTime?: number;
   @Watch('currentTime')
   setCurrenTime(newValue: number) {
-    if (this.animation) this.animation.currentTime = newValue
+    if (this.currentAnimation) this.currentAnimation.currentTime = newValue
   }
   /**
    * Returns the current time value of the animation in milliseconds, whether running or paused.
    */
   @Method()
   async getCurrentTime(): Promise<number> {
-    return this.animation.currentTime;
+    return this.currentAnimation.currentTime;
   }
 
   /**
@@ -139,14 +159,14 @@ export class AnimatableComponent implements ComponentInterface {
   @Prop() startTime?: number;
   @Watch('startTime')
   setStartTime(newValue: number) {
-    if (this.animation) this.animation.startTime = newValue
+    if (this.currentAnimation) this.currentAnimation.startTime = newValue
   }
   /**
    * Returns the scheduled time when an animation's playback should begin.
    */
   @Method()
   async getStartTime(): Promise<number> {
-    return this.animation.startTime;
+    return this.currentAnimation.startTime;
   }
 
   /**
@@ -156,7 +176,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async getPending(): Promise<boolean> {
-    return this.animation.pending;
+    return this.currentAnimation.pending;
   }
 
   /**
@@ -165,14 +185,14 @@ export class AnimatableComponent implements ComponentInterface {
   @Prop() playbackRate?: number;
   @Watch('playbackRate')
   setPlaybackRate(newValue: number) {
-    if (this.animation) this.animation.playbackRate = newValue
+    if (this.currentAnimation) this.currentAnimation.playbackRate = newValue
   }
   /**
    * Returns the playback rate of the animation.
    */
   @Method()
   async getPlaybackRate(): Promise<number> {
-    return this.animation.playbackRate;
+    return this.currentAnimation.playbackRate;
   }
 
   /**
@@ -180,7 +200,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async getPlayState(): Promise<AnimationPlayState> {
-    return this.animation.playState;
+    return this.currentAnimation.playState;
   }
 
   /**
@@ -188,20 +208,20 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Event({
     eventName: 'finish'
-  }) onfinish: EventEmitter<HTMLElement>
+  }) onfinish!: EventEmitter<HTMLElement>
   /**
    * This event is sent when the animation is cancelled.
    */
   @Event({
     eventName: 'cancel'
-  }) oncancel: EventEmitter<HTMLElement>
+  }) oncancel!: EventEmitter<HTMLElement>
 
   /**
    * Clears all `KeyframeEffects` caused by this animation and aborts its playback.
    */
   @Method()
   async cancel(): Promise<void> {
-    return this.animation.cancel()
+    return this.currentAnimation.cancel()
   }
 
   /**
@@ -210,7 +230,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async finish(): Promise<void> {
-    return this.animation.finish()
+    return this.currentAnimation.finish()
   }
 
   /**
@@ -218,7 +238,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async pause(): Promise<void> {
-    return this.animation.pause()
+    return this.currentAnimation.pause()
   }
 
   /**
@@ -226,7 +246,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async play(): Promise<void> {
-    return this.animation.play()
+    return this.currentAnimation.play()
   }
 
   /**
@@ -234,7 +254,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async reverse(): Promise<void> {
-    return this.animation.reverse()
+    return this.currentAnimation.reverse()
   }
 
   getAnimationOptions(): KeyframeAnimationOptions {
@@ -262,6 +282,7 @@ export class AnimatableComponent implements ComponentInterface {
       || this.el) as HTMLElement;
     const options = this.getAnimationOptions();
     const keyFrames = this.keyFrames
+      || (this.animation && Animations[this.animation])
       || (this.keyFramesData && JSON.parse(this.keyFramesData))
       || [];
     const animation = element.animate(keyFrames, options);
@@ -270,14 +291,14 @@ export class AnimatableComponent implements ComponentInterface {
     if (this.currentTime) animation.currentTime = this.currentTime;
     if (this.startTime) animation.startTime = this.startTime;
     
-    this.animation = animation;
+    this.currentAnimation = animation;
   }
 
   private playAnimation() {
-    if (this.animation 
-      && (!this.animation.playState || this.animation.playState !== 'running')
+    if (this.currentAnimation 
+      && (!this.currentAnimation.playState || this.currentAnimation.playState !== 'running')
     ) {
-      this.animation.play();
+      this.currentAnimation.play();
     }
   }
 
