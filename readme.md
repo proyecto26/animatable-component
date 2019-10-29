@@ -41,6 +41,10 @@ Web Component built with `Stencil.js` to use [Web Animations API](https://develo
 To animate things you can use the `createAnimatableComponent` utility:
 
 ```
+import {
+  createAnimatableComponent
+} from '@proyecto26/animatable-component'
+
 const SendMessageButton = (props) =>(
   <ion-fab-button {...props}>
     <ion-icon name='send' />
