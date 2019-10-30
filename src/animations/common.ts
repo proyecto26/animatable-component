@@ -18,6 +18,13 @@ export const ANIMATIONS = {
   BOUNCE_IN_DOWN : 'bounceInDown',
   BOUNCE_IN_RIGHT : 'bounceInRight',
   BOUNCE_IN_LEFT : 'bounceInLeft',
+
+  // BOUNCING EXITS
+  BOUNCE_OUT : 'bounceOut',
+  BOUNCE_OUT_UP : 'bounceOutUp',
+  BOUNCE_OUT_DOWN : 'bounceOutDown',
+  BOUNCE_OUT_RIGHT : 'bounceOutRight',
+  BOUNCE_OUT_LEFT : 'bounceOutLeft'
 } as const;
 
 export type AnimationsType = typeof ANIMATIONS[keyof typeof ANIMATIONS]
