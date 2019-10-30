@@ -22,16 +22,7 @@ Web Component built with `Stencil.js` to use [Web Animations API](https://develo
   easing='ease-in-out'
   duration={800}
   delay={300}
-  keyFrames={[
-    {
-      opacity: '0',
-      transform: 'rotate(0deg)'
-    },
-    {
-      opacity: '1',
-      transform: 'rotate(360deg)'
-    }
-  ]}
+  animation='tada'
   onFinish={() => alert('Eureka!')}
 >
   <h1>Hello World</h1>
