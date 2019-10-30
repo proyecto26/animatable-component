@@ -239,6 +239,7 @@
     const animatableButton = document.querySelector('#animatableButton');
     const button = document.querySelector('button');
     button.addEventListener('click', function() {
+      animatable.finish();
       animatable.delay = 0;
       animatable.play();
       animatableButton.play();
