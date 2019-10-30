@@ -1,7 +1,9 @@
 {
   "name": "@proyecto26/animatable-component",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A WebComponent to use Web Animations API in a declarative way! 💅",
+  "author": "Juan David Nicholls Cardona",
+  "homepage": "https://proyecto26.github.io/animatable-component",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -27,5 +29,30 @@
     "@stencil/core": "^1.7.4",
     "gh-pages": "^2.1.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:proyecto26/animatable-component.git"
+  },
+  "bugs": {
+    "url": "https://github.com/proyecto26/animatable-component/issues"
+  },
+  "keywords": [
+    "animatable",
+    "component",
+    "ionic",
+    "stencil",
+    "angular",
+    "react",
+    "vue",
+    "web-component",
+    "web-components",
+    "web component",
+    "web components",
+    "animate",
+    "web-animations",
+    "web-animations-api",
+    "web animations",
+    "web animations api"
+  ]
 }
