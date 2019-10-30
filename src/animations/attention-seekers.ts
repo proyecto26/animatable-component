@@ -1,6 +1,6 @@
 import { ANIMATIONS } from './common'
 
-export const BOUNCE = [
+export const BOUNCE: Keyframe[] = [
   { offset: 0, transform: 'translateY(0px)' },
   { offset: 0.2, transform: 'translateY(0px)' },
   { offset: 0.4, transform: 'translateY(-30px)' },

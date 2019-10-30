@@ -1,6 +1,6 @@
 {
   "name": "@proyecto26/animatable-component",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A WebComponent to use Web Animations API in a declarative way! 💅",
   "private": false,
   "main": "dist/index.js",
@@ -20,10 +20,12 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "deploy": "gh-pages -d www"
   },
   "devDependencies": {
-    "@stencil/core": "^1.7.4"
+    "@stencil/core": "^1.7.4",
+    "gh-pages": "^2.1.1"
   },
   "license": "MIT"
 }

@@ -11,11 +11,11 @@ import {
 } from '@stencil/core';
 
 import Animations, {
-  ANIMATIONS,
+  AnimationsType,
   ANIMATION_KEY_ERROR
 } from '../../animations/animations'
 
-import { EASING, EASING_FUNCTIONS } from '../../easing/easing'
+import { EasingType, EASING_FUNCTIONS } from '../../easing/easing'
 
 @Component({
   tag: 'animatable-component'
@@ -28,9 +28,9 @@ export class AnimatableComponent implements ComponentInterface {
   /**
    * Name of the animation to get the keyFrames
    */
-  @Prop() animation?: ANIMATIONS
+  @Prop() animation?: AnimationsType
   @Watch('animation')
-  animationDidChangeHandler(animation: ANIMATIONS) {
+  animationDidChangeHandler(animation: AnimationsType) {
     const keyFrames = Animations[animation];
     if (keyFrames && keyFrames.length) {
       this.keyFrames = keyFrames;
@@ -68,6 +68,12 @@ export class AnimatableComponent implements ComponentInterface {
     mutable: true,
     reflect: true
   }) options: KeyframeAnimationOptions
+  @Watch('options')
+  optionsDidChangeHandler(options: KeyframeAnimationOptions) {
+    for (const key in options) {
+      this[key] = undefined
+    }
+  }
 
   /**
    * Default options of the animation in string format.
@@ -78,7 +84,7 @@ export class AnimatableComponent implements ComponentInterface {
    * @param text - The string with the options of the animation.
    */
   @Watch('optionsData')
-  optionsDidChangeHandler(text: string) {
+  optionsDataDidChangeHandler(text: string) {
     if (text) this.options = JSON.parse(text);
   }
   /**
@@ -112,7 +118,7 @@ export class AnimatableComponent implements ComponentInterface {
   /**
    * The rate of the animation's change over time.
    */
-  @Prop() easing?: EASING | string
+  @Prop() easing?: string
   /**
    * Dictates whether the animation's effects should be reflected
    * by the element(s) prior to playing ("backwards"), retained after the animation
@@ -261,19 +267,20 @@ export class AnimatableComponent implements ComponentInterface {
     const animationOptions: KeyframeAnimationOptions = this.options
       || (this.optionsData && JSON.parse(this.optionsData))
       || {};
-    if(this.delay) animationOptions.delay = this.delay;
-    if(this.duration) animationOptions.duration = this.duration;
-    if(this.direction) animationOptions.direction = this.direction;
-    if(this.composite) animationOptions.composite = this.composite;
-    if(this.easing) {
-      animationOptions.easing = EASING_FUNCTIONS[this.easing] || this.easing;
+    if (this.delay !== undefined) animationOptions.delay = this.delay;
+    if (this.duration !== undefined) animationOptions.duration = this.duration;
+    if (this.direction) animationOptions.direction = this.direction;
+    if (this.composite) animationOptions.composite = this.composite;
+    if (this.easing) {
+      const defaultEasing = this.easing as EasingType
+      animationOptions.easing = EASING_FUNCTIONS[defaultEasing] || this.easing
     }
-    if(this.endDelay) animationOptions.endDelay = this.endDelay;
-    if(this.fill) animationOptions.fill = this.fill;
-    if(this.animateId) animationOptions.id = this.animateId;
-    if(this.iterations) animationOptions.iterations = this.iterations;
-    if(this.iterationStart) animationOptions.iterationStart = this.iterationStart;
-    if(this.iterationComposite) animationOptions.iterationComposite = this.iterationComposite;
+    if (this.endDelay !== undefined) animationOptions.endDelay = this.endDelay;
+    if (this.fill) animationOptions.fill = this.fill;
+    if (this.animateId !== undefined) animationOptions.id = this.animateId;
+    if (this.iterations !== undefined) animationOptions.iterations = this.iterations;
+    if (this.iterationStart !== undefined) animationOptions.iterationStart = this.iterationStart;
+    if (this.iterationComposite) animationOptions.iterationComposite = this.iterationComposite;
 
     return animationOptions;
   }
@@ -290,19 +297,14 @@ export class AnimatableComponent implements ComponentInterface {
     const animation = element.animate(keyFrames, options);
     animation.onfinish = () => this.onfinish.emit(element);
     animation.oncancel = () => this.oncancel.emit(element);
-    if (this.currentTime) animation.currentTime = this.currentTime;
-    if (this.startTime) animation.startTime = this.startTime;
+    if (this.currentTime !== undefined) animation.currentTime = this.currentTime;
+    if (this.startTime !== undefined) animation.startTime = this.startTime;
     
     this.currentAnimation = animation;
   }
 
   private playAnimation() {
-    if (this.currentAnimation 
-      && (
-        !this.currentAnimation.playState
-        || this.currentAnimation.playState !== 'running'
-      )
-    ) {
+    if (this.currentAnimation) {
       this.currentAnimation.play();
     }
   }

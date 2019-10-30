@@ -1,34 +1,34 @@
-export enum EASING {
-  LINEAR  = 'linear',
-  EASE    = 'ease',
-  EASE_IN = 'ease-in',
-  EASE_OUT = 'ease-out',
-  EASE_IN_OUT = 'ease-in-out',
-  EASE_IN_CUBIC = 'ease-in-cubic',
-  EASE_OUT_CUBIC = 'ease-out-cubic',
-  EASE_IN_OUT_CUBIC = 'ease-in-out-cubic',
-  EASE_IN_CIRC = 'ease-in-circ',
-  EASE_OUT_CIRC = 'ease-out-circ',
-  EASE_IN_OUT_CIRC = 'ease-in-out-circ',
-  EASE_IN_EXPO = 'ease-in-expo',
-  EASE_OUT_EXPO = 'ease-out-expo',
-  EASE_IN_OUT_EXPO = 'ease-in-out-expo',
-  EASE_IN_QUAD = 'ease-in-quad',
-  EASE_OUT_QUAD = 'ease-out-quad',
-  EASE_IN_OUT_QUAD = 'ease-in-out-quad',
-  EASE_IN_QUART = 'ease-in-quart',
-  EASE_OUT_QUART = 'ease-out-quart',
-  EASE_IN_OUT_QUART = 'ease-in-out-quart',
-  EASE_IN_QUINT = 'ease-in-quint',
-  EASE_OUT_QUINT = 'ease-out-quint',
-  EASE_IN_OUT_QUINT = 'ease-in-out-quint',
-  EASE_IN_SINE = 'ease-in-sine',
-  EASE_OUT_SINE = 'ease-out-sine',
-  EASE_IN_OUT_SINE = 'ease-in-out-sine',
-  EASE_IN_BACK = 'ease-in-back',
-  EASE_OUT_BACK = 'ease-out-back',
-  EASE_IN_OUT_BACK = 'ease-in-out-back'
-}
+export const EASING = {
+  LINEAR  : 'linear',
+  EASE    : 'ease',
+  EASE_IN: 'ease-in',
+  EASE_OUT: 'ease-out',
+  EASE_IN_OUT: 'ease-in-out',
+  EASE_IN_CUBIC: 'ease-in-cubic',
+  EASE_OUT_CUBIC: 'ease-out-cubic',
+  EASE_IN_OUT_CUBIC: 'ease-in-out-cubic',
+  EASE_IN_CIRC: 'ease-in-circ',
+  EASE_OUT_CIRC: 'ease-out-circ',
+  EASE_IN_OUT_CIRC: 'ease-in-out-circ',
+  EASE_IN_EXPO: 'ease-in-expo',
+  EASE_OUT_EXPO: 'ease-out-expo',
+  EASE_IN_OUT_EXPO: 'ease-in-out-expo',
+  EASE_IN_QUAD: 'ease-in-quad',
+  EASE_OUT_QUAD: 'ease-out-quad',
+  EASE_IN_OUT_QUAD: 'ease-in-out-quad',
+  EASE_IN_QUART: 'ease-in-quart',
+  EASE_OUT_QUART: 'ease-out-quart',
+  EASE_IN_OUT_QUART: 'ease-in-out-quart',
+  EASE_IN_QUINT: 'ease-in-quint',
+  EASE_OUT_QUINT: 'ease-out-quint',
+  EASE_IN_OUT_QUINT: 'ease-in-out-quint',
+  EASE_IN_SINE: 'ease-in-sine',
+  EASE_OUT_SINE: 'ease-out-sine',
+  EASE_IN_OUT_SINE: 'ease-in-out-sine',
+  EASE_IN_BACK: 'ease-in-back',
+  EASE_OUT_BACK: 'ease-out-back',
+  EASE_IN_OUT_BACK: 'ease-in-out-back'
+} as const;
 
 export const EASING_FUNCTIONS = {
   [EASING.LINEAR]: 'linear',
@@ -61,3 +61,5 @@ export const EASING_FUNCTIONS = {
   [EASING.EASE_OUT_BACK]: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
   [EASING.EASE_IN_OUT_BACK]: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
 }
+
+export type EasingType = typeof EASING[keyof typeof EASING];
