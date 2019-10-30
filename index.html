@@ -1,0 +1,278 @@
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <meta name="description" content="Animate things using Web Components and Web Animations API"> <title>Animatable Component</title> <link href="//fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700" rel="stylesheet" type="text/css">  <link rel="modulepreload" href="/build/p-26c8340a.js"><link rel="modulepreload" href="/build/p-56023fd3.js"><link rel="modulepreload" href="/build/p-vmr0lzic.entry.js"><script nomodule="" src="/build/animatable-component.js"></script> <style>@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:700";
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+    body {
+      padding: 0px;
+      margin: 0 auto;
+      font: 100%/1.5 "Source Sans Pro", Verdana, sans-serif;
+      background: #24252A;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body, main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    section {
+      text-align: center;
+      color: white;
+      margin: 10px;
+    }
+
+    header {
+      display: block;
+      padding: 1.5rem;
+    }
+
+    h1, h3 {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 5em;
+      color: #f35626;
+      margin-bottom: 4rem;
+      background-image: linear-gradient(92deg, #f35626 0%,#feab3a 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    h3 {
+      color: white;
+      font: 100%/1.5 "Roboto", Verdana, sans-serif;
+      margin-bottom: .75rem;
+      margin-top: 1rem;
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    span {
+      color: white;
+    }
+
+    header span {
+      margin: 5px;
+    }
+
+    select {
+      font-size: 20px;
+      font-family: "Roboto";
+      width: 180px;
+      height: 50px;
+      background-color: white;
+      border: 1px solid #c0c8c9;
+      border-radius: 4px;
+      padding: .75rem;
+      margin: .375rem;
+      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMjRweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMjQgMTYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDE2IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwb2x5Z29uIGZpbGw9IiNDMEM4QzkiIHBvaW50cz0iMTIuMzMzLDUgNy43OTQsMTAgMy4yNTQsNSAiLz4NCjwvc3ZnPg0K), none;
+      background-repeat: no-repeat;
+      background-size: 1.5rem 1rem;
+      background-position: right center;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+
+    a, button {
+      color: #f35626;
+    }
+
+    button {
+      font-size: 15px;
+      font-family: "Roboto";
+      border: 2px solid #f35626;
+      line-height: 1.375;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      font-weight: 700;
+      cursor: pointer;
+      animation: hue 60s infinite linear;
+      padding: 1rem;
+      margin: 1.375rem;
+      background-color: transparent;
+      border-radius: 4px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+    button:focus {
+      outline: none;
+    }
+
+    p {
+      font: 100%/1.5 "Roboto", Verdana, sans-serif;
+      font-size: 18px;
+    }</style> </head> <body> <section> <header> <animatable-component id="animatable" autoplay="" easing="ease-in-out" duration="800"> <h1> <span>&lt;</span>animatable <span> ∕ &gt;</span> </h1> <h3> Animatable components with <animatable-component delay="1800" duration="800" animation="flash" easing="ease-in-out"> <a href="https://developer.mozilla.org/docs/Web/API/Web_Animations_API">Web Animations API.</a> </animatable-component> </h3> </animatable-component> </header> <animatable-component animation="bounce" easing="ease-in" delay="500" duration="800"> <main> <select> <optgroup label="Attention Seekers"> <option value="bounce">bounce</option> <option value="flash">flash</option> <option value="pulse">pulse</option> <option value="rubberBand">rubberBand</option> <option value="shake">shake</option> <option value="swing">swing</option> <option value="tada">tada</option> <option value="wobble">wobble</option> <option value="jello">jello</option> <option value="heartBeat">heartBeat</option> </optgroup> <!-- <optgroup label="Bouncing Entrances">
+            <option value="bounceIn">bounceIn</option>
+            <option value="bounceInDown">bounceInDown</option>
+            <option value="bounceInLeft">bounceInLeft</option>
+            <option value="bounceInRight">bounceInRight</option>
+            <option value="bounceInUp">bounceInUp</option>
+          </optgroup>
+    
+          <optgroup label="Bouncing Exits">
+            <option value="bounceOut">bounceOut</option>
+            <option value="bounceOutDown">bounceOutDown</option>
+            <option value="bounceOutLeft">bounceOutLeft</option>
+            <option value="bounceOutRight">bounceOutRight</option>
+            <option value="bounceOutUp">bounceOutUp</option>
+          </optgroup>
+    
+          <optgroup label="Fading Entrances">
+            <option value="fadeIn">fadeIn</option>
+            <option value="fadeInDown">fadeInDown</option>
+            <option value="fadeInDownBig">fadeInDownBig</option>
+            <option value="fadeInLeft">fadeInLeft</option>
+            <option value="fadeInLeftBig">fadeInLeftBig</option>
+            <option value="fadeInRight">fadeInRight</option>
+            <option value="fadeInRightBig">fadeInRightBig</option>
+            <option value="fadeInUp">fadeInUp</option>
+            <option value="fadeInUpBig">fadeInUpBig</option>
+          </optgroup>
+    
+          <optgroup label="Fading Exits">
+            <option value="fadeOut">fadeOut</option>
+            <option value="fadeOutDown">fadeOutDown</option>
+            <option value="fadeOutDownBig">fadeOutDownBig</option>
+            <option value="fadeOutLeft">fadeOutLeft</option>
+            <option value="fadeOutLeftBig">fadeOutLeftBig</option>
+            <option value="fadeOutRight">fadeOutRight</option>
+            <option value="fadeOutRightBig">fadeOutRightBig</option>
+            <option value="fadeOutUp">fadeOutUp</option>
+            <option value="fadeOutUpBig">fadeOutUpBig</option>
+          </optgroup>
+    
+          <optgroup label="Flippers">
+            <option value="flip">flip</option>
+            <option value="flipInX">flipInX</option>
+            <option value="flipInY">flipInY</option>
+            <option value="flipOutX">flipOutX</option>
+            <option value="flipOutY">flipOutY</option>
+          </optgroup>
+    
+          <optgroup label="Lightspeed">
+            <option value="lightSpeedIn">lightSpeedIn</option>
+            <option value="lightSpeedOut">lightSpeedOut</option>
+          </optgroup>
+    
+          <optgroup label="Rotating Entrances">
+            <option value="rotateIn">rotateIn</option>
+            <option value="rotateInDownLeft">rotateInDownLeft</option>
+            <option value="rotateInDownRight">rotateInDownRight</option>
+            <option value="rotateInUpLeft">rotateInUpLeft</option>
+            <option value="rotateInUpRight">rotateInUpRight</option>
+          </optgroup>
+    
+          <optgroup label="Rotating Exits">
+            <option value="rotateOut">rotateOut</option>
+            <option value="rotateOutDownLeft">rotateOutDownLeft</option>
+            <option value="rotateOutDownRight">rotateOutDownRight</option>
+            <option value="rotateOutUpLeft">rotateOutUpLeft</option>
+            <option value="rotateOutUpRight">rotateOutUpRight</option>
+          </optgroup>
+    
+          <optgroup label="Sliding Entrances">
+            <option value="slideInUp">slideInUp</option>
+            <option value="slideInDown">slideInDown</option>
+            <option value="slideInLeft">slideInLeft</option>
+            <option value="slideInRight">slideInRight</option>
+    
+          </optgroup>
+          <optgroup label="Sliding Exits">
+            <option value="slideOutUp">slideOutUp</option>
+            <option value="slideOutDown">slideOutDown</option>
+            <option value="slideOutLeft">slideOutLeft</option>
+            <option value="slideOutRight">slideOutRight</option>
+            
+          </optgroup>
+          
+          <optgroup label="Zoom Entrances">
+            <option value="zoomIn">zoomIn</option>
+            <option value="zoomInDown">zoomInDown</option>
+            <option value="zoomInLeft">zoomInLeft</option>
+            <option value="zoomInRight">zoomInRight</option>
+            <option value="zoomInUp">zoomInUp</option>
+          </optgroup>
+          
+          <optgroup label="Zoom Exits">
+            <option value="zoomOut">zoomOut</option>
+            <option value="zoomOutDown">zoomOutDown</option>
+            <option value="zoomOutLeft">zoomOutLeft</option>
+            <option value="zoomOutRight">zoomOutRight</option>
+            <option value="zoomOutUp">zoomOutUp</option>
+          </optgroup>
+    
+          <optgroup label="Specials">
+            <option value="hinge">hinge</option>
+            <option value="jackInTheBox">jackInTheBox</option>
+            <option value="rollIn">rollIn</option>
+            <option value="rollOut">rollOut</option>
+          </optgroup> --> </select> <animatable-component id="animatableButton" animation="pulse" easing="ease-in" duration="200" autoplay="false"> <button>Animate it</button> </animatable-component> <br> </main> <animatable-component animation="pulse" easing="ease-out" duration="600" delay="1500"> <section> <p class="meta"> <a href="https://www.npmjs.com/package/@proyecto26/animatable-component"> Download <span>&lt;</span>animatable-component<span>∕&gt;</span> </a> or <a href="https://github.com/proyecto26/animatable-component">View on GitHub</a> </p> </section> </animatable-component> <animatable-component iterations="3" animation="heartBeat" easing="ease-in" duration="1000" delay="2600"> <section> <p class="meta"> <small> Made with <span>❤️</span> by <a href="https://github.com/jdnichollsc"> Juan D. Nicholls </a> </small> </p> </section> </animatable-component> </animatable-component> </section> <script>const animatable = document.querySelector('#animatable');
+    const selectAnimation = document.querySelector('select');
+
+    selectAnimation.addEventListener('change', function() {
+      animatable.animation = this.value;
+    })
+
+    const animatableButton = document.querySelector('#animatableButton');
+    const button = document.querySelector('button');
+    button.addEventListener('click', function() {
+      animatable.delay = 0;
+      animatable.play();
+      animatableButton.play();
+    })
+    
+    animatable.keyFrames = [
+      {
+        offset: 0,
+        opacity: '0',
+        transform: 'translateY(100px) scale(1, 1)'
+      },
+      {
+        offset: 0.4,
+        opacity: '1',
+        transform: 'translateY(-10px) scale(1, 1)'
+      },
+      {
+        offset: 0.6,
+        opacity: '1',
+        transform: 'translateY(0px) scale(1, 1)'
+      },
+      {
+        offset: 0.8,
+        opacity: '1',
+        transform: 'translateY(0px) scale(2, 2)'
+      },
+      {
+        offset: 1,
+        opacity: '1',
+        transform: 'translateY(0px) scale(1, 1)',
+      }
+    ];
+
+    const startSecondAnimation = function() {
+      //Remove listener and create my own infinity :)
+      animatable.removeEventListener("finish", startSecondAnimation);
+      animatable.options = {
+        easing: 'ease-in',
+        iterations: 1,
+        duration: 800,
+        delay: 800
+      }
+      animatable.animation = 'bounce'
+    }
+
+    animatable.addEventListener("finish", startSecondAnimation);</script> <script type="module" data-resources-url="/build/" data-stencil-namespace="animatable-component">import{p as a,b as t}from"/build/p-26c8340a.js";a().then(a=>t([["p-vmr0lzic",[[4,"animatable-component",{animation:[1],keyFrames:[1040],keyFramesData:[1,"key-frames-data"],options:[1040],optionsData:[1,"options-data"],animateId:[1,"animate-id"],delay:[2],endDelay:[2,"end-delay"],duration:[2],direction:[1],composite:[1],easing:[1],fill:[1],iterations:[2],iterationStart:[2,"iteration-start"],iterationComposite:[1,"iteration-composite"],autoPlay:[4,"auto-play"],currentTime:[2,"current-time"],startTime:[2,"start-time"],playbackRate:[2,"playback-rate"],getCurrentTime:[64],getStartTime:[64],getPending:[64],getPlaybackRate:[64],getPlayState:[64],cancel:[64],finish:[64],pause:[64],play:[64],reverse:[64]}]]]],a));</script></body></html>
