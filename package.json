@@ -1,6 +1,6 @@
 {
   "name": "@proyecto26/animatable-component",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "description": "A WebComponent to use Web Animations API in a declarative way! 💅",
   "private": false,
   "main": "dist/index.js",
