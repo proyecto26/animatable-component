@@ -17,6 +17,9 @@ import Animations, {
 
 import { EasingType, EASING_FUNCTIONS } from '../../easing/easing'
 
+/**
+ * animatable-component
+ */
 @Component({
   tag: 'animatable-component'
 })
@@ -71,7 +74,12 @@ export class AnimatableComponent implements ComponentInterface {
   @Watch('options')
   optionsDidChangeHandler(options: KeyframeAnimationOptions) {
     for (const key in options) {
-      this[key] = undefined
+      if (options.hasOwnProperty(key)) {
+        if (key === 'id')
+          this.animateId = undefined
+        else
+          this[key] = undefined
+      }
     }
   }
 
@@ -90,54 +98,54 @@ export class AnimatableComponent implements ComponentInterface {
   /**
    * A DOMString with which to reference the animation.
    */
-  @Prop() animateId: string
+  @Prop({ mutable: true }) animateId: string
   /**
    * The number of milliseconds to delay the start of the animation.
    * Defaults to 0.
    */
-  @Prop() delay?: number
+  @Prop({ mutable: true }) delay?: number
   /**
    * The number of milliseconds to delay after the end of an animation.
    */
-  @Prop() endDelay?: number
+  @Prop({ mutable: true }) endDelay?: number
   /**
    * The number of milliseconds each iteration of the animation takes to complete.
    * Defaults to 0.
    */
-  @Prop() duration?: number
+  @Prop({ mutable: true }) duration?: number
   /**
    * Direction of the animation.
    */
-  @Prop() direction: PlaybackDirection
+  @Prop({ mutable: true }) direction: PlaybackDirection
   /**
    * Determines how values are combined between this animation and other,
    * separate animations that do not specify their own specific composite operation.
    * Defaults to `replace`.
    */
-  @Prop() composite?: CompositeOperation
+  @Prop({ mutable: true }) composite?: CompositeOperation
   /**
    * The rate of the animation's change over time.
    */
-  @Prop() easing?: string
+  @Prop({ mutable: true }) easing?: string
   /**
    * Dictates whether the animation's effects should be reflected
    * by the element(s) prior to playing ("backwards"), retained after the animation
    * has completed playing ("forwards"), or both. Defaults to "none".
    */
-  @Prop() fill?: FillMode
+  @Prop({ mutable: true }) fill?: FillMode
   /**
    * The number of times the animation should repeat.
    * Defaults to `1`, and can also take a value of `Infinity` to make it repeat for as long as the element exists.
    */
-  @Prop() iterations?: number
+  @Prop({ mutable: true }) iterations?: number
   /**
    * Describes at what point in the iteration the animation should start.
    */
-  @Prop() iterationStart?: number
+  @Prop({ mutable: true }) iterationStart?: number
   /**
    * Determines how values build from iteration to iteration in this animation.
    */
-  @Prop() iterationComposite?: IterationCompositeOperation
+  @Prop({ mutable: true }) iterationComposite?: IterationCompositeOperation
   /**
    * Start the animation when the component is mounted.
    */
@@ -263,7 +271,7 @@ export class AnimatableComponent implements ComponentInterface {
     return this.currentAnimation.reverse()
   }
 
-  getAnimationOptions(): KeyframeAnimationOptions {
+  private getAnimationOptions(): KeyframeAnimationOptions {
     const animationOptions: KeyframeAnimationOptions = this.options
       || (this.optionsData && JSON.parse(this.optionsData))
       || {};
@@ -285,7 +293,7 @@ export class AnimatableComponent implements ComponentInterface {
     return animationOptions;
   }
 
-  createAnimation() {
+  private createAnimation(): Animation {
     const element = (this.el.firstElementChild
       || (this.el.children.length && this.el.children[0])
       || this.el) as HTMLElement;
@@ -300,23 +308,17 @@ export class AnimatableComponent implements ComponentInterface {
     if (this.currentTime !== undefined) animation.currentTime = this.currentTime;
     if (this.startTime !== undefined) animation.startTime = this.startTime;
     
-    this.currentAnimation = animation;
-  }
-
-  private playAnimation() {
-    if (this.currentAnimation) {
-      this.currentAnimation.play();
-    }
+    return animation;
   }
 
   componentWillLoad() {
-    this.createAnimation()
-    if (this.autoPlay) this.playAnimation()
+    this.currentAnimation = this.createAnimation()
+    if (this.autoPlay) this.play()
   }
 
   componentDidUpdate() {
-    this.createAnimation()
-    if (this.autoPlay) this.playAnimation()
+    this.currentAnimation = this.createAnimation()
+    if (this.autoPlay) this.play()
   }
 
   render() {
