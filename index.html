@@ -43,7 +43,7 @@
     }
 
     h1 {
-      font-size: 5em;
+      font-size: 2.4em;
       color: #f35626;
       margin-bottom: 4rem;
       background-image: linear-gradient(92deg, #f35626 0%,#feab3a 100%);
@@ -92,6 +92,7 @@
     }
 
     button {
+      max-height: 50px;
       font-size: 15px;
       font-family: "Roboto";
       border: 2px solid #f35626;
@@ -115,6 +116,21 @@
     p {
       font: 100%/1.5 "Roboto", Verdana, sans-serif;
       font-size: 18px;
+      max-width: 96%;
+    }
+
+    @media (min-width: 500px) {
+      h1 {
+        font-size: 4rem;
+        line-height: 1;
+      }
+    }
+
+    @media (min-width: 720px) {
+      h1 {
+        font-size: 6rem;
+        line-height: 1;
+      }
     }</style> </head> <body> <section> <header> <animatable-component id="animatable" autoplay="" easing="ease-in-out" duration="800"> <h1> <span>&lt;</span>animatable <span> ∕ &gt;</span> </h1> <h3> Animatable components with <animatable-component delay="1800" duration="800" animation="flash" easing="ease-in-out"> <a href="https://developer.mozilla.org/docs/Web/API/Web_Animations_API">Web Animations API.</a> </animatable-component> </h3> </animatable-component> </header> <animatable-component animation="bounce" easing="ease-in" delay="500" duration="800"> <main> <select> <optgroup label="Attention Seekers"> <option value="bounce">bounce</option> <option value="flash">flash</option> <option value="pulse">pulse</option> <option value="rubberBand">rubberBand</option> <option value="shake">shake</option> <option value="swing">swing</option> <option value="tada">tada</option> <option value="wobble">wobble</option> <option value="jello">jello</option> <option value="heartBeat">heartBeat</option> </optgroup> <!-- <optgroup label="Bouncing Entrances">
             <option value="bounceIn">bounceIn</option>
             <option value="bounceInDown">bounceInDown</option>
@@ -275,4 +291,11 @@
       animatable.animation = 'bounce'
     }
 
-    animatable.addEventListener("finish", startSecondAnimation);</script> </body></html>
+    animatable.addEventListener("finish", startSecondAnimation);</script> <script>if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  // auto-unregister service worker during dev mode
+  navigator.serviceWorker.getRegistration().then(function(registration) {
+    if (registration) {
+      registration.unregister().then(function() { location.reload(true) });
+    }
+  });
+}</script></body></html>
