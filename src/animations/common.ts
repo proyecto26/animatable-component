@@ -52,12 +52,21 @@ export const ANIMATIONS_FADING_EXITS = {
   FADE_OUT_LEFT_BIG : 'fadeOutLeftBig'
 } as const;
 
+export const FLIPPERS = {
+  FLIP : 'flip',
+  FLIP_IN_X : 'flipInX',
+  FLIP_IN_Y : 'flipInY',
+  FLIP_OUT_X : 'flipOutX',
+  FLIP_OUT_Y : 'flipOutY'
+} as const;
+
 export const ANIMATIONS = {
   ...ANIMATIONS_ATTENTION_SEEKERS,
   ...ANIMATIONS_BOUNCING_ENTRANCES,
   ...ANIMATIONS_BOUNCING_EXITS,
   ...ANIMATIONS_FADING_ENTRANCES,
-  ...ANIMATIONS_FADING_EXITS
+  ...ANIMATIONS_FADING_EXITS,
+  ...FLIPPERS
 } as const;
 
 export type AnimationsType = typeof ANIMATIONS[keyof typeof ANIMATIONS];
