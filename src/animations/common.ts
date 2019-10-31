@@ -1,5 +1,4 @@
-export const ANIMATIONS = {
-  // ATTENTION SEEKERS
+export const ANIMATIONS_ATTENTION_SEEKERS = {
   BOUNCE : 'bounce',
   FLASH  : 'flash',
   JELLO  : 'jello',
@@ -10,16 +9,18 @@ export const ANIMATIONS = {
   RUBBER_BAND : 'rubberBand',
   TADA   : 'tada',
   WOBBLE : 'wobble',
-  HEART_BEAT  : 'heartBeat',
+  HEART_BEAT  : 'heartBeat'
+} as const;
 
-  // BOUNCING ENTRANCES
+export const ANIMATIONS_BOUNCING_ENTRANCES = {
   BOUNCE_IN : 'bounceIn',
   BOUNCE_IN_UP : 'bounceInUp',
   BOUNCE_IN_DOWN : 'bounceInDown',
   BOUNCE_IN_RIGHT : 'bounceInRight',
-  BOUNCE_IN_LEFT : 'bounceInLeft',
+  BOUNCE_IN_LEFT : 'bounceInLeft'
+} as const;
 
-  // BOUNCING EXITS
+export const ANIMATIONS_BOUNCING_EXITS = {
   BOUNCE_OUT : 'bounceOut',
   BOUNCE_OUT_UP : 'bounceOutUp',
   BOUNCE_OUT_DOWN : 'bounceOutDown',
@@ -27,4 +28,23 @@ export const ANIMATIONS = {
   BOUNCE_OUT_LEFT : 'bounceOutLeft'
 } as const;
 
-export type AnimationsType = typeof ANIMATIONS[keyof typeof ANIMATIONS]
+export const ANIMATIONS_FADING_ENTRANCES = {
+  FADE_IN : 'fadeIn',
+  FADE_IN_UP : 'fadeInUp',
+  FADE_IN_UP_BIG : 'fadeInUpBig',
+  FADE_IN_DOWN : 'fadeInDown',
+  FADE_IN_DOWN_BIG : 'fadeInDownBig',
+  FADE_IN_RIGHT : 'fadeInRight',
+  FADE_IN_RIGHT_BIG : 'fadeInRightBig',
+  FADE_IN_LEFT : 'fadeInLeft',
+  FADE_IN_LEFT_BIG : 'fadeInLeftBig'
+} as const;
+
+export const ANIMATIONS = {
+  ...ANIMATIONS_ATTENTION_SEEKERS,
+  ...ANIMATIONS_BOUNCING_ENTRANCES,
+  ...ANIMATIONS_BOUNCING_EXITS,
+  ...ANIMATIONS_FADING_ENTRANCES
+} as const;
+
+export type AnimationsType = typeof ANIMATIONS[keyof typeof ANIMATIONS];
