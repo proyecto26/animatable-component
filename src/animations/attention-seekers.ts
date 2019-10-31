@@ -1,6 +1,6 @@
 import { ANIMATIONS } from './common'
 
-export const BOUNCE: Keyframe[] = [
+const BOUNCE: Keyframe[] = [
   { offset: 0, transform: 'translateY(0px)', easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)' },
   { offset: 0.2, transform: 'translateY(0px)', easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)' },
   { offset: 0.4, transform: 'translateY(-30px)', easing: 'cubic-bezier(0.755, 0.05, 0.855, 0.06)' },
@@ -12,7 +12,7 @@ export const BOUNCE: Keyframe[] = [
   { offset: 1, transform: 'translateY(0px)', easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)' }
 ];
 
-export const FLASH: Keyframe[] = [
+const FLASH: Keyframe[] = [
   { offset: 0, opacity: 1 },
   { offset: 0.25, opacity: 0 },
   { offset: 0.5, opacity: 1 },
@@ -20,7 +20,7 @@ export const FLASH: Keyframe[] = [
   { offset: 1, opacity: 1 }
 ];
 
-export const JELLO: Keyframe[] = [
+const JELLO: Keyframe[] = [
   { offset: 0, transform: 'skewX(0deg) skewY(0deg)' },
   { offset: 0.111, transform: 'skewX(0deg) skewY(0deg)' },
   { offset: 0.222, transform: 'skewX(-12.5deg) skewY(-12.5deg)' },
@@ -33,13 +33,13 @@ export const JELLO: Keyframe[] = [
   { offset: 1, transform: 'skewX(0deg) skewY(0deg)' }
 ];
 
-export const PULSE: Keyframe[] = [
+const PULSE: Keyframe[] = [
   { offset: 0, transform: 'scale(1)' },
   { offset: 0.5, transform: 'scale(1.05)' },
   { offset: 1, transform: 'scale(1)' }
 ];
 
-export const ROTATE: Keyframe[] = [
+const ROTATE: Keyframe[] = [
   { offset: 0, transform: 'rotate(0deg)' },
   { offset: 0.25, transform: 'rotate(90deg)' },
   { offset: 0.5, transform: 'rotate(180deg)' },
@@ -47,7 +47,7 @@ export const ROTATE: Keyframe[] = [
   { offset: 1, transform: 'rotate(360deg)' }
 ];
 
-export const SHAKE: Keyframe[] = [
+const SHAKE: Keyframe[] = [
   { offset: 0, transform: 'translateX(0px)' },
   { offset: 0.1, transform: 'translateX(-10px)' },
   { offset: 0.2, transform: 'translateX(10px)' },
@@ -61,7 +61,7 @@ export const SHAKE: Keyframe[] = [
   { offset: 1, transform: 'translateX(0px)' }
 ];
 
-export const SWING: Keyframe[] = [
+const SWING: Keyframe[] = [
   { offset: 0, transform: 'rotate(0deg)' },
   { offset: 0.2, transform: 'rotate(15deg)' },
   { offset: 0.4, transform: 'rotate(-10deg)' },
@@ -70,7 +70,7 @@ export const SWING: Keyframe[] = [
   { offset: 1, transform: 'rotate(0deg)' }
 ];
 
-export const RUBBER_BAND: Keyframe[] = [
+const RUBBER_BAND: Keyframe[] = [
   { offset: 0, transform: 'scale(1, 1)' },
   { offset: 0.3, transform: 'scale(1.25, 0.75)' },
   { offset: 0.4, transform: 'scale(0.75, 1.25)' },
@@ -80,7 +80,7 @@ export const RUBBER_BAND: Keyframe[] = [
   { offset: 1, transform: 'scale(1, 1)' }
 ];
 
-export const TADA: Keyframe[] = [
+const TADA: Keyframe[] = [
   { offset: 0, transform: 'scale(1) rotate(0deg)' },
   { offset: 0.1, transform: 'scale(0.9) rotate(-3deg)' },
   { offset: 0.2, transform: 'scale(0.9) rotate(-3deg)' },
@@ -94,7 +94,7 @@ export const TADA: Keyframe[] = [
   { offset: 1, transform: 'scale(1) rotate(0deg)' }
 ];
 
-export const WOBBLE: Keyframe[] = [
+const WOBBLE: Keyframe[] = [
   { offset: 0, transform: 'translateX(0px) rotate(0deg)' },
   { offset: 0.15, transform: 'translateX(-25px) rotate(-5deg)' },
   { offset: 0.3, transform: 'translateX(20px) rotate(3deg)' },
@@ -104,7 +104,7 @@ export const WOBBLE: Keyframe[] = [
   { offset: 1, transform: 'translateX(0px) rotate(0deg)' }
 ];
 
-export const HEART_BEAT: Keyframe[] = [
+const HEART_BEAT: Keyframe[] = [
   { offset: 0, transform: 'scale(1)' },
   { offset: 0.14, transform: 'scale(1.3)' },
   { offset: 0.28, transform: 'scale(1)' },

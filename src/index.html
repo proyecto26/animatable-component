@@ -125,17 +125,15 @@
 
     button {
       max-height: 50px;
-      font-size: 15px;
+      font-size: 12px;
       font-family: "Roboto";
       border: 2px solid #f35626;
-      line-height: 1.375;
       padding-left: 1.5rem;
       padding-right: 1.5rem;
       font-weight: 700;
       cursor: pointer;
       animation: hue 60s infinite linear;
       padding: 1rem;
-      margin: 1.375rem;
       background-color: transparent;
       border-radius: 4px;
       -webkit-appearance: none;
@@ -152,6 +150,11 @@
     }
 
     @media (min-width: 500px) {
+      button {
+        font-size: 18px;
+        line-height: 18px;
+        margin: 1.375rem;
+      }
       h1 {
         font-size: 4rem;
         line-height: 1;
@@ -229,7 +232,7 @@
             <option value="fadeInUp">fadeInUp</option>
             <option value="fadeInUpBig">fadeInUpBig</option>
           </optgroup>
-          <!--
+          
           <optgroup label="Fading Exits">
             <option value="fadeOut">fadeOut</option>
             <option value="fadeOutDown">fadeOutDown</option>
@@ -241,7 +244,7 @@
             <option value="fadeOutUp">fadeOutUp</option>
             <option value="fadeOutUpBig">fadeOutUpBig</option>
           </optgroup>
-    
+          <!--
           <optgroup label="Flippers">
             <option value="flip">flip</option>
             <option value="flipInX">flipInX</option>

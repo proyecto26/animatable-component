@@ -1,6 +1,6 @@
 import { ANIMATIONS } from './common'
 
-export const BOUNCE_OUT: Keyframe[] = [
+const BOUNCE_OUT: Keyframe[] = [
   { offset: 0, opacity: 1, transform: 'scale(1)' },
   { offset: 0.2, opacity: 1, transform: 'scale(0.9)' },
   { offset: 0.5, opacity: 1, transform: 'scale(1.11)' },
@@ -8,7 +8,7 @@ export const BOUNCE_OUT: Keyframe[] = [
   { offset: 1, opacity: 0, transform: 'scale(1)' }
 ];
 
-export const BOUNCE_OUT_UP: Keyframe[] = [
+const BOUNCE_OUT_UP: Keyframe[] = [
   { offset: 0, opacity: 1, transform: 'translateY(0px)' },
   { offset: 0.2, opacity: 1, transform: 'translateY(-10px)' },
   { offset: 0.4, opacity: 1, transform: 'translateY(20px)' },
@@ -17,7 +17,7 @@ export const BOUNCE_OUT_UP: Keyframe[] = [
   { offset: 1, opacity: 0, transform: 'translateY(-2000px)' }
 ];
 
-export const BOUNCE_OUT_DOWN: Keyframe[] = [
+const BOUNCE_OUT_DOWN: Keyframe[] = [
   { offset: 0, opacity: 1, transform: 'translateY(0px)' },
   { offset: 0.2, opacity: 1, transform: 'translateY(10px)' },
   { offset: 0.4, opacity: 1, transform: 'translateY(-20px)' },
@@ -26,7 +26,7 @@ export const BOUNCE_OUT_DOWN: Keyframe[] = [
   { offset: 1, opacity: 0, transform: 'translateY(2000px)' }
 ];
 
-export const BOUNCE_OUT_RIGHT: Keyframe[] = [
+const BOUNCE_OUT_RIGHT: Keyframe[] = [
   { offset: 0, opacity: 1, transform: 'translateX(0px)' },
   { offset: 0.2, opacity: 1, transform: 'translateX(10px)' },
   { offset: 0.4, opacity: 1, transform: 'translateX(-20px)' },
@@ -35,7 +35,7 @@ export const BOUNCE_OUT_RIGHT: Keyframe[] = [
   { offset: 1, opacity: 0, transform: 'translateX(2000px)' }
 ];
 
-export const BOUNCE_OUT_LEFT: Keyframe[] = [
+const BOUNCE_OUT_LEFT: Keyframe[] = [
   { offset: 0, opacity: 1, transform: 'translateX(0px)' },
   { offset: 0.2, opacity: 1, transform: 'translateX(-10px)' },
   { offset: 0.4, opacity: 1, transform: 'translateX(20px)' },

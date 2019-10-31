@@ -40,11 +40,24 @@ export const ANIMATIONS_FADING_ENTRANCES = {
   FADE_IN_LEFT_BIG : 'fadeInLeftBig'
 } as const;
 
+export const ANIMATIONS_FADING_EXITS = {
+  FADE_OUT : 'fadeOut',
+  FADE_OUT_UP : 'fadeOutUp',
+  FADE_OUT_UP_BIG : 'fadeOutUpBig',
+  FADE_OUT_DOWN : 'fadeOutDown',
+  FADE_OUT_DOWN_BIG : 'fadeOutDownBig',
+  FADE_OUT_RIGHT : 'fadeOutRight',
+  FADE_OUT_RIGHT_BIG : 'fadeOutRightBig',
+  FADE_OUT_LEFT : 'fadeOutLeft',
+  FADE_OUT_LEFT_BIG : 'fadeOutLeftBig'
+} as const;
+
 export const ANIMATIONS = {
   ...ANIMATIONS_ATTENTION_SEEKERS,
   ...ANIMATIONS_BOUNCING_ENTRANCES,
   ...ANIMATIONS_BOUNCING_EXITS,
-  ...ANIMATIONS_FADING_ENTRANCES
+  ...ANIMATIONS_FADING_ENTRANCES,
+  ...ANIMATIONS_FADING_EXITS
 } as const;
 
 export type AnimationsType = typeof ANIMATIONS[keyof typeof ANIMATIONS];
