@@ -1,15 +1,20 @@
 import { ANIMATIONS } from './common'
 
+const BOUNCE_DEFAULT = {
+  transform: 'translate(0)',
+  easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+}
+
 const BOUNCE: Keyframe[] = [
-  { offset: 0, transform: 'translateY(0px)', easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)' },
-  { offset: 0.2, transform: 'translateY(0px)', easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)' },
+  { offset: 0, ...BOUNCE_DEFAULT },
+  { offset: 0.2, ...BOUNCE_DEFAULT },
   { offset: 0.4, transform: 'translateY(-30px)', easing: 'cubic-bezier(0.755, 0.05, 0.855, 0.06)' },
   { offset: 0.43, transform: 'translateY(-30px)', easing: 'cubic-bezier(0.755, 0.05, 0.855, 0.06)' },
-  { offset: 0.53, transform: 'translateY(0px)', easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)' },
+  { offset: 0.53, ...BOUNCE_DEFAULT },
   { offset: 0.7, transform: 'translateY(-15px)', easing: 'cubic-bezier(0.755, 0.05, 0.855, 0.06)' },
-  { offset: 0.8, transform: 'translateY(0px)', easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)' },
+  { offset: 0.8, ...BOUNCE_DEFAULT },
   { offset: 0.9, transform: 'translateY(-4px)', easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)' },
-  { offset: 1, transform: 'translateY(0px)', easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)' }
+  { offset: 1, ...BOUNCE_DEFAULT }
 ];
 
 const FLASH: Keyframe[] = [
@@ -20,17 +25,22 @@ const FLASH: Keyframe[] = [
   { offset: 1, opacity: 1 }
 ];
 
+const JELLO_DEFAULT = {
+  transform: 'skewX(0deg) skewY(0deg)',
+  transformOrigin: 'center'
+}
+
 const JELLO: Keyframe[] = [
-  { offset: 0, transform: 'skewX(0deg) skewY(0deg)' },
-  { offset: 0.111, transform: 'skewX(0deg) skewY(0deg)' },
-  { offset: 0.222, transform: 'skewX(-12.5deg) skewY(-12.5deg)' },
-  { offset: 0.333, transform: 'skewX(6.25deg) skewY(6.25deg)' },
-  { offset: 0.444, transform: 'skewX(-3.125deg) skewY(-3.125deg)' },
-  { offset: 0.555, transform: 'skewX(1.5625deg) skewY(1.5625deg)' },
-  { offset: 0.666, transform: 'skewX(-0.78125deg) skewY(-0.78125deg)' },
-  { offset: 0.777, transform: 'skewX(0.390625deg) skewY(0.390625deg)' },
-  { offset: 0.888, transform: 'skewX(-0.1953125deg) skewY(-0.1953125deg)' },
-  { offset: 1, transform: 'skewX(0deg) skewY(0deg)' }
+  { offset: 0, ...JELLO_DEFAULT },
+  { offset: 0.111, ...JELLO_DEFAULT },
+  { offset: 0.222, ...JELLO_DEFAULT, transform: 'skewX(-12.5deg) skewY(-12.5deg)' },
+  { offset: 0.333, ...JELLO_DEFAULT, transform: 'skewX(6.25deg) skewY(6.25deg)' },
+  { offset: 0.444, ...JELLO_DEFAULT, transform: 'skewX(-3.125deg) skewY(-3.125deg)' },
+  { offset: 0.555, ...JELLO_DEFAULT, transform: 'skewX(1.5625deg) skewY(1.5625deg)' },
+  { offset: 0.666, ...JELLO_DEFAULT, transform: 'skewX(-0.78125deg) skewY(-0.78125deg)' },
+  { offset: 0.777, ...JELLO_DEFAULT, transform: 'skewX(0.390625deg) skewY(0.390625deg)' },
+  { offset: 0.888, ...JELLO_DEFAULT, transform: 'skewX(-0.1953125deg) skewY(-0.1953125deg)' },
+  { offset: 1, ...JELLO_DEFAULT }
 ];
 
 const PULSE: Keyframe[] = [
@@ -47,27 +57,29 @@ const ROTATE: Keyframe[] = [
   { offset: 1, transform: 'rotate(360deg)' }
 ];
 
+const SHAKE_LEFT = { transform: 'translateX(-10px)' }
+const SHAKE_RIGHT = { transform: 'translateX(10px)' }
 const SHAKE: Keyframe[] = [
   { offset: 0, transform: 'translateX(0px)' },
-  { offset: 0.1, transform: 'translateX(-10px)' },
-  { offset: 0.2, transform: 'translateX(10px)' },
-  { offset: 0.3, transform: 'translateX(-10px)' },
-  { offset: 0.4, transform: 'translateX(10px)' },
-  { offset: 0.5, transform: 'translateX(-10px)' },
-  { offset: 0.6, transform: 'translateX(10px)' },
-  { offset: 0.7, transform: 'translateX(-10px)' },
-  { offset: 0.8, transform: 'translateX(10px)' },
-  { offset: 0.9, transform: 'translateX(-10px)' },
+  { offset: 0.1, ...SHAKE_LEFT },
+  { offset: 0.2, ...SHAKE_RIGHT },
+  { offset: 0.3, ...SHAKE_LEFT },
+  { offset: 0.4, ...SHAKE_RIGHT },
+  { offset: 0.5, ...SHAKE_LEFT },
+  { offset: 0.6, ...SHAKE_RIGHT },
+  { offset: 0.7, ...SHAKE_LEFT },
+  { offset: 0.8, ...SHAKE_RIGHT },
+  { offset: 0.9, ...SHAKE_LEFT },
   { offset: 1, transform: 'translateX(0px)' }
 ];
 
 const SWING: Keyframe[] = [
-  { offset: 0, transform: 'rotate(0deg)' },
-  { offset: 0.2, transform: 'rotate(15deg)' },
-  { offset: 0.4, transform: 'rotate(-10deg)' },
-  { offset: 0.6, transform: 'rotate(5deg)' },
-  { offset: 0.8, transform: 'rotate(-5deg)' },
-  { offset: 1, transform: 'rotate(0deg)' }
+  { offset: 0, transform: 'rotate(0deg)', transformOrigin: 'top center' },
+  { offset: 0.2, transform: 'rotate(15deg)', transformOrigin: 'top center' },
+  { offset: 0.4, transform: 'rotate(-10deg)', transformOrigin: 'top center' },
+  { offset: 0.6, transform: 'rotate(5deg)', transformOrigin: 'top center' },
+  { offset: 0.8, transform: 'rotate(-5deg)', transformOrigin: 'top center' },
+  { offset: 1, transform: 'rotate(0deg)', transformOrigin: 'top center' }
 ];
 
 const RUBBER_BAND: Keyframe[] = [
@@ -95,22 +107,23 @@ const TADA: Keyframe[] = [
 ];
 
 const WOBBLE: Keyframe[] = [
-  { offset: 0, transform: 'translateX(0px) rotate(0deg)' },
-  { offset: 0.15, transform: 'translateX(-25px) rotate(-5deg)' },
-  { offset: 0.3, transform: 'translateX(20px) rotate(3deg)' },
-  { offset: 0.45, transform: 'translateX(-15px) rotate(-3deg)' },
-  { offset: 0.6, transform: 'translateX(10px) rotate(2deg)' },
-  { offset: 0.75, transform: 'translateX(-5px) rotate(-1deg)' },
-  { offset: 1, transform: 'translateX(0px) rotate(0deg)' }
+  { offset: 0, transform: 'translate(0) rotate(0deg)' },
+  { offset: 0.15, transform: 'translateX(-25%) rotate(-5deg)' },
+  { offset: 0.3, transform: 'translateX(20%) rotate(3deg)' },
+  { offset: 0.45, transform: 'translateX(-15%) rotate(-3deg)' },
+  { offset: 0.6, transform: 'translateX(10%) rotate(2deg)' },
+  { offset: 0.75, transform: 'translateX(-5%) rotate(-1deg)' },
+  { offset: 1, transform: 'translate(0) rotate(0deg)' }
 ];
 
+const HEART_BEAT_DEFAULT = { transform: 'scale(1)', easing: 'ease-in-out' }
 const HEART_BEAT: Keyframe[] = [
-  { offset: 0, transform: 'scale(1)' },
-  { offset: 0.14, transform: 'scale(1.3)' },
-  { offset: 0.28, transform: 'scale(1)' },
-  { offset: 0.42, transform: 'scale(1.3)' },
-  { offset: 0.70, transform: 'scale(1)' },
-  { offset: 1, transform: 'scale(1)' },
+  { offset: 0, ...HEART_BEAT_DEFAULT },
+  { offset: 0.14, ...HEART_BEAT_DEFAULT, transform: 'scale(1.3)' },
+  { offset: 0.28, ...HEART_BEAT_DEFAULT },
+  { offset: 0.42, ...HEART_BEAT_DEFAULT, transform: 'scale(1.3)' },
+  { offset: 0.70, ...HEART_BEAT_DEFAULT },
+  { offset: 1, ...HEART_BEAT_DEFAULT },
 ];
 
 export default {

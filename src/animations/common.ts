@@ -52,12 +52,72 @@ export const ANIMATIONS_FADING_EXITS = {
   FADE_OUT_LEFT_BIG : 'fadeOutLeftBig'
 } as const;
 
-export const FLIPPERS = {
+export const ANIMATIONS_FLIPPERS = {
   FLIP : 'flip',
   FLIP_IN_X : 'flipInX',
   FLIP_IN_Y : 'flipInY',
   FLIP_OUT_X : 'flipOutX',
   FLIP_OUT_Y : 'flipOutY'
+} as const;
+
+export const ANIMATIONS_LIGHTSPEED = {
+  LIGHT_SPEED_IN : 'lightSpeedIn',
+  LIGHT_SPEED_OUT : 'lightSpeedOut'
+} as const;
+
+export const ANIMATIONS_ROTATING_ENTRANCES = {
+  ROTATE_IN : 'rotateIn',
+  ROTATE_IN_CLOCKWISE : 'rotateInClockwise',
+  ROTATE_IN_DOWN_LEFT : 'rotateInDownLeft',
+  ROTATE_IN_DOWN_RIGHT : 'rotateInDownRight',
+  ROTATE_IN_UP_LEFT : 'rotateInUpLeft',
+  ROTATE_IN_UP_RIGHT : 'rotateInUpRight'
+} as const;
+
+export const ANIMATIONS_ROTATING_EXITS = {
+  ROTATE_OUT : 'rotateOut',
+  ROTATE_OUT_CLOCKWISE : 'rotateOutClockwise',
+  ROTATE_OUT_DOWN_LEFT : 'rotateOutDownLeft',
+  ROTATE_OUT_DOWN_RIGHT : 'rotateOutDownRight',
+  ROTATE_OUT_UP_LEFT : 'rotateOutUpLeft',
+  ROTATE_OUT_UP_RIGHT : 'rotateOutUpRight'
+} as const;
+
+export const ANIMATIONS_SLIDING_ENTRANCES = {
+  SLIDE_IN_UP : 'slideInUp',
+  SLIDE_IN_DOWN : 'slideInDown',
+  SLIDE_IN_LEFT : 'slideInLeft',
+  SLIDE_IN_RIGHT : 'slideInRight'
+} as const;
+
+export const ANIMATIONS_SLIDING_EXITS = {
+  SLIDE_OUT_UP : 'slideOutUp',
+  SLIDE_OUT_DOWN : 'slideOutDown',
+  SLIDE_OUT_LEFT : 'slideOutLeft',
+  SLIDE_OUT_RIGHT : 'slideOutRight'
+} as const;
+
+export const ANIMATIONS_ZOOM_ENTRANCES = {
+  ZOOM_IN : 'zoomIn',
+  ZOOM_IN_UP : 'zoomInUp',
+  ZOOM_IN_DOWN : 'zoomInDown',
+  ZOOM_IN_LEFT : 'zoomInLeft',
+  ZOOM_IN_RIGHT : 'zoomInRight'
+} as const;
+
+export const ANIMATIONS_ZOOM_EXITS = {
+  ZOOM_OUT : 'zoomOut',
+  ZOOM_OUT_UP : 'zoomOutUp',
+  ZOOM_OUT_DOWN : 'zoomOutDown',
+  ZOOM_OUT_LEFT : 'zoomOutLeft',
+  ZOOM_OUT_RIGHT : 'zoomOutRight'
+} as const;
+
+export const ANIMATIONS_SPECIALS = {
+  HINGE : 'hinge',
+  JACK_IN_THE_BOX : 'jackInTheBox',
+  ROLL_IN : 'rollIn',
+  ROLL_OUT : 'rollOut'
 } as const;
 
 export const ANIMATIONS = {
@@ -66,7 +126,15 @@ export const ANIMATIONS = {
   ...ANIMATIONS_BOUNCING_EXITS,
   ...ANIMATIONS_FADING_ENTRANCES,
   ...ANIMATIONS_FADING_EXITS,
-  ...FLIPPERS
+  ...ANIMATIONS_FLIPPERS,
+  ...ANIMATIONS_LIGHTSPEED,
+  ...ANIMATIONS_ROTATING_ENTRANCES,
+  ...ANIMATIONS_ROTATING_EXITS,
+  ...ANIMATIONS_SLIDING_ENTRANCES,
+  ...ANIMATIONS_SLIDING_EXITS,
+  ...ANIMATIONS_ZOOM_ENTRANCES,
+  ...ANIMATIONS_ZOOM_EXITS,
+  ...ANIMATIONS_SPECIALS
 } as const;
 
 export type AnimationsType = typeof ANIMATIONS[keyof typeof ANIMATIONS];
