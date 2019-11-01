@@ -29,7 +29,7 @@ Web Component built with `Stencil.js` to use [Web Animations API](https://develo
 </animatable-component>
 ```
 
-To animate things you can use the `createAnimatableComponent` utility:
+To animate things you can use the `createAnimatableComponent` utility.
 
 ```
 import {
@@ -72,6 +72,10 @@ const optionsSendMessage: KeyframeAnimationOptions = {
   }
 ...
 ```
+
+## Demo
+
+Do you want to see this web component in action? Visit https://codepen.io/jdnichollsc/full/rNNYBbe yay! 🎉
 
 ## Properties
 
