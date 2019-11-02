@@ -218,17 +218,24 @@ export class AnimatableComponent implements ComponentInterface {
   }
 
   /**
+   * This event is sent when the animation is going to play.
+   */
+  @Event({
+    eventName: 'start'
+  }) onStart!: EventEmitter<HTMLElement>
+
+  /**
    * This event is sent when the animation finishes playing.
    */
   @Event({
     eventName: 'finish'
-  }) onfinish!: EventEmitter<HTMLElement>
+  }) onFinish!: EventEmitter<HTMLElement>
   /**
    * This event is sent when the animation is cancelled.
    */
   @Event({
     eventName: 'cancel'
-  }) oncancel!: EventEmitter<HTMLElement>
+  }) onCancel!: EventEmitter<HTMLElement>
 
   /**
    * Clears all `KeyframeEffects` caused by this animation and aborts its playback.
@@ -260,6 +267,8 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async play(): Promise<void> {
+    const element = this.getElement()
+    this.onStart.emit(element)
     return this.currentAnimation.play()
   }
 
@@ -269,6 +278,12 @@ export class AnimatableComponent implements ComponentInterface {
   @Method()
   async reverse(): Promise<void> {
     return this.currentAnimation.reverse()
+  }
+
+  private getElement(): HTMLElement {
+    return (this.el.firstElementChild
+    || (this.el.children.length && this.el.children[0])
+    || this.el) as HTMLElement;
   }
 
   private getAnimationOptions(): KeyframeAnimationOptions {
@@ -294,17 +309,15 @@ export class AnimatableComponent implements ComponentInterface {
   }
 
   private createAnimation(): Animation {
-    const element = (this.el.firstElementChild
-      || (this.el.children.length && this.el.children[0])
-      || this.el) as HTMLElement;
+    const element = this.getElement();
     const options = this.getAnimationOptions();
     const keyFrames = this.keyFrames
       || (this.animation && Animations[this.animation])
       || (this.keyFramesData && JSON.parse(this.keyFramesData))
       || [];
     const animation = element.animate(keyFrames, options);
-    animation.onfinish = () => this.onfinish.emit(element);
-    animation.oncancel = () => this.oncancel.emit(element);
+    animation.onfinish = () => this.onFinish.emit(element);
+    animation.oncancel = () => this.onCancel.emit(element);
     if (this.currentTime !== undefined) animation.currentTime = this.currentTime;
     if (this.startTime !== undefined) animation.startTime = this.startTime;
     

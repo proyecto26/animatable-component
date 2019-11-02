@@ -224,6 +224,10 @@ declare namespace LocalJSX {
     */
     'onFinish'?: (event: CustomEvent<HTMLElement>) => void;
     /**
+    * This event is sent when the animation is going to play.
+    */
+    'onStart'?: (event: CustomEvent<HTMLElement>) => void;
+    /**
     * Default options of the animation.
     */
     'options'?: KeyframeAnimationOptions;

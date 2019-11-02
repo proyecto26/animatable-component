@@ -34,8 +34,9 @@ export function createAnimatableComponent<Props> (
       currentTime,
       startTime,
       playbackRate,
-      onFinish,
+      onStart,
       onCancel,
+      onFinish,
       ...rest
     } = props
     return <animatable-component
@@ -59,9 +60,9 @@ export function createAnimatableComponent<Props> (
       currentTime={currentTime}
       startTime={startTime}
       playbackRate={playbackRate}
-      onFinish={onFinish}
+      onStart={onStart}
       onCancel={onCancel}
-
+      onFinish={onFinish}
     >
       <WrappedComponent {...rest} />
     </animatable-component>

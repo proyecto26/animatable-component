@@ -400,9 +400,18 @@
         fill: 'both'
       }
       animatable.animation = 'bounce'
+      animatable.addEventListener("finish", function(event) {
+        console.log('ANIMATION FINISH', event)
+      });
     }
 
     animatable.addEventListener("finish", startSecondAnimation);
+    animatable.addEventListener("start", function(event) {
+      console.log('ANIMATION START', event)
+    });
+    animatable.addEventListener("cancel", function(event) {
+      console.log('ANIMATION CANCEL', event)
+    });
   </script>
 </body>
 </html>

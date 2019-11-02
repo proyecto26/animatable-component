@@ -107,6 +107,7 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
 
 | Event    | Description                                             | Type                       |
 | -------- | ------------------------------------------------------- | -------------------------- |
+| `start`  | This event is sent when the animation is going to play. | `CustomEvent<HTMLElement>` |
 | `cancel` | This event is sent when the animation is cancelled.     | `CustomEvent<HTMLElement>` |
 | `finish` | This event is sent when the animation finishes playing. | `CustomEvent<HTMLElement>` |
 
