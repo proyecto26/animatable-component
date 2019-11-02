@@ -15,15 +15,14 @@
 # `<animatable/>`
 
 Web Component built with `Stencil.js` to use [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API) in a declarative way.
-
+You can animate any HTML element easily:
 ```
 <animatable-component
   autoPlay
-  easing='ease-in-out'
-  duration={800}
-  delay={300}
-  animation='tada'
-  onFinish={() => alert('Eureka!')}
+  easing="ease-in-out"
+  duration="800"
+  delay="300"
+  animation="tada"
 >
   <h1>Hello World</h1>
 </animatable-component>
