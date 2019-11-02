@@ -232,6 +232,91 @@ Type: `Promise<void>`
 - Add an import to the npm packages `import @proyecto26/animatable-component;`
 - Then you can use the element anywhere in your template, JSX, html etc
 
+## Framework integrations
+
+### Angular
+Using `animatable-component` component within an Angular project:
+
+#### Including the Custom Elements Schema
+
+Including the `CUSTOM_ELEMENTS_SCHEMA` in the module allows the use of Web Components in the HTML files. Here is an example of adding it to `AppModule`:
+
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+})
+export class AppModule {}
+```
+
+The `CUSTOM_ELEMENTS_SCHEMA` needs to be included in any module that uses **Animatable**.
+
+#### Calling defineCustomElements
+
+**Animatable** component includes a function used to load itself in the application window object. That function is called `defineCustomElements()` and needs to be executed once during the bootstrapping of your application. One convenient place to add it is in the `main.ts` file as follows:
+
+```tsx
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { defineCustomElements as defineAnimatable } from '@proyecto26/animatable-component/loader';
+
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.log(err));
+defineAnimatable(window);
+```
+
+[_from stencil documentation_](https://github.com/ionic-team/stencil-site/blob/master/src/docs/framework-integration/angular.md)
+
+### React
+```tsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { defineCustomElements as defineAnimatable } from '@proyecto26/animatable-component/loader'
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+defineAnimatable(window);
+```
+
+[_from stencil documentation_](https://github.com/ionic-team/stencil-site/blob/master/src/docs/framework-integration/react.md)
+
+### Vue
+
+In order to use the `animatable-component` Web Component inside of a Vue application, it should be modified to define the custom elements and to inform the Vue compiler which elements to ignore during compilation. This can all be done within the `main.js` file as follows:
+
+```tsx
+import Vue from 'vue';
+import { defineCustomElements as defineAnimatable } from '@proyecto26/animatable-component/loader'
+
+import App from './App.vue';
+
+Vue.config.productionTip = false;
+Vue.config.ignoredElements = [/animatable-\w*/];
+
+// Bind the custom element to the window object
+defineAnimatable(window);
+
+new Vue({
+  render: h => h(App)
+}).$mount('#app');
+```
+
+[_from stencil documentation_](https://github.com/ionic-team/stencil-site/blob/master/src/docs/framework-integration/vue.md)
+
 ## Supporting 🍻
 I believe in Unicorns 🦄
 Support [me](http://www.paypal.me/jdnichollsc/2), if you do too.
