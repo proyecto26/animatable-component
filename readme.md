@@ -33,16 +33,14 @@ To animate things you can use the `createAnimatableComponent` utility.
 ```
 import {
   createAnimatableComponent
-} from '@proyecto26/animatable-component'
+} from '@proyecto26/animatable-component';
 
 const SendMessageButton = (props) =>(
   <ion-fab-button {...props}>
     <ion-icon name='send' />
   </ion-fab-button>
-)
-const AnimatableSendMessageButton = createAnimatableComponent(SendMessageButton)
-
-
+);
+const AnimatableSendMessageButton = createAnimatableComponent(SendMessageButton);
 const keyFramesSendMessage: Keyframe[] = [
   {
     opacity: '0',
@@ -52,12 +50,11 @@ const keyFramesSendMessage: Keyframe[] = [
     opacity: '1',
     transform: 'rotate(360deg)'
   }
-]
-
+];
 const optionsSendMessage: KeyframeAnimationOptions = {
   duration: 500,
   easing: 'ease-in-out'
-}
+};
 
 ...
   render() {
