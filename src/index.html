@@ -174,7 +174,6 @@
     <header>
       <animatable-component
         id="animatable"
-        autoPlay
         easing="ease-in-out"
         duration="800"
       >
@@ -314,7 +313,7 @@
             <option value="rollOut">rollOut</option>
           </optgroup>
         </select>
-        <animatable-component id="animatableButton" animation="pulse" easing="ease-in" duration="200" autoPlay="false">
+        <animatable-component id="animatableButton" animation="pulse" easing="ease-in" duration="200">
           <button>Animate it</button>
         </animatable-component>
         <br />
@@ -350,14 +349,15 @@
     const selectAnimation = document.querySelector('select');
 
     selectAnimation.addEventListener('change', function() {
+      animatable.finish();
       animatable.animation = this.value;
+      animatable.play();
     })
 
     const animatableButton = document.querySelector('#animatableButton');
     const button = document.querySelector('button');
     button.addEventListener('click', function() {
       animatable.finish();
-      animatable.delay = 0;
       animatable.play();
       animatableButton.play();
     })
@@ -393,13 +393,13 @@
     const startSecondAnimation = function() {
       //Remove listener and create my own infinity :)
       animatable.removeEventListener("finish", startSecondAnimation);
+      animatable.autoPlay = false;
       animatable.options = {
         iterations: 1,
         duration: 1000,
-        delay: 800,
         fill: 'both'
-      }
-      animatable.animation = 'bounce'
+      };
+      animatable.animation = 'bounce';
       animatable.addEventListener("finish", function(event) {
         console.log('ANIMATION FINISH', event)
       });

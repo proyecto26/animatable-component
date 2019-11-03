@@ -149,7 +149,7 @@ export class AnimatableComponent implements ComponentInterface {
   /**
    * Start the animation when the component is mounted.
    */
-  @Prop() autoPlay = true
+  @Prop({ attribute: 'autoplay' }) autoPlay = true
 
   /**
    * Sets the current time value of the animation in milliseconds, whether running or paused.
@@ -267,8 +267,8 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async play(): Promise<void> {
-    const element = this.getElement()
-    this.onStart.emit(element)
+    this.currentAnimation = this.createAnimation()
+    this.onStart.emit(this.getElement())
     return this.currentAnimation.play()
   }
 
@@ -325,13 +325,11 @@ export class AnimatableComponent implements ComponentInterface {
   }
 
   componentWillLoad() {
-    this.currentAnimation = this.createAnimation()
-    if (this.autoPlay) this.play()
+    if (this.autoPlay === true) this.play()
   }
 
   componentDidUpdate() {
-    this.currentAnimation = this.createAnimation()
-    if (this.autoPlay) this.play()
+    if (this.autoPlay === true) this.play()
   }
 
   render() {
