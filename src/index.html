@@ -2,13 +2,13 @@
 <html dir="ltr" lang="en">
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-57Y8V5MVKJ"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134081814-5"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-57Y8V5MVKJ');
+    gtag('config', 'UA-134081814-5');
   </script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
@@ -177,6 +177,15 @@
       }
     }
   </style>
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+    ga('create', 'UA-134081814-5', 'auto');
+    ga('send', 'pageview');
+  </script>
 </head>
 <body>
   <section>
@@ -352,8 +361,20 @@
       </animatable-component>   
     </animatable-component>
   </section>
-  
-  <script>
+  <script type="text/javascript">
+    function trackEvent(eventName, animation) {
+      dataLayer.push({
+        'event': eventName,
+        'animation': animation
+      });
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'Animations',
+        eventAction: eventName,
+        eventLabel: animation
+      });
+    }
+
     const animatable = document.querySelector('#animatable');
     const selectAnimation = document.querySelector('select');
 
@@ -361,6 +382,10 @@
       animatable.finish();
       animatable.animation = this.value;
       animatable.play();
+      /*
+       * Track changing animation
+       */
+      trackEvent('change-animation', this.value);
     })
 
     const animatableButton = document.querySelector('#animatableButton');
@@ -369,6 +394,10 @@
       animatable.finish();
       animatable.play();
       animatableButton.play();
+      /*
+       * Track animate button clicks
+       */
+      trackEvent('animate', animatable.animation);
     })
     
     animatable.keyFrames = [
