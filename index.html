@@ -1,4 +1,8 @@
-<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <meta name="description" content="Animate things using Web Components and Web Animations API"> <!--  Essential META Tags --> <meta property="og:site_name" content="Proyecto 26"> <meta property="og:title" content="A WebComponent to use Web Animations API in a declarative way! 💅"> <meta property="og:url" content="https://proyecto26.github.io/animatable-component"> <meta property="og:description" content="Animate things using Web Components and Web Animations API"> <meta property="og:image" content="https://raw.githubusercontent.com/proyecto26/animatable-component/master/img/animatable.png"> <!--  Non-Essential, But Recommended --> <meta name="twitter:title" content="A WebComponent to use Web Animations API in a declarative way! 💅"> <meta name="twitter:description" content="Animate things using Web Components and Web Animations API"> <meta name="twitter:card" value="Animate things using Web Components and Web Animations API"> <meta name="twitter:site" content="@proyecto26"> <meta name="twitter:creator" content="@jdnichollsc"> <title>Animatable Component</title> <link href="//fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700" rel="stylesheet" type="text/css"> <!-- Add Web Animations Polyfill :) --> <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.2/web-animations.min.js"></script> <script type="module" src="./build/animatable-component.esm.js"></script> <script nomodule="" src="./build/animatable-component.js"></script> <style>@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:700";
+<!doctype html><html dir="ltr" lang="en"><head> <!-- Global site tag (gtag.js) - Google Analytics --> <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-57Y8V5MVKJ"></script> <script>window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-57Y8V5MVKJ');</script> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <meta name="description" content="Animate things using Web Components and Web Animations API"> <!--  Essential META Tags --> <meta property="og:site_name" content="Proyecto 26"> <meta property="og:title" content="A WebComponent to use Web Animations API in a declarative way! 💅"> <meta property="og:url" content="https://proyecto26.github.io/animatable-component"> <meta property="og:description" content="Animate things using Web Components and Web Animations API"> <meta property="og:image" content="https://raw.githubusercontent.com/proyecto26/animatable-component/master/img/animatable.png"> <!--  Non-Essential, But Recommended --> <meta name="twitter:title" content="A WebComponent to use Web Animations API in a declarative way! 💅"> <meta name="twitter:description" content="Animate things using Web Components and Web Animations API"> <meta name="twitter:card" value="Animate things using Web Components and Web Animations API"> <meta name="twitter:site" content="@proyecto26"> <meta name="twitter:creator" content="@jdnichollsc"> <title>Animatable Component</title> <link href="//fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700" rel="stylesheet" type="text/css"> <!-- Add Web Animations Polyfill :) --> <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.2/web-animations.min.js"></script> <script type="module" src="./build/animatable-component.esm.js"></script> <script nomodule="" src="./build/animatable-component.js"></script> <style>@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:700";
     *,
     *::before,
     *::after {
@@ -201,4 +205,11 @@
     });
     animatable.addEventListener("cancel", function(event) {
       console.log('ANIMATION CANCEL', event)
-    });</script> </body></html>
+    });</script> <script>if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  // auto-unregister service worker during dev mode
+  navigator.serviceWorker.getRegistration().then(function(registration) {
+    if (registration) {
+      registration.unregister().then(function() { location.reload(true) });
+    }
+  });
+}</script></body></html>
