@@ -192,6 +192,7 @@
     <header>
       <animatable-component
         id="animatable"
+        autoplay="true"
         easing="ease-in-out"
         duration="800"
       >
@@ -390,6 +391,8 @@
     const animatableButton = document.querySelector('#animatableButton');
     const button = document.querySelector('button');
     button.addEventListener('click', function() {
+      animatable.finish()
+      animatable.animation = selectAnimation.value;
       animatable.play();
       animatableButton.play();
       /*
@@ -426,7 +429,9 @@
       }
     ];
 
-    const startSecondAnimation = function() {
+    const startSecondAnimation = function(event) {
+      console.log('ANIMATION FINISH', event)
+
       //Remove listener and create my own infinity :)
       animatable.autoPlay = false;
       animatable.removeEventListener("finish", startSecondAnimation);
@@ -442,7 +447,14 @@
       });
     }
 
-    animatable.addEventListener("finish", startSecondAnimation);
+    if (animatable.getAttribute('autoplay') !== 'false') {
+      animatable.addEventListener("finish", startSecondAnimation);
+    } else {
+      animatable.addEventListener("finish", function(event) {
+        console.log('ANIMATION FINISH', event)
+      });
+    }
+    
     animatable.addEventListener("start", function(event) {
       console.log('ANIMATION START', event)
     });

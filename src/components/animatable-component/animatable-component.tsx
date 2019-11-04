@@ -27,16 +27,16 @@ export class AnimatableComponent implements ComponentInterface {
   private _animation: Animation
 
   get currentAnimation(): Animation {
-    const animation = this._animation
+    const animation = this._animation;
     if(!animation) {
-      this._animation = this.createAnimation()
-      return this._animation
+      this._animation = this.createAnimation();
+      return this._animation;
     }
-    return animation
+    return animation;
   }
 
   set currentAnimation(value: Animation) {
-    this._animation = value
+    this._animation = value;
   }
 
   @Element() el!: HTMLElement
@@ -89,9 +89,9 @@ export class AnimatableComponent implements ComponentInterface {
     for (const key in options) {
       if (options.hasOwnProperty(key)) {
         if (key === 'id')
-          this.animateId = undefined
+          this.animateId = undefined;
         else
-          this[key] = undefined
+          this[key] = undefined;
       }
     }
   }
@@ -162,7 +162,7 @@ export class AnimatableComponent implements ComponentInterface {
   /**
    * Start the animation when the component is mounted.
    */
-  @Prop({ attribute: 'autoplay' }) autoPlay = true
+  @Prop({ attribute: 'autoplay', mutable: true, reflect: true }) autoPlay = true
 
   /**
    * Sets the current time value of the animation in milliseconds, whether running or paused.
@@ -170,7 +170,7 @@ export class AnimatableComponent implements ComponentInterface {
   @Prop() currentTime?: number;
   @Watch('currentTime')
   setCurrenTime(newValue: number) {
-    this.currentAnimation.currentTime = newValue
+    this.currentAnimation.currentTime = newValue;
   }
   /**
    * Returns the current time value of the animation in milliseconds, whether running or paused.
@@ -186,7 +186,7 @@ export class AnimatableComponent implements ComponentInterface {
   @Prop() startTime?: number;
   @Watch('startTime')
   setStartTime(newValue: number) {
-    this.currentAnimation.startTime = newValue
+    this.currentAnimation.startTime = newValue;
   }
   /**
    * Returns the scheduled time when an animation's playback should begin.
@@ -212,7 +212,7 @@ export class AnimatableComponent implements ComponentInterface {
   @Prop() playbackRate?: number;
   @Watch('playbackRate')
   setPlaybackRate(newValue: number) {
-    this.currentAnimation.playbackRate = newValue
+    this.currentAnimation.playbackRate = newValue;
   }
   /**
    * Returns the playback rate of the animation.
@@ -234,7 +234,8 @@ export class AnimatableComponent implements ComponentInterface {
    * This event is sent when the animation is going to play.
    */
   @Event({
-    eventName: 'start'
+    eventName: 'start',
+    bubbles: false
   }) onStart!: EventEmitter<HTMLElement>
 
   /**
@@ -257,7 +258,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async cancel(): Promise<void> {
-    return this.currentAnimation.cancel()
+    this.currentAnimation.cancel()
   }
 
   /**
@@ -266,7 +267,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async finish(): Promise<void> {
-    return this.currentAnimation.finish()
+    this.currentAnimation.finish()
   }
 
   /**
@@ -274,7 +275,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async pause(): Promise<void> {
-    return this.currentAnimation.pause()
+    this.currentAnimation.pause();
   }
 
   /**
@@ -285,10 +286,9 @@ export class AnimatableComponent implements ComponentInterface {
     /**
      * Prevent emit start event if playState is running
      */
-    if (this.currentAnimation.playState !== 'running') {
-      this.onStart.emit(this.getElement())
-    }
-    return this.currentAnimation.play()
+    if (this.currentAnimation.playState === 'running') return;
+    this.onStart.emit(this.getElement());
+    await this.currentAnimation.play();
   }
 
   /**
@@ -304,6 +304,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async clear(): Promise<void> {
+    if (!this._animation) return
     this.currentAnimation.removeEventListener('finish', this.onFinishAnimation);
     this.currentAnimation.removeEventListener('cancel', this.onCancelAnimation);
     this.currentAnimation = null;
@@ -361,9 +362,13 @@ export class AnimatableComponent implements ComponentInterface {
     if (this.startTime !== undefined) animation.startTime = this.startTime;
 
     /**
-     * Disable auto play by default
+     * Check if `autoPlay` is enabled to emit the event or pause the animation
      */
-    if (!this.autoPlay) animation.pause()
+    if (this.autoPlay) {
+      this.onStart.emit(element);
+    } else {
+      animation.pause()
+    }
     
     /**
      * Add listeners
@@ -375,7 +380,7 @@ export class AnimatableComponent implements ComponentInterface {
   }
 
   componentWillLoad() {
-    this.currentAnimation = this.createAnimation();
+    if (this.autoPlay) this.currentAnimation = this.createAnimation();
   }
 
   async componentWillUpdate() {
