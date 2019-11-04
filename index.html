@@ -162,7 +162,6 @@
     const selectAnimation = document.querySelector('select');
 
     selectAnimation.addEventListener('change', function() {
-      animatable.finish();
       animatable.animation = this.value;
       animatable.play();
       /*
@@ -174,7 +173,6 @@
     const animatableButton = document.querySelector('#animatableButton');
     const button = document.querySelector('button');
     button.addEventListener('click', function() {
-      animatable.finish();
       animatable.play();
       animatableButton.play();
       /*
@@ -213,14 +211,15 @@
 
     const startSecondAnimation = function() {
       //Remove listener and create my own infinity :)
-      animatable.removeEventListener("finish", startSecondAnimation);
       animatable.autoPlay = false;
+      animatable.removeEventListener("finish", startSecondAnimation);
       animatable.options = {
         iterations: 1,
         duration: 1000,
         fill: 'both'
       };
       animatable.animation = 'bounce';
+      animatable.play()
       animatable.addEventListener("finish", function(event) {
         console.log('ANIMATION FINISH', event)
       });
@@ -232,4 +231,11 @@
     });
     animatable.addEventListener("cancel", function(event) {
       console.log('ANIMATION CANCEL', event)
-    });</script> </body></html>
+    });</script> <script>if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  // auto-unregister service worker during dev mode
+  navigator.serviceWorker.getRegistration().then(function(registration) {
+    if (registration) {
+      registration.unregister().then(function() { location.reload(true) });
+    }
+  });
+}</script></body></html>

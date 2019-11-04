@@ -1,1 +1,24 @@
-import{h as t}from"./p-26c8340a.js";export{A as ANIMATIONS,E as EASING,a as EASING_FUNCTIONS}from"./p-21d2122f.js";var e=function(t,a){var e={};for(var i in t)Object.prototype.hasOwnProperty.call(t,i)&&a.indexOf(i)<0&&(e[i]=t[i]);if(null!=t&&"function"==typeof Object.getOwnPropertySymbols){var o=0;for(i=Object.getOwnPropertySymbols(t);o<i.length;o++)a.indexOf(i[o])<0&&Object.prototype.propertyIsEnumerable.call(t,i[o])&&(e[i[o]]=t[i[o]])}return e};function i(a){return i=>{const{ref:o,keyFrames:n,keyFramesData:r,options:s,optionsData:c,animateId:m,delay:l,endDelay:p,duration:y,direction:d,composite:f,easing:u,fill:F,iterations:S,iterationStart:b,iterationComposite:k,autoPlay:D,currentTime:I,startTime:T,playbackRate:j,onStart:C,onCancel:O,onFinish:N}=i,A=e(i,["ref","keyFrames","keyFramesData","options","optionsData","animateId","delay","endDelay","duration","direction","composite","easing","fill","iterations","iterationStart","iterationComposite","autoPlay","currentTime","startTime","playbackRate","onStart","onCancel","onFinish"]);return t("animatable-component",{ref:o,keyFrames:n,keyFramesData:r,options:s,optionsData:c,animateId:m,delay:l,endDelay:p,duration:y,direction:d,composite:f,easing:u,fill:F,iterations:S,iterationStart:b,iterationComposite:k,autoPlay:D,currentTime:I,startTime:T,playbackRate:j,onStart:C,onCancel:O,onFinish:N},t(a,Object.assign({},A)))}}export{i as createAnimatableComponent};
+import { h } from './core-03a88eb7.js';
+export { A as ANIMATIONS, E as EASING, a as EASING_FUNCTIONS } from './animations-079e04da.js';
+
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+function createAnimatableComponent(WrappedComponent) {
+    return (props) => {
+        const { ref, keyFrames, keyFramesData, options, optionsData, animateId, delay, endDelay, duration, direction, composite, easing, fill, iterations, iterationStart, iterationComposite, autoPlay, currentTime, startTime, playbackRate, onStart, onCancel, onFinish } = props, rest = __rest(props, ["ref", "keyFrames", "keyFramesData", "options", "optionsData", "animateId", "delay", "endDelay", "duration", "direction", "composite", "easing", "fill", "iterations", "iterationStart", "iterationComposite", "autoPlay", "currentTime", "startTime", "playbackRate", "onStart", "onCancel", "onFinish"]);
+        return h("animatable-component", { ref: ref, keyFrames: keyFrames, keyFramesData: keyFramesData, options: options, optionsData: optionsData, animateId: animateId, delay: delay, endDelay: endDelay, duration: duration, direction: direction, composite: composite, easing: easing, fill: fill, iterations: iterations, iterationStart: iterationStart, iterationComposite: iterationComposite, autoPlay: autoPlay, currentTime: currentTime, startTime: startTime, playbackRate: playbackRate, onStart: onStart, onCancel: onCancel, onFinish: onFinish },
+            h(WrappedComponent, Object.assign({}, rest)));
+    };
+}
+;
+
+export { createAnimatableComponent };
