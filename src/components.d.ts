@@ -30,6 +30,10 @@ export namespace Components {
     */
     'cancel': () => Promise<void>;
     /**
+    * Clear the current animation
+    */
+    'clear': () => Promise<void>;
+    /**
     * Determines how values are combined between this animation and other, separate animations that do not specify their own specific composite operation. Defaults to `replace`.
     */
     'composite'?: CompositeOperation;
@@ -41,6 +45,10 @@ export namespace Components {
     * The number of milliseconds to delay the start of the animation. Defaults to 0.
     */
     'delay'?: number;
+    /**
+    * Destroy the current animation
+    */
+    'destroy': () => Promise<void>;
     /**
     * Direction of the animation.
     */

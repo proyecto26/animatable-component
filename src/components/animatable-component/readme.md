@@ -52,6 +52,26 @@ Type: `Promise<void>`
 
 
 
+### `clear() => Promise<void>`
+
+Clear the current animation
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `destroy() => Promise<void>`
+
+Destroy the current animation
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `finish() => Promise<void>`
 
 Sets the current playback time to the end of the animation

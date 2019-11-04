@@ -24,7 +24,20 @@ import { EasingType, EASING_FUNCTIONS } from '../../easing/easing'
   tag: 'animatable-component'
 })
 export class AnimatableComponent implements ComponentInterface {
-  private currentAnimation: Animation
+  private _animation: Animation
+
+  get currentAnimation(): Animation {
+    const animation = this._animation
+    if(!animation) {
+      this._animation = this.createAnimation()
+      return this._animation
+    }
+    return animation
+  }
+
+  set currentAnimation(value: Animation) {
+    this._animation = value
+  }
 
   @Element() el!: HTMLElement
 
@@ -157,7 +170,7 @@ export class AnimatableComponent implements ComponentInterface {
   @Prop() currentTime?: number;
   @Watch('currentTime')
   setCurrenTime(newValue: number) {
-    if (this.currentAnimation) this.currentAnimation.currentTime = newValue
+    this.currentAnimation.currentTime = newValue
   }
   /**
    * Returns the current time value of the animation in milliseconds, whether running or paused.
@@ -173,7 +186,7 @@ export class AnimatableComponent implements ComponentInterface {
   @Prop() startTime?: number;
   @Watch('startTime')
   setStartTime(newValue: number) {
-    if (this.currentAnimation) this.currentAnimation.startTime = newValue
+    this.currentAnimation.startTime = newValue
   }
   /**
    * Returns the scheduled time when an animation's playback should begin.
@@ -199,7 +212,7 @@ export class AnimatableComponent implements ComponentInterface {
   @Prop() playbackRate?: number;
   @Watch('playbackRate')
   setPlaybackRate(newValue: number) {
-    if (this.currentAnimation) this.currentAnimation.playbackRate = newValue
+    this.currentAnimation.playbackRate = newValue
   }
   /**
    * Returns the playback rate of the animation.
@@ -228,13 +241,15 @@ export class AnimatableComponent implements ComponentInterface {
    * This event is sent when the animation finishes playing.
    */
   @Event({
-    eventName: 'finish'
+    eventName: 'finish',
+    bubbles: false
   }) onFinish!: EventEmitter<HTMLElement>
   /**
    * This event is sent when the animation is cancelled.
    */
   @Event({
-    eventName: 'cancel'
+    eventName: 'cancel',
+    bubbles: false
   }) onCancel!: EventEmitter<HTMLElement>
 
   /**
@@ -267,8 +282,12 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async play(): Promise<void> {
-    this.currentAnimation = this.createAnimation()
-    this.onStart.emit(this.getElement())
+    /**
+     * Prevent emit start event if playState is running
+     */
+    if (this.currentAnimation.playState !== 'running') {
+      this.onStart.emit(this.getElement())
+    }
     return this.currentAnimation.play()
   }
 
@@ -278,6 +297,25 @@ export class AnimatableComponent implements ComponentInterface {
   @Method()
   async reverse(): Promise<void> {
     return this.currentAnimation.reverse()
+  }
+
+  /**
+   * Clear the current animation
+   */
+  @Method()
+  async clear(): Promise<void> {
+    this.currentAnimation.removeEventListener('finish', this.onFinishAnimation);
+    this.currentAnimation.removeEventListener('cancel', this.onCancelAnimation);
+    this.currentAnimation = null;
+  }
+
+  /**
+   * Destroy the current animation
+   */
+  @Method()
+  async destroy(): Promise<void> {
+    this.currentAnimation.finish();
+    await this.clear();
   }
 
   private getElement(): HTMLElement {
@@ -308,6 +346,9 @@ export class AnimatableComponent implements ComponentInterface {
     return animationOptions;
   }
 
+  onFinishAnimation = () => this.onFinish.emit(this.getElement())
+  onCancelAnimation = () => this.onCancel.emit(this.getElement())
+
   private createAnimation(): Animation {
     const element = this.getElement();
     const options = this.getAnimationOptions();
@@ -316,22 +357,36 @@ export class AnimatableComponent implements ComponentInterface {
       || (this.keyFramesData && JSON.parse(this.keyFramesData))
       || [];
     const animation = element.animate(keyFrames, options);
-    animation.onfinish = () => this.onFinish.emit(element);
-    animation.oncancel = () => this.onCancel.emit(element);
     if (this.currentTime !== undefined) animation.currentTime = this.currentTime;
     if (this.startTime !== undefined) animation.startTime = this.startTime;
+
+    /**
+     * Disable auto play by default
+     */
+    if (!this.autoPlay) animation.pause()
     
+    /**
+     * Add listeners
+     */
+    animation.addEventListener('finish', this.onFinishAnimation)
+    animation.addEventListener('cancel', this.onCancelAnimation)
+
     return animation;
   }
 
   componentWillLoad() {
-    if (this.autoPlay === true) this.play()
+    this.currentAnimation = this.createAnimation();
   }
 
-  componentDidUpdate() {
-    if (this.autoPlay === true) this.play()
+  async componentWillUpdate() {
+    await this.clear();
+    this.currentAnimation = this.createAnimation();
   }
 
+  componentDidUnload() {
+    this.destroy();
+  }
+ 
   render() {
     return <slot />
   }
