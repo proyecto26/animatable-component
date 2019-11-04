@@ -296,7 +296,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async reverse(): Promise<void> {
-    return this.currentAnimation.reverse()
+    this.currentAnimation.reverse()
   }
 
   /**
@@ -315,8 +315,9 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async destroy(): Promise<void> {
-    this.currentAnimation.finish();
+    const currentAnimation = this.currentAnimation;
     await this.clear();
+    currentAnimation.finish();
   }
 
   private getElement(): HTMLElement {
@@ -366,26 +367,39 @@ export class AnimatableComponent implements ComponentInterface {
      */
     if (this.autoPlay) {
       this.onStart.emit(element);
+      animation.play();
     } else {
-      animation.pause()
+      animation.pause();
     }
     
     /**
      * Add listeners
      */
-    animation.addEventListener('finish', this.onFinishAnimation)
-    animation.addEventListener('cancel', this.onCancelAnimation)
+    animation.addEventListener('finish', this.onFinishAnimation);
+    animation.addEventListener('cancel', this.onCancelAnimation);
 
     return animation;
   }
 
+  /**
+   * Create new animation
+   */
   componentWillLoad() {
     if (this.autoPlay) this.currentAnimation = this.createAnimation();
   }
 
+  /**
+   * Clear previous animation
+   */
   async componentWillUpdate() {
     await this.clear();
-    this.currentAnimation = this.createAnimation();
+  }
+
+  /**
+   * Apply update with a new animation
+   */
+  componentDidUpdate() {
+    if (this.autoPlay) this.currentAnimation = this.createAnimation();
   }
 
   componentDidUnload() {

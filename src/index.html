@@ -379,7 +379,8 @@
     const animatable = document.querySelector('#animatable');
     const selectAnimation = document.querySelector('select');
 
-    selectAnimation.addEventListener('change', function() {
+    selectAnimation.addEventListener('change', function(e) {
+      e.preventDefault()
       animatable.animation = this.value;
       animatable.play();
       /*
@@ -390,8 +391,8 @@
 
     const animatableButton = document.querySelector('#animatableButton');
     const button = document.querySelector('button');
-    button.addEventListener('click', function() {
-      animatable.finish()
+    button.addEventListener('click', function(e) {
+      e.preventDefault()
       animatable.animation = selectAnimation.value;
       animatable.play();
       animatableButton.play();
@@ -441,10 +442,10 @@
         fill: 'both'
       };
       animatable.animation = 'bounce';
-      animatable.play()
       animatable.addEventListener("finish", function(event) {
         console.log('ANIMATION FINISH', event)
       });
+      animatable.play()
     }
 
     if (animatable.getAttribute('autoplay') !== 'false') {
