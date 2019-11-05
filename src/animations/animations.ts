@@ -18,6 +18,7 @@ export const ANIMATION_KEY_ERROR = 'Animation not supported'
 
 export { ANIMATIONS, AnimationsType }
 export default {
+  [ANIMATIONS.NONE]: [] as Keyframe[],
   ...ATTENTION_SEEKERS,
   ...BOUNCING_ENTRANCES,
   ...BOUNCING_EXITS,

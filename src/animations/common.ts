@@ -1,4 +1,4 @@
-export const ANIMATIONS_ATTENTION_SEEKERS = {
+const ANIMATIONS_ATTENTION_SEEKERS = {
   BOUNCE : 'bounce',
   FLASH  : 'flash',
   JELLO  : 'jello',
@@ -12,7 +12,7 @@ export const ANIMATIONS_ATTENTION_SEEKERS = {
   HEART_BEAT  : 'heartBeat'
 } as const;
 
-export const ANIMATIONS_BOUNCING_ENTRANCES = {
+const ANIMATIONS_BOUNCING_ENTRANCES = {
   BOUNCE_IN : 'bounceIn',
   BOUNCE_IN_UP : 'bounceInUp',
   BOUNCE_IN_DOWN : 'bounceInDown',
@@ -20,7 +20,7 @@ export const ANIMATIONS_BOUNCING_ENTRANCES = {
   BOUNCE_IN_LEFT : 'bounceInLeft'
 } as const;
 
-export const ANIMATIONS_BOUNCING_EXITS = {
+const ANIMATIONS_BOUNCING_EXITS = {
   BOUNCE_OUT : 'bounceOut',
   BOUNCE_OUT_UP : 'bounceOutUp',
   BOUNCE_OUT_DOWN : 'bounceOutDown',
@@ -28,7 +28,7 @@ export const ANIMATIONS_BOUNCING_EXITS = {
   BOUNCE_OUT_LEFT : 'bounceOutLeft'
 } as const;
 
-export const ANIMATIONS_FADING_ENTRANCES = {
+const ANIMATIONS_FADING_ENTRANCES = {
   FADE_IN : 'fadeIn',
   FADE_IN_UP : 'fadeInUp',
   FADE_IN_UP_BIG : 'fadeInUpBig',
@@ -40,7 +40,7 @@ export const ANIMATIONS_FADING_ENTRANCES = {
   FADE_IN_LEFT_BIG : 'fadeInLeftBig'
 } as const;
 
-export const ANIMATIONS_FADING_EXITS = {
+const ANIMATIONS_FADING_EXITS = {
   FADE_OUT : 'fadeOut',
   FADE_OUT_UP : 'fadeOutUp',
   FADE_OUT_UP_BIG : 'fadeOutUpBig',
@@ -52,7 +52,7 @@ export const ANIMATIONS_FADING_EXITS = {
   FADE_OUT_LEFT_BIG : 'fadeOutLeftBig'
 } as const;
 
-export const ANIMATIONS_FLIPPERS = {
+const ANIMATIONS_FLIPPERS = {
   FLIP : 'flip',
   FLIP_IN_X : 'flipInX',
   FLIP_IN_Y : 'flipInY',
@@ -60,12 +60,12 @@ export const ANIMATIONS_FLIPPERS = {
   FLIP_OUT_Y : 'flipOutY'
 } as const;
 
-export const ANIMATIONS_LIGHTSPEED = {
+const ANIMATIONS_LIGHTSPEED = {
   LIGHT_SPEED_IN : 'lightSpeedIn',
   LIGHT_SPEED_OUT : 'lightSpeedOut'
 } as const;
 
-export const ANIMATIONS_ROTATING_ENTRANCES = {
+const ANIMATIONS_ROTATING_ENTRANCES = {
   ROTATE_IN : 'rotateIn',
   ROTATE_IN_CLOCKWISE : 'rotateInClockwise',
   ROTATE_IN_DOWN_LEFT : 'rotateInDownLeft',
@@ -74,7 +74,7 @@ export const ANIMATIONS_ROTATING_ENTRANCES = {
   ROTATE_IN_UP_RIGHT : 'rotateInUpRight'
 } as const;
 
-export const ANIMATIONS_ROTATING_EXITS = {
+const ANIMATIONS_ROTATING_EXITS = {
   ROTATE_OUT : 'rotateOut',
   ROTATE_OUT_CLOCKWISE : 'rotateOutClockwise',
   ROTATE_OUT_DOWN_LEFT : 'rotateOutDownLeft',
@@ -83,21 +83,21 @@ export const ANIMATIONS_ROTATING_EXITS = {
   ROTATE_OUT_UP_RIGHT : 'rotateOutUpRight'
 } as const;
 
-export const ANIMATIONS_SLIDING_ENTRANCES = {
+const ANIMATIONS_SLIDING_ENTRANCES = {
   SLIDE_IN_UP : 'slideInUp',
   SLIDE_IN_DOWN : 'slideInDown',
   SLIDE_IN_LEFT : 'slideInLeft',
   SLIDE_IN_RIGHT : 'slideInRight'
 } as const;
 
-export const ANIMATIONS_SLIDING_EXITS = {
+const ANIMATIONS_SLIDING_EXITS = {
   SLIDE_OUT_UP : 'slideOutUp',
   SLIDE_OUT_DOWN : 'slideOutDown',
   SLIDE_OUT_LEFT : 'slideOutLeft',
   SLIDE_OUT_RIGHT : 'slideOutRight'
 } as const;
 
-export const ANIMATIONS_ZOOM_ENTRANCES = {
+const ANIMATIONS_ZOOM_ENTRANCES = {
   ZOOM_IN : 'zoomIn',
   ZOOM_IN_UP : 'zoomInUp',
   ZOOM_IN_DOWN : 'zoomInDown',
@@ -105,7 +105,7 @@ export const ANIMATIONS_ZOOM_ENTRANCES = {
   ZOOM_IN_RIGHT : 'zoomInRight'
 } as const;
 
-export const ANIMATIONS_ZOOM_EXITS = {
+const ANIMATIONS_ZOOM_EXITS = {
   ZOOM_OUT : 'zoomOut',
   ZOOM_OUT_UP : 'zoomOutUp',
   ZOOM_OUT_DOWN : 'zoomOutDown',
@@ -113,7 +113,7 @@ export const ANIMATIONS_ZOOM_EXITS = {
   ZOOM_OUT_RIGHT : 'zoomOutRight'
 } as const;
 
-export const ANIMATIONS_SPECIALS = {
+const ANIMATIONS_SPECIALS = {
   HINGE : 'hinge',
   JACK_IN_THE_BOX : 'jackInTheBox',
   ROLL_IN : 'rollIn',
@@ -121,6 +121,7 @@ export const ANIMATIONS_SPECIALS = {
 } as const;
 
 export const ANIMATIONS = {
+  NONE: 'none',
   ...ANIMATIONS_ATTENTION_SEEKERS,
   ...ANIMATIONS_BOUNCING_ENTRANCES,
   ...ANIMATIONS_BOUNCING_EXITS,

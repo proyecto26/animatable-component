@@ -48,7 +48,7 @@ export class AnimatableComponent implements ComponentInterface {
   @Watch('animation')
   animationDidChangeHandler(animation: AnimationsType) {
     const keyFrames = Animations[animation];
-    if (keyFrames && keyFrames.length) {
+    if (keyFrames) {
       this.keyFrames = keyFrames;
     } else {
       throw new Error(ANIMATION_KEY_ERROR);
