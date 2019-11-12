@@ -28,6 +28,7 @@ You can animate any HTML element easily:
 </animatable-component>
 ```
 As you can see it's like *Animate.css* but with superpowers because you can keep the last state (opacity, transform, etc) of a previous animation before to create another one.
+
 To animate things you can use the `createAnimatableComponent` utility.
 
 ```
