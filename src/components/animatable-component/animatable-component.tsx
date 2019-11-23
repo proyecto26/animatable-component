@@ -88,10 +88,11 @@ export class AnimatableComponent implements ComponentInterface {
   optionsDidChangeHandler(options: KeyframeAnimationOptions) {
     for (const key in options) {
       if (options.hasOwnProperty(key)) {
-        if (key === 'id')
+        if (key === 'id') {
           this.animateId = undefined;
-        else
+        } else {
           this[key] = undefined;
+        }
       }
     }
   }
@@ -162,7 +163,11 @@ export class AnimatableComponent implements ComponentInterface {
   /**
    * Start the animation when the component is mounted.
    */
-  @Prop({ attribute: 'autoplay', mutable: true, reflect: true }) autoPlay = true
+  @Prop({
+    attribute: 'autoplay',
+    mutable: true,
+    reflect: true
+  }) autoPlay = false
 
   /**
    * Sets the current time value of the animation in milliseconds, whether running or paused.
@@ -177,7 +182,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async getCurrentTime(): Promise<number> {
-    return this.currentAnimation.currentTime;
+    return Promise.resolve(this.currentAnimation.currentTime);
   }
 
   /**
@@ -193,7 +198,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async getStartTime(): Promise<number> {
-    return this.currentAnimation.startTime;
+    return Promise.resolve(this.currentAnimation.startTime);
   }
 
   /**
@@ -203,7 +208,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async getPending(): Promise<boolean> {
-    return this.currentAnimation.pending;
+    return Promise.resolve(this.currentAnimation.pending);
   }
 
   /**
@@ -219,7 +224,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async getPlaybackRate(): Promise<number> {
-    return this.currentAnimation.playbackRate;
+    return Promise.resolve(this.currentAnimation.playbackRate);
   }
 
   /**
@@ -227,7 +232,7 @@ export class AnimatableComponent implements ComponentInterface {
    */
   @Method()
   async getPlayState(): Promise<AnimationPlayState> {
-    return this.currentAnimation.playState;
+    return Promise.resolve(this.currentAnimation.playState);
   }
 
   /**
@@ -385,7 +390,9 @@ export class AnimatableComponent implements ComponentInterface {
    * Create new animation
    */
   componentWillLoad() {
-    if (this.autoPlay) this.currentAnimation = this.createAnimation();
+    if (this.autoPlay) {
+      this.currentAnimation = this.createAnimation();
+    }
   }
 
   /**
@@ -399,7 +406,9 @@ export class AnimatableComponent implements ComponentInterface {
    * Apply update with a new animation
    */
   componentDidUpdate() {
-    if (this.autoPlay) this.currentAnimation = this.createAnimation();
+    if (this.autoPlay) {
+      this.currentAnimation = this.createAnimation();
+    }
   }
 
   componentDidUnload() {
