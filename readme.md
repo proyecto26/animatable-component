@@ -74,6 +74,8 @@ const optionsSendMessage: KeyframeAnimationOptions = {
 
 Do you want to see this web component in action? Visit https://codepen.io/jdnichollsc/full/rNNYBbe yay! 🎉
 
+- Meet `<animatable />`, a tiny Web Component: https://dev.to/jdnichollsc/meet-animatable-a-tiny-web-component-to-use-web-animations-api-as-a-component-1glh
+
 ## Properties
 
 | Property             | Attribute             | Description                                                                                                                                                                                                  | Type                                                                                                                               | Default     |
