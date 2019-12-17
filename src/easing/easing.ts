@@ -60,6 +60,6 @@ export const EASING_FUNCTIONS = {
   [EASING.EASE_IN_BACK]: 'cubic-bezier(0.6, -0.28, 0.735, 0.045)',
   [EASING.EASE_OUT_BACK]: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
   [EASING.EASE_IN_OUT_BACK]: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
-}
+};
 
 export type EasingType = typeof EASING[keyof typeof EASING];

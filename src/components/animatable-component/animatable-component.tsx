@@ -13,7 +13,7 @@ import {
 import Animations, {
   AnimationsType,
   ANIMATION_KEY_ERROR
-} from '../../animations/animations'
+} from '../../animations'
 
 import { EasingType, EASING_FUNCTIONS } from '../../easing/easing'
 
@@ -47,6 +47,7 @@ export class AnimatableComponent implements ComponentInterface {
   @Prop() animation?: AnimationsType
   @Watch('animation')
   animationDidChangeHandler(animation: AnimationsType) {
+    debugger;
     const keyFrames = Animations[animation];
     if (keyFrames) {
       this.keyFrames = keyFrames;

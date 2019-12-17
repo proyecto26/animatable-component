@@ -1,4 +1,4 @@
-import { ANIMATIONS } from './common'
+import { ANIMATIONS } from './common';
 
 const BOUNCE_OUT: Keyframe[] = [
   { offset: 0, opacity: 1, transform: 'scale(1)' },
@@ -50,4 +50,4 @@ export default {
   [ANIMATIONS.BOUNCE_OUT_DOWN]: BOUNCE_OUT_DOWN,
   [ANIMATIONS.BOUNCE_OUT_RIGHT]: BOUNCE_OUT_RIGHT,
   [ANIMATIONS.BOUNCE_OUT_LEFT]: BOUNCE_OUT_LEFT
-}
+};

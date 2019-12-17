@@ -1,10 +1,10 @@
-import { ANIMATIONS } from './common'
+import { ANIMATIONS } from './common';
 
 const HINGE_DEFAULT = {
   opacity: 1,
   transformOrigin: 'top left',
   easing: 'ease-in-out'
-}
+};
 
 const HINGE: Keyframe[] = [
   { offset: 0, transform: 'rotate(0)', ...HINGE_DEFAULT },
@@ -37,4 +37,4 @@ export default {
   [ANIMATIONS.JACK_IN_THE_BOX]: JACK_IN_THE_BOX,
   [ANIMATIONS.ROLL_IN]: ROLL_IN,
   [ANIMATIONS.ROLL_OUT]: ROLL_OUT
-}
+};

@@ -1,4 +1,4 @@
-import { ANIMATIONS } from './common'
+import { ANIMATIONS } from './common';
 
 const FADE_OUT: Keyframe[] = [
   { offset: 0, opacity: 1 },
@@ -55,4 +55,4 @@ export default {
   [ANIMATIONS.FADE_OUT_RIGHT_BIG]: FADE_OUT_RIGHT_BIG,
   [ANIMATIONS.FADE_OUT_LEFT]: FADE_OUT_LEFT,
   [ANIMATIONS.FADE_OUT_LEFT_BIG]: FADE_OUT_LEFT_BIG
-}
+};

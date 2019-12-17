@@ -1,6 +1,6 @@
 import { h, FunctionalComponent, ComponentInterface } from '@stencil/core';
 import { JSXBase, HTMLStencilElement } from '@stencil/core/internal';
-import { JSX } from '../components'
+import { JSX } from '../components';
 
 export function createAnimatableComponent<Props> (
   WrappedComponent: FunctionalComponent
@@ -66,5 +66,5 @@ export function createAnimatableComponent<Props> (
     >
       <WrappedComponent {...rest} />
     </animatable-component>
-  }
+  };
 };

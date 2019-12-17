@@ -1,4 +1,4 @@
-import { ANIMATIONS } from './common'
+import { ANIMATIONS } from './common';
 
 const LIGHT_SPEED_IN: Keyframe[] = [
   { offset: 0, easing: 'ease-out', opacity: 0, transform: 'translateX(200px) skewX(-30deg)' },
@@ -15,4 +15,4 @@ const LIGHT_SPEED_OUT: Keyframe[] = [
 export default {
   [ANIMATIONS.LIGHT_SPEED_IN]: LIGHT_SPEED_IN,
   [ANIMATIONS.LIGHT_SPEED_OUT]: LIGHT_SPEED_OUT
-}
+};

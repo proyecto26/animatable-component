@@ -1,9 +1,9 @@
-import { ANIMATIONS } from './common'
+import { ANIMATIONS } from './common';
 
 const BOUNCE_DEFAULT = {
   transform: 'translate(0)',
   easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
-}
+};
 
 const BOUNCE: Keyframe[] = [
   { offset: 0, ...BOUNCE_DEFAULT },
@@ -138,4 +138,4 @@ export default {
   [ANIMATIONS.TADA]:   TADA,
   [ANIMATIONS.WOBBLE]: WOBBLE,
   [ANIMATIONS.HEART_BEAT]: HEART_BEAT
-}
+};

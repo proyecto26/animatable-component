@@ -9,7 +9,7 @@
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
   AnimationsType,
-} from './animations/animations';
+} from './animations';
 
 export namespace Components {
   interface AnimatableComponent {

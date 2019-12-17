@@ -1,4 +1,4 @@
-import { ANIMATIONS } from './common'
+import { ANIMATIONS } from './common';
 
 const ZOOM_OUT: Keyframe[] = [
   { offset: 0, opacity: 1, transform: 'scale(1)' },
@@ -36,4 +36,4 @@ export default {
   [ANIMATIONS.ZOOM_OUT_DOWN]: ZOOM_OUT_DOWN,
   [ANIMATIONS.ZOOM_OUT_LEFT]: ZOOM_OUT_LEFT,
   [ANIMATIONS.ZOOM_OUT_RIGHT]: ZOOM_OUT_RIGHT
-}
+};

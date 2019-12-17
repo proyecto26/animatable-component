@@ -1,4 +1,4 @@
-import { ANIMATIONS } from './common'
+import { ANIMATIONS } from './common';
 
 const SLIDE_IN_UP: Keyframe[] = [
   { offset: 0, transform: 'translateY(100%)', visibility: 'hidden' },
@@ -25,4 +25,4 @@ export default {
   [ANIMATIONS.SLIDE_IN_DOWN]: SLIDE_IN_DOWN,
   [ANIMATIONS.SLIDE_IN_LEFT]: SLIDE_IN_LEFT,
   [ANIMATIONS.SLIDE_IN_RIGHT]: SLIDE_IN_RIGHT
-}
+};

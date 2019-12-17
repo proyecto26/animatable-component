@@ -1,4 +1,4 @@
-import { ANIMATIONS } from './common'
+import { ANIMATIONS } from './common';
 
 const BOUNCE_IN: Keyframe[] = [
   { offset: 0, opacity: 0, transform: 'scale(0.3)', easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)' },
@@ -47,4 +47,4 @@ export default {
   [ANIMATIONS.BOUNCE_IN_DOWN]: BOUNCE_IN_DOWN,
   [ANIMATIONS.BOUNCE_IN_RIGHT]: BOUNCE_IN_RIGHT,
   [ANIMATIONS.BOUNCE_IN_LEFT]: BOUNCE_IN_LEFT
-}
+};

@@ -1,4 +1,4 @@
-import { ANIMATIONS } from './common'
+import { ANIMATIONS } from './common';
 
 const FLIP: Keyframe[] = [
   { offset: 0, backfaceVisibility: 'visible', easing: 'ease-out', transform: 'perspective(400px) scale(1) translateZ(0) rotateY(-360deg)' },
@@ -42,4 +42,4 @@ export default {
   [ANIMATIONS.FLIP_IN_Y]: FLIP_IN_Y,
   [ANIMATIONS.FLIP_OUT_X]: FLIP_OUT_X,
   [ANIMATIONS.FLIP_OUT_Y]: FLIP_OUT_Y
-}
+};

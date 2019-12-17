@@ -1,4 +1,4 @@
-import { ANIMATIONS } from './common'
+import { ANIMATIONS } from './common';
 
 const SLIDE_OUT_UP: Keyframe[] = [
   { offset: 0, transform: 'translateY(0)', visibility: 'visible' },
@@ -25,4 +25,4 @@ export default {
   [ANIMATIONS.SLIDE_OUT_DOWN]: SLIDE_OUT_DOWN,
   [ANIMATIONS.SLIDE_OUT_LEFT]: SLIDE_OUT_LEFT,
   [ANIMATIONS.SLIDE_OUT_RIGHT]: SLIDE_OUT_RIGHT
-}
+};

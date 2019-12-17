@@ -1,4 +1,4 @@
-import { ANIMATIONS } from './common'
+import { ANIMATIONS } from './common';
 
 const ROTATE_IN: Keyframe[] = [
   { offset: 0, opacity: 0, transform: 'rotateZ(180deg)', transformOrigin: 'center' },
@@ -37,4 +37,4 @@ export default {
   [ANIMATIONS.ROTATE_IN_DOWN_RIGHT]: ROTATE_IN_DOWN_RIGHT,
   [ANIMATIONS.ROTATE_IN_UP_LEFT]: ROTATE_IN_UP_LEFT,
   [ANIMATIONS.ROTATE_IN_UP_RIGHT]: ROTATE_IN_UP_RIGHT
-}
+};

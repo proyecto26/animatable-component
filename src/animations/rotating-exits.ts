@@ -1,4 +1,4 @@
-import { ANIMATIONS } from './common'
+import { ANIMATIONS } from './common';
 
 const ROTATE_OUT: Keyframe[] = [
   { offset: 0, opacity: 1, transform: 'rotateZ(0deg)', transformOrigin: 'center' },
@@ -37,4 +37,4 @@ export default {
   [ANIMATIONS.ROTATE_OUT_DOWN_RIGHT]: ROTATE_OUT_DOWN_RIGHT,
   [ANIMATIONS.ROTATE_OUT_UP_LEFT]: ROTATE_OUT_UP_LEFT,
   [ANIMATIONS.ROTATE_OUT_UP_RIGHT]: ROTATE_OUT_UP_RIGHT
-}
+};
