@@ -47,7 +47,6 @@ export class AnimatableComponent implements ComponentInterface {
   @Prop() animation?: AnimationsType
   @Watch('animation')
   animationDidChangeHandler(animation: AnimationsType) {
-    debugger;
     const keyFrames = Animations[animation];
     if (keyFrames) {
       this.keyFrames = keyFrames;
