@@ -312,12 +312,18 @@ export const optionsSendMessage: KeyframeAnimationOptions = {
 ```
 - `my-component.tsx`
 ```tsx
+import { Component, Host, h } from '@stencil/core';
 import { AnimatableSendMessageButton, keyFramesSendMessage, optionsSendMessage } from './utils'
 
+@Component({
+  tag: 'my-component',
+  shadow: false
+})
 export class MyComponent {
   render() {
     return (
        <AnimatableSendMessageButton
+        autoPlay
         keyFrames={keyFramesSendMessage}
         options={optionsSendMessage}
         onFinish={() => alert('Eureka!')}
