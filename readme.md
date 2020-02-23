@@ -27,6 +27,15 @@ You can animate any HTML element easily:
   <h1>Hello World</h1>
 </animatable-component>
 ```
+
+## Demo
+
+Do you want to see this web component in action? Visit https://codepen.io/jdnichollsc/full/rNNYBbe yay! 🎉
+
+- Meet `<animatable />`, a tiny Web Component: https://dev.to/jdnichollsc/meet-animatable-a-tiny-web-component-to-use-web-animations-api-as-a-component-1glh
+
+![Animatable](img/animatable.png)
+
 As you can see it's like *[Animate.css](https://daneden.github.io/animate.css/)* but with superpowers because you can keep the last state (opacity, transform, etc) of a previous animation before to create another one.
 
 To animate things you can use the `createAnimatableComponent` utility.
@@ -73,12 +82,6 @@ export class MyComponent {
   }
 }
 ```
-
-## Demo
-
-Do you want to see this web component in action? Visit https://codepen.io/jdnichollsc/full/rNNYBbe yay! 🎉
-
-- Meet `<animatable />`, a tiny Web Component: https://dev.to/jdnichollsc/meet-animatable-a-tiny-web-component-to-use-web-animations-api-as-a-component-1glh
 
 ## Properties
 
