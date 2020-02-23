@@ -16,7 +16,7 @@
 
 Web Component built with `Stencil.js` to use [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API) in a declarative way.
 You can animate any HTML element easily:
-```
+```html
 <animatable-component
   autoplay
   easing="ease-in-out"
@@ -27,22 +27,22 @@ You can animate any HTML element easily:
   <h1>Hello World</h1>
 </animatable-component>
 ```
-As you can see it's like *Animate.css* but with superpowers because you can keep the last state (opacity, transform, etc) of a previous animation before to create another one.
+As you can see it's like *[Animate.css](https://daneden.github.io/animate.css/)* but with superpowers because you can keep the last state (opacity, transform, etc) of a previous animation before to create another one.
 
 To animate things you can use the `createAnimatableComponent` utility.
-
-```
+- `utils.tsx`:
+```tsx
 import {
   createAnimatableComponent
 } from '@proyecto26/animatable-component';
 
-const SendMessageButton = (props) =>(
+const SendMessageButton = (props) => (
   <ion-fab-button {...props}>
     <ion-icon name='send' />
   </ion-fab-button>
 );
-const AnimatableSendMessageButton = createAnimatableComponent(SendMessageButton);
-const keyFramesSendMessage: Keyframe[] = [
+export const AnimatableSendMessageButton = createAnimatableComponent(SendMessageButton);
+export const keyFramesSendMessage: Keyframe[] = [
   {
     opacity: '0',
     transform: 'rotate(0deg)'
@@ -52,12 +52,16 @@ const keyFramesSendMessage: Keyframe[] = [
     transform: 'rotate(360deg)'
   }
 ];
-const optionsSendMessage: KeyframeAnimationOptions = {
+export const optionsSendMessage: KeyframeAnimationOptions = {
   duration: 500,
   easing: 'ease-in-out'
 };
+```
+- `my-component.tsx`:
+```tsx
+import { AnimatableSendMessageButton, keyFramesSendMessage, optionsSendMessage } from './utils'
 
-...
+export class MyComponent {
   render() {
     return (
        <AnimatableSendMessageButton
@@ -67,7 +71,7 @@ const optionsSendMessage: KeyframeAnimationOptions = {
       />
     )
   }
-...
+}
 ```
 
 ## Demo
