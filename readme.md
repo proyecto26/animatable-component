@@ -38,50 +38,6 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
 
 As you can see it's like *[Animate.css](https://daneden.github.io/animate.css/)* but with superpowers because you can keep the last state (opacity, transform, etc) of a previous animation before to create another one.
 
-To animate things you can use the `createAnimatableComponent` utility.
-- `utils.tsx`:
-```tsx
-import {
-  createAnimatableComponent
-} from '@proyecto26/animatable-component';
-
-const SendMessageButton = (props) => (
-  <ion-fab-button {...props}>
-    <ion-icon name='send' />
-  </ion-fab-button>
-);
-export const AnimatableSendMessageButton = createAnimatableComponent(SendMessageButton);
-export const keyFramesSendMessage: Keyframe[] = [
-  {
-    opacity: '0',
-    transform: 'rotate(0deg)'
-  },
-  {
-    opacity: '1',
-    transform: 'rotate(360deg)'
-  }
-];
-export const optionsSendMessage: KeyframeAnimationOptions = {
-  duration: 500,
-  easing: 'ease-in-out'
-};
-```
-- `my-component.tsx`:
-```tsx
-import { AnimatableSendMessageButton, keyFramesSendMessage, optionsSendMessage } from './utils'
-
-export class MyComponent {
-  render() {
-    return (
-       <AnimatableSendMessageButton
-        keyFrames={keyFramesSendMessage}
-        options={optionsSendMessage}
-        onFinish={() => alert('Eureka!')}
-      />
-    )
-  }
-}
-```
 
 ## Properties
 
@@ -323,6 +279,53 @@ new Vue({
 ```
 
 [_from stencil documentation_](https://github.com/ionic-team/stencil-site/blob/master/src/docs/framework-integration/vue.md)
+
+### Stencil
+
+To animate [Functional Components](https://stenciljs.com/docs/functional-components) you can use the `createAnimatableComponent` utility, e.g:
+- `utils.tsx`
+```tsx
+import {
+  createAnimatableComponent
+} from '@proyecto26/animatable-component';
+
+const SendMessageButton = (props) => (
+  <ion-fab-button {...props}>
+    <ion-icon name='send' />
+  </ion-fab-button>
+);
+export const AnimatableSendMessageButton = createAnimatableComponent(SendMessageButton);
+export const keyFramesSendMessage: Keyframe[] = [
+  {
+    opacity: '0',
+    transform: 'rotate(0deg)'
+  },
+  {
+    opacity: '1',
+    transform: 'rotate(360deg)'
+  }
+];
+export const optionsSendMessage: KeyframeAnimationOptions = {
+  duration: 500,
+  easing: 'ease-in-out'
+};
+```
+- `my-component.tsx`
+```tsx
+import { AnimatableSendMessageButton, keyFramesSendMessage, optionsSendMessage } from './utils'
+
+export class MyComponent {
+  render() {
+    return (
+       <AnimatableSendMessageButton
+        keyFrames={keyFramesSendMessage}
+        options={optionsSendMessage}
+        onFinish={() => alert('Eureka!')}
+      />
+    )
+  }
+}
+```
 
 ## Supporting 🍻
 I believe in Unicorns 🦄
