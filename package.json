@@ -1,9 +1,9 @@
 {
   "name": "@proyecto26/animatable-component",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "description": "A WebComponent to use Web Animations API in a declarative way! 💅",
-  "author": "Juan David Nicholls Cardona",
+  "author": "Proyecto 26",
   "homepage": "https://proyecto26.github.io/animatable-component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

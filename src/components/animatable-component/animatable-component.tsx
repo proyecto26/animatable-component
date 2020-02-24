@@ -339,10 +339,8 @@ export class AnimatableComponent implements ComponentInterface {
     if (this.duration !== undefined) animationOptions.duration = this.duration;
     if (this.direction) animationOptions.direction = this.direction;
     if (this.composite) animationOptions.composite = this.composite;
-    if (this.easing) {
-      const defaultEasing = this.easing as EasingType
-      animationOptions.easing = EASING_FUNCTIONS[defaultEasing] || this.easing
-    }
+    const easingType = (this.easing || animationOptions.easing) as EasingType
+    animationOptions.easing = EASING_FUNCTIONS[easingType] || easingType
     if (this.endDelay !== undefined) animationOptions.endDelay = this.endDelay;
     if (this.fill) animationOptions.fill = this.fill;
     if (this.animateId !== undefined) animationOptions.id = this.animateId;
