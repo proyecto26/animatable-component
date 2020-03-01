@@ -39,9 +39,6 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
 
 ![Animatable](https://github.com/proyecto26/animatable-component/blob/master/img/animatable.png?raw=true)
 
-As you can see it's like *[Animate.css](https://daneden.github.io/animate.css/)* but with superpowers because you can keep the last state (opacity, transform, etc) of a previous animation before to create another one.
-
-
 ## Properties
 
 | Property             | Attribute             | Description                                                                                                                                                                                                  | Type                                                                                                                               | Default     |
