@@ -32,6 +32,9 @@ You can animate any HTML element easily:
 
 Do you want to see this web component in action? Visit https://codepen.io/jdnichollsc/full/rNNYBbe yay! 🎉
 
+- Playground: https://codepen.io/jdnichollsc/pen/MWwpGNW
+- Sequence: https://codepen.io/jdnichollsc/pen/OJVWyQm
+- Events: https://codepen.io/jdnichollsc/pen/wvagEYQ
 - Meet `<animatable />`, a tiny Web Component: https://dev.to/jdnichollsc/meet-animatable-a-tiny-web-component-to-use-web-animations-api-as-a-component-1glh
 
 ![Animatable](https://github.com/proyecto26/animatable-component/blob/master/img/animatable.png?raw=true)
