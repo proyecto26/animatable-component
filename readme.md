@@ -14,7 +14,7 @@
 
 # `<animatable/>`
 
-Web Component built with `Stencil.js` to use [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API) in a declarative way.
+Web Component built with [Stencil.js](https://github.com/ionic-team/stencil) to use [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API) in a declarative way.
 You can animate any HTML element easily:
 ```html
 <animatable-component
