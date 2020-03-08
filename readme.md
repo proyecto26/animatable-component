@@ -36,6 +36,7 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
 - Sequence: https://codepen.io/jdnichollsc/pen/OJVWyQm
 - Events: https://codepen.io/jdnichollsc/pen/wvagEYQ
 - Paths: https://codepen.io/jdnichollsc/pen/MWwmBzr
+- Counter 3D: https://codepen.io/jdnichollsc/pen/WNvXaYM
 - WorkShop: https://slides.com/juandavidnicholls/waapi-webcomponents
 - Meet `<animatable />`, a tiny Web Component: https://dev.to/jdnichollsc/meet-animatable-a-tiny-web-component-to-use-web-animations-api-as-a-component-1glh
 
