@@ -50,7 +50,7 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
   <h1>Proof that Tony Stark has a heart ✵</h1>
 </animatable-component>
 ```
-- [animatable-cube](./src/components/animatable-cube/readme.md)`
+- [animatable-cube](./src/components/animatable-cube/readme.md)
 ```html
 <animatable-cube
   autoplay
