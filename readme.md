@@ -88,6 +88,13 @@ const easingOutCubic = EASING_FUNCTIONS[EASING.EASE_OUT_CUBIC];
 
 ## Getting Started 📖
 
+### Packages
+
+| Project | Package | Version | Links |
+| ------- | ------- | ------- |:-----:|
+| **Core** | [`@proyecto26/animatable-component`](https://www.npmjs.com/package/@proyecto26/animatable-component) | [![version](https://img.shields.io/npm/v/@proyecto26/animatable-component/latest.svg)](https://www.npmjs.com/package/@proyecto26/animatable-component) | [`README.md`](./README.md)
+| **React** | [`@proyecto26/animatable-component-react`](https://www.npmjs.com/package/@proyecto26/animatable-component-react) | [![version](https://img.shields.io/npm/v/@proyecto26/animatable-component-react/latest.svg)](https://www.npmjs.com/package/@proyecto26/animatable-component-react) | [`README.md`](react/README.md)
+
 ### Script tag
 
 - Put a script tag similar to this `<script src='https://unpkg.com/animatable-component@1.0.2/dist/animatable-component.js'></script>` in the head of your index.html
