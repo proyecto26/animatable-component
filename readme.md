@@ -160,7 +160,8 @@ defineAnimatable(window);
 
 ### React
 
-### Specific Wrapper
+- Specific Wrapper
+
 When using a wrapper component, It's not necessary to access the reference directly to attach events, etc. More details [here](./react/README.md).
 ```tsx
 import React from 'react';
@@ -195,6 +196,7 @@ export default App;
 ```
 
 - Web Component
+
 Other option is using the web component directly: 
 ```tsx
 import React from 'react'
