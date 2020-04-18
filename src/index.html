@@ -154,35 +154,14 @@
       max-width: 96%;
     }
 
-    @media (min-width: 500px) {
-      header {
-        padding: 1.5rem;
-      }
-      button {
-        font-size: 18px;
-        line-height: 18px;
-        margin: 1.375rem;
-      }
-      h1 {
-        font-size: 4rem;
-        line-height: 1;
-      }
-    }
-
-    @media (min-width: 720px) {
-      h1 {
-        font-size: 6rem;
-        line-height: 1;
-      }
-    }
-
     h1, a, button {
       color: #f35626;
     }
 
     #direction {
       width: 60px;
-      margin-left: 15px;
+      margin-left: 2px;
+      margin-right: 6px;
       cursor: pointer;
     }
 
@@ -210,6 +189,33 @@
       -webkit-transform: scale(-1);
     }
 
+    @media (min-width: 500px) {
+      header {
+        padding: 1.5rem;
+      }
+      button {
+        font-size: 18px;
+        line-height: 18px;
+        margin: 1.375rem;
+      }
+      h1 {
+        font-size: 4rem;
+        line-height: 1;
+      }
+
+      #direction {
+        margin-left: 15px;
+        margin-right: 0px;
+      }
+    }
+
+    @media (min-width: 720px) {
+      h1 {
+        font-size: 6rem;
+        line-height: 1;
+      }
+    }
+
     :root {
       --animatable-cube-size: 50px;
       --animatable-cube-transition-duration: 2s;
@@ -223,12 +229,6 @@
       --animatable-cube-right-face-background: linear-gradient(to right, #200122, #6f0000);
       --animatable-cube-top-face-background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
       --animatable-cube-bottom-face-background: linear-gradient(to right, #780206, #061161);
-    }
-
-    @keyframes background {
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
     }
   </style>
   <script type="text/javascript">

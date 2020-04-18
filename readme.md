@@ -71,7 +71,7 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
   <div slot="bottom-face">Bottom</div>
 </animatable-cube>
 ```
-- With other animation libraries:
+### With other animation libraries:
 ```js
 import {
   ANIMATIONS,

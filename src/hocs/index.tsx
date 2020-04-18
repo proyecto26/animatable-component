@@ -12,9 +12,9 @@ export function createAnimatableComponent<Props> (
   type ComponentProps = Props
     & ComponentInterface
     & JSX.AnimatableComponent
-    & JSXBase.HTMLAttributes<HTMLAnimatableComponentElement>
     & JSXBase.HTMLAttributes<HTMLElement>
-    & JSXBase.HTMLAttributes<HTMLStencilElement>;
+    & JSXBase.HTMLAttributes<HTMLStencilElement>
+    & JSXBase.HTMLAttributes<HTMLAnimatableComponentElement>;
 
   return (props: ComponentProps): FunctionalComponent<ComponentProps> => {
     const {
