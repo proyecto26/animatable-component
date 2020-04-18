@@ -1,6 +1,6 @@
 import { ANIMATIONS } from './common';
 
-const HINGE_DEFAULT = {
+const HINGE_DEFAULT: Keyframe = {
   opacity: 1,
   transformOrigin: 'top left',
   easing: 'ease-in-out'

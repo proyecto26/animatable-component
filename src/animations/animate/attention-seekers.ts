@@ -1,6 +1,6 @@
 import { ANIMATIONS } from './common';
 
-const BOUNCE_DEFAULT = {
+const BOUNCE_DEFAULT: Keyframe = {
   transform: 'translate(0)',
   easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
 };
@@ -57,8 +57,8 @@ const ROTATE: Keyframe[] = [
   { offset: 1, transform: 'rotate(360deg)' }
 ];
 
-const SHAKE_LEFT = { transform: 'translateX(-10px)' }
-const SHAKE_RIGHT = { transform: 'translateX(10px)' }
+const SHAKE_LEFT: Keyframe = { transform: 'translateX(-10px)' }
+const SHAKE_RIGHT: Keyframe = { transform: 'translateX(10px)' }
 const SHAKE: Keyframe[] = [
   { offset: 0, transform: 'translateX(0px)' },
   { offset: 0.1, ...SHAKE_LEFT },
@@ -116,7 +116,7 @@ const WOBBLE: Keyframe[] = [
   { offset: 1, transform: 'translate(0) rotate(0deg)' }
 ];
 
-const HEART_BEAT_DEFAULT = { transform: 'scale(1)', easing: 'ease-in-out' }
+const HEART_BEAT_DEFAULT: Keyframe = { transform: 'scale(1)', easing: 'ease-in-out' }
 const HEART_BEAT: Keyframe[] = [
   { offset: 0, ...HEART_BEAT_DEFAULT },
   { offset: 0.14, ...HEART_BEAT_DEFAULT, transform: 'scale(1.3)' },

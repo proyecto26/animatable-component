@@ -6,7 +6,8 @@ import {
   Event,
   EventEmitter,
   Method,
-  Watch
+  Watch,
+  Host
 } from '@stencil/core';
 
 import {
@@ -20,17 +21,26 @@ import {
 
 import {
   AnimationManager,
-  clearPropsWithOptions,
-  getElementToAnimate
+  clearPropsWithOptions
 } from '../../utils';
 
 /**
- * animatable-component
+ * animatable-cube
+ *
+ * @slot - Content is placed into the cube.
+ * @slot front-face - Content is placed into the front face of the cube.
+ * @slot back-face - Content is placed into the back face of the cube.
+ * @slot right-face - Content is placed into the right face of the cube.
+ * @slot left-face - Content is placed into the left face of the cube.
+ * @slot top-face - Content is placed into the top face of the cube.
+ * @slot bottom-face - Content is placed into the bottom face of the cube.
  */
 @Component({
-  tag: 'animatable-component'
+  tag: 'animatable-cube',
+  styleUrl: 'animatable-cube.css',
+  shadow: true
 })
-export class AnimatableComponent implements IAnimatableComponent {
+export class Cube implements IAnimatableComponent {
   /**
    * Animation manager for Animatable
    */
@@ -39,7 +49,7 @@ export class AnimatableComponent implements IAnimatableComponent {
   @Element() el!: HTMLElement
 
   get element(): HTMLElement {
-    return getElementToAnimate(this.el);
+    return this.el.shadowRoot.querySelector('.cube');
   }
 
   /**
@@ -379,8 +389,32 @@ export class AnimatableComponent implements IAnimatableComponent {
   componentDidUnload() {
     this.destroy();
   }
- 
+
   render() {
-    return <slot />
+    return (
+      <Host>
+        <div class="cube">
+          <div class="front face">
+            <slot name='front-face' />
+          </div>
+          <div class="back face">
+            <slot name='back-face' />
+          </div>
+          <div class="right face">
+            <slot name='right-face' />
+          </div>
+          <div class="left face">
+            <slot name='left-face' />
+          </div>
+          <div class="top face">
+            <slot name='top-face' />
+          </div>
+          <div class="bottom face">
+            <slot name='bottom-face' />
+          </div>
+          <slot></slot>
+        </div>
+      </Host>
+    );
   }
 }

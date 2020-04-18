@@ -2,6 +2,10 @@ import { h, FunctionalComponent, ComponentInterface } from '@stencil/core';
 import { JSXBase, HTMLStencilElement } from '@stencil/core/internal';
 import { JSX } from '../components';
 
+/**
+ * HOC to wrap components with Animatable component
+ * @param WrappedComponent - Component to be animated with Animatable component
+ */
 export function createAnimatableComponent<Props> (
   WrappedComponent: FunctionalComponent
 ) {
@@ -37,6 +41,8 @@ export function createAnimatableComponent<Props> (
       onStart,
       onCancel,
       onFinish,
+      fromClassName,
+      toClassName,
       ...rest
     } = props
     return <animatable-component
@@ -63,6 +69,8 @@ export function createAnimatableComponent<Props> (
       onStart={onStart}
       onCancel={onCancel}
       onFinish={onFinish}
+      fromClassName={fromClassName}
+      toClassName={toClassName}
     >
       <WrappedComponent {...rest} />
     </animatable-component>

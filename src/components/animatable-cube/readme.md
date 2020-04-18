@@ -1,4 +1,4 @@
-# animatable-component
+# animatable-cube
 
 
 
@@ -166,6 +166,58 @@ Reverses the playback direction, meaning the animation ends at its beginning.
 Type: `Promise<void>`
 
 
+
+
+## Slots
+
+| Slot            | Description                                         |
+| --------------- | --------------------------------------------------- |
+|                 | Content is placed into the cube.                    |
+| `"back-face"`   | Content is placed into the back face of the cube.   |
+| `"bottom-face"` | Content is placed into the bottom face of the cube. |
+| `"front-face"`  | Content is placed into the front face of the cube.  |
+| `"left-face"`   | Content is placed into the left face of the cube.   |
+| `"right-face"`  | Content is placed into the right face of the cube.  |
+| `"top-face"`    | Content is placed into the top face of the cube.    |
+
+
+## CSS Custom Properties
+
+| Name                                               | Description                                                                                     |
+| -------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `--animatable-cube-align-items`                    | Align items of the cube                                                                         |
+| `--animatable-cube-back-face-animation`            | Animation of the back face                                                                      |
+| `--animatable-cube-back-face-background`           | Background of the back face                                                                     |
+| `--animatable-cube-bottom-face-animation`          | Animation of the bottom face                                                                    |
+| `--animatable-cube-bottom-face-background`         | Background of the bottom face                                                                   |
+| `--animatable-cube-display`                        | Display of the cube                                                                             |
+| `--animatable-cube-face-animation`                 | Cube faces background animation                                                                 |
+| `--animatable-cube-face-animation-delay`           | Defines when the background animation will start                                                |
+| `--animatable-cube-face-animation-direction`       | Defines the direction of the background animation                                               |
+| `--animatable-cube-face-animation-duration`        | Defines the length of time that background animation takes to complete one cycle                |
+| `--animatable-cube-face-animation-iteration-count` | Defines the number of times the background animation cycle is played                            |
+| `--animatable-cube-face-animation-timing-function` | Describes how the background animation will progress over one cycle of its duration             |
+| `--animatable-cube-face-background`                | Cube faces background                                                                           |
+| `--animatable-cube-face-background-size`           | Cube faces background size                                                                      |
+| `--animatable-cube-face-border`                    | Cube faces border                                                                               |
+| `--animatable-cube-front-face-animation`           | Animation of the front face                                                                     |
+| `--animatable-cube-front-face-background`          | Background of the front face                                                                    |
+| `--animatable-cube-justify-content`                | Justify content of the cube                                                                     |
+| `--animatable-cube-left-face-animation`            | Animation of the left face                                                                      |
+| `--animatable-cube-left-face-background`           | Background of the left face                                                                     |
+| `--animatable-cube-margin`                         | Margin of the cube                                                                              |
+| `--animatable-cube-padding`                        | Padding of the cube                                                                             |
+| `--animatable-cube-perspective`                    | Perspective of the cube                                                                         |
+| `--animatable-cube-perspective-origin`             | Indicates the position of the abscissa and the ordinate of the vanishing point.                 |
+| `--animatable-cube-right-face-animation`           | Animation of the right face                                                                     |
+| `--animatable-cube-right-face-background`          | Background of the right face                                                                    |
+| `--animatable-cube-size`                           | Size of the cube                                                                                |
+| `--animatable-cube-top-face-animation`             | Animation of the top face                                                                       |
+| `--animatable-cube-top-face-background`            | Background of the top face                                                                      |
+| `--animatable-cube-transition-delay`               | Defines when the transition of the cube will start                                              |
+| `--animatable-cube-transition-duration`            | Specifies the duration of the transition to resize the cube                                     |
+| `--animatable-cube-transition-property`            | Specifies the name of the CSS property the cube's transition effect is for                      |
+| `--animatable-cube-transition-timing-function`     | Describes how the intermediate values used during the transition of the cube will be calculated |
 
 
 ----------------------------------------------

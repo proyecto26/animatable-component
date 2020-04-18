@@ -12,7 +12,7 @@ const FADE_OUT_UP: Keyframe[] = [
 
 const FADE_OUT_UP_BIG: Keyframe[] = [
   { offset: 0, opacity: 1, transform: 'translateY(0px)' },
-  { offset: 1, opacity: 0, transform: 'translateY(-2000px)' }
+  { offset: 1, opacity: 0, transform: 'translateY(-100vh)' }
 ];
 
 const FADE_OUT_DOWN: Keyframe[] = [
@@ -22,7 +22,7 @@ const FADE_OUT_DOWN: Keyframe[] = [
 
 const FADE_OUT_DOWN_BIG: Keyframe[] = [
   { offset: 0, opacity: 1, transform: 'translateY(0px)' },
-  { offset: 1, opacity: 0, transform: 'translateY(2000px)' }
+  { offset: 1, opacity: 0, transform: 'translateY(100vh)' }
 ];
 
 const FADE_OUT_RIGHT: Keyframe[] = [
@@ -32,7 +32,7 @@ const FADE_OUT_RIGHT: Keyframe[] = [
 
 const FADE_OUT_RIGHT_BIG: Keyframe[] = [
   { offset: 0, opacity: 1, transform: 'translateX(0px)' },
-  { offset: 1, opacity: 0, transform: 'translateX(2000px)' }
+  { offset: 1, opacity: 0, transform: 'translateX(100vw)' }
 ];
 
 const FADE_OUT_LEFT: Keyframe[] = [
@@ -42,7 +42,7 @@ const FADE_OUT_LEFT: Keyframe[] = [
 
 const FADE_OUT_LEFT_BIG: Keyframe[] = [
   { offset: 0, opacity: 1, transform: 'translateX(0px)' },
-  { offset: 1, opacity: 0, transform: 'translateX(-2000px)' }
+  { offset: 1, opacity: 0, transform: 'translateX(-100vw)' }
 ];
 
 export default {

@@ -14,7 +14,7 @@ const BOUNCE_OUT_UP: Keyframe[] = [
   { offset: 0.4, opacity: 1, transform: 'translateY(20px)' },
   { offset: 0.45, opacity: 1, transform: 'translateY(20px)' },
   { offset: 0.55, opacity: 1, transform: 'translateY(20px)' },
-  { offset: 1, opacity: 0, transform: 'translateY(-2000px)' }
+  { offset: 1, opacity: 0, transform: 'translateY(-100vh)' }
 ];
 
 const BOUNCE_OUT_DOWN: Keyframe[] = [
@@ -23,7 +23,7 @@ const BOUNCE_OUT_DOWN: Keyframe[] = [
   { offset: 0.4, opacity: 1, transform: 'translateY(-20px)' },
   { offset: 0.45, opacity: 1, transform: 'translateY(-20px)' },
   { offset: 0.55, opacity: 1, transform: 'translateY(-20px)' },
-  { offset: 1, opacity: 0, transform: 'translateY(2000px)' }
+  { offset: 1, opacity: 0, transform: 'translateY(100vh)' }
 ];
 
 const BOUNCE_OUT_RIGHT: Keyframe[] = [
@@ -32,7 +32,7 @@ const BOUNCE_OUT_RIGHT: Keyframe[] = [
   { offset: 0.4, opacity: 1, transform: 'translateX(-20px)' },
   { offset: 0.45, opacity: 1, transform: 'translateX(-20px)' },
   { offset: 0.55, opacity: 1, transform: 'translateX(-20px)' },
-  { offset: 1, opacity: 0, transform: 'translateX(2000px)' }
+  { offset: 1, opacity: 0, transform: 'translateX(100vw)' }
 ];
 
 const BOUNCE_OUT_LEFT: Keyframe[] = [
@@ -41,7 +41,7 @@ const BOUNCE_OUT_LEFT: Keyframe[] = [
   { offset: 0.4, opacity: 1, transform: 'translateX(20px)' },
   { offset: 0.45, opacity: 1, transform: 'translateX(20px)' },
   { offset: 0.55, opacity: 1, transform: 'translateX(20px)' },
-  { offset: 1, opacity: 0, transform: 'translateX(-2000px)' }
+  { offset: 1, opacity: 0, transform: 'translateX(-100vw)' }
 ];
 
 export default {

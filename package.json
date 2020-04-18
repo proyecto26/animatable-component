@@ -1,8 +1,8 @@
 {
   "name": "@proyecto26/animatable-component",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "private": false,
-  "description": "A WebComponent to use Web Animations API in a declarative way! 💅",
+  "description": "Animate once, use Everywhere! 💫",
   "author": "Proyecto 26",
   "homepage": "https://proyecto26.github.io/animatable-component",
   "main": "dist/index.js",
@@ -23,11 +23,17 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "deploy": "gh-pages -d www"
+    "deploy": "gh-pages -d www",
+    "lint": "eslint src/**/*{.ts,.tsx}"
   },
   "devDependencies": {
-    "@stencil/core": "^1.8.1",
-    "gh-pages": "^2.1.1"
+    "@stencil/core": "^1.12.4",
+    "@stencil/eslint-plugin": "^0.3.1",
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.19.0",
+    "gh-pages": "^2.2.0"
   },
   "license": "MIT",
   "repository": {
@@ -56,5 +62,8 @@
     "web-animations-api",
     "web animations",
     "web animations api"
-  ]
+  ],
+  "dependencies": {
+    "@stencil/react-output-target": "0.0.4"
+  }
 }
