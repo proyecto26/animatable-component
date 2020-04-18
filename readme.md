@@ -42,12 +42,51 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
 
 ![Animatable](https://github.com/proyecto26/animatable-component/blob/master/img/animatable.png?raw=true)
 
-## Components 🎉
+## Usage 🎉
 
 - [animatable-component](./src/components/animatable-component/readme.md)
-- [animatable-cube](./src/components/animatable-cube/readme.md)
+```html
+<animatable-component autoplay iterations="3" animation="heartBeat" easing="ease-in" duration="1000">
+  <h1>Proof that Tony Stark has a heart ✵</h1>
+</animatable-component>
+```
+- [animatable-cube](./src/components/animatable-cube/readme.md)`
+```html
+<animatable-cube
+  autoplay
+  fill="forwards"
+  composite="add"
+  duration="2600"
+  easing="linear"
+  iterations="Infinity"
+  fromClassName="playing"
+  toClassName="finished"
+  animation="rotate-90-vertical-bck"
+>
+  <div slot="front-face">Front</div>
+  <div slot="back-face">Back</div>
+  <div slot="right-face">Right</div>
+  <div slot="left-face">Left</div>
+  <div slot="top-face">Top</div>
+  <div slot="bottom-face">Bottom</div>
+</animatable-cube>
+```
+- With other animation libraries:
+```js
+import {
+  ANIMATIONS,
+  EASING_FUNCTIONS,
+  EASING,
+  KEYFRAMES
+} from '@proyecto26/animatable-component';
 
-## Usage 📖
+const bounceKeyFrames = KEYFRAMES[ANIMATIONS.BOUNCE];
+const easingOutCubic = EASING_FUNCTIONS[EASING.EASE_OUT_CUBIC];
+
+// Use here any other animation tool :)
+```
+
+## Getting Started 📖
 
 ### Script tag
 
