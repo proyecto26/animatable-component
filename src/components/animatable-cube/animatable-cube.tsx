@@ -65,7 +65,6 @@ export class Cube implements IAnimatableComponent {
    * Keyframes of the animation.
    */
   @Prop({
-    attribute: 'keyFrames',
     mutable: true,
     reflect: true
   }) keyFrames?: Keyframe[]
@@ -73,10 +72,7 @@ export class Cube implements IAnimatableComponent {
   /**
    * Keyframes of the animation in string format.
    */
-  @Prop({
-    attribute: 'keyFramesData',
-    reflect: true
-  }) keyFramesData?: string
+  @Prop() keyFramesData?: string
 
   /**
    * Get keyFrames of the animation from string data.
@@ -107,10 +103,7 @@ export class Cube implements IAnimatableComponent {
   /**
    * Default options of the animation in string format.
    */
-  @Prop({
-    attribute: 'optionsData',
-    reflect: true
-  }) optionsData?: string
+  @Prop() optionsData?: string
 
   /**
    * Get options of the animation from string data.
@@ -123,10 +116,7 @@ export class Cube implements IAnimatableComponent {
   /**
    * A DOMString with which to reference the animation.
    */
-  @Prop({
-    attribute: 'animateId',
-    reflect: true
-  }) animateId?: string
+  @Prop({ mutable: true }) animateId?: string
   /**
    * The number of milliseconds to delay the start of the animation.
    * Defaults to 0.
@@ -135,10 +125,7 @@ export class Cube implements IAnimatableComponent {
   /**
    * The number of milliseconds to delay after the end of an animation.
    */
-  @Prop({
-    attribute: 'endDelay',
-    reflect: true
-  }) endDelay?: number
+  @Prop({ mutable: true }) endDelay?: number
   /**
    * The number of milliseconds each iteration of the animation takes to complete.
    * Defaults to 0.
@@ -172,17 +159,11 @@ export class Cube implements IAnimatableComponent {
   /**
    * Describes at what point in the iteration the animation should start.
    */
-  @Prop({
-    attribute: 'iterationStart',
-    reflect: true
-  }) iterationStart?: number
+  @Prop({ mutable: true }) iterationStart?: number
   /**
    * Determines how values build from iteration to iteration in this animation.
    */
-  @Prop({
-    attribute: 'iterationComposite',
-    reflect: true
-  }) iterationComposite?: IterationCompositeOperation
+  @Prop({ mutable: true }) iterationComposite?: IterationCompositeOperation
   /**
    * Start the animation when the component is mounted.
    */
@@ -193,17 +174,11 @@ export class Cube implements IAnimatableComponent {
   /**
    * The class name to be applied when the animation starts
    */
-  @Prop({
-    attribute: 'fromClassName',
-    reflect: true
-  }) fromClassName?: string
+  @Prop() fromClassName?: string
   /**
    * The class name to be applied when the animation ends
    */
-  @Prop({
-    attribute: 'toClassName',
-    reflect: true
-  }) toClassName?: string
+  @Prop() toClassName?: string
   /**
    * Sets the current time value of the animation in milliseconds, whether running or paused.
    */
