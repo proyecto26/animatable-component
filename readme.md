@@ -159,6 +159,43 @@ defineAnimatable(window);
 [_from stencil documentation_](https://github.com/ionic-team/stencil-site/blob/master/src/docs/framework-integration/angular.md)
 
 ### React
+
+### Specific Wrapper
+When using a wrapper component, It's not necessary to access the reference directly to attach events, etc. More details [here](./react/README.md).
+```tsx
+import React from 'react';
+import {
+  AnimatableComponent,
+  ANIMATIONS,
+  EASING
+} from '@proyecto26/animatable-component-react';
+
+const App = () => {
+  return (
+    <AnimatableComponent
+      autoPlay
+      delay={300}
+      duration={800}
+      composite='add'
+      direction='alternate'
+      iterations={Infinity}
+      animation={ANIMATIONS.TADA}
+      easing={EASING.EASE_IN_OUT_BACK}
+      onStart={() => console.log('Starting animation')}
+      onFinish={() => console.log('Finished animation')}
+      onCancel={() => console.log('Cancelled animation')}
+    >
+      <div>
+        <p>HELLO WORLD</p>
+      </div>
+    </AnimatableComponent>
+  );
+};
+export default App;
+```
+
+- Web Component
+Other option is using the web component directly: 
 ```tsx
 import React from 'react'
 import ReactDOM from 'react-dom'
