@@ -27,6 +27,7 @@ You can animate any HTML element easily:
   <h1>Hello World</h1>
 </animatable-component>
 ```
+With the largest list of [Keyframes](https://developer.mozilla.org/docs/Web/API/Web_Animations_API/Keyframe_Formats)/[Easing Functions](https://developer.mozilla.org/docs/Web/API/EffectTiming/easing) that can also be used with other animation tools! 🧚
 
 ## Demo 🎮
 
