@@ -10,6 +10,10 @@ export const KEYFRAMES = {
   ...ANIMISTA,
 } as const;
 
+/**
+ * Get the keyframes of the animation
+ * @param animation - Name of the animation.
+ */
 export function getKeyFramesByAnimation (animation: AnimationsType) {
   const keyFrames = KEYFRAMES[animation];
   if (keyFrames !== undefined) {

@@ -6,7 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.1.0] - 2020-04-11
+## [1.1.1] - 2020-04-19
+### Fixed
+- Fixed dependencies of the package.
+- Updated **README** for React projects using wrapper component instead.
+
+## [1.1.0] - 2020-04-17
 ### Added
 - Added `fromClassName` and `toClassName` props to be applied when the animation starts and ends respectively.
 - Added animations from [Animista](https://animista.net/).
