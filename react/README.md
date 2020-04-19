@@ -1,4 +1,4 @@
-# AnimatableComponent for React
+# `<animatable/>` for React
 
 ## Introduction
 React specific wrapper for [animatable-component](https://github.com/proyecto26/animatable-component) component.
