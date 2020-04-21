@@ -85,6 +85,7 @@ export class AnimationManager {
   private element: HTMLElement
   private state: IAnimatable
   private animation: Animation = null
+  private previousAnimation: Animation = null 
 
   get currentAnimation(): Animation {
     return this.animation || this.loadAnimation();
@@ -114,19 +115,33 @@ export class AnimationManager {
     this.animation = null;
   }
 
+  destroyAnimation() {
+    const currentAnimation = this.previousAnimation || this.animation;
+    if (currentAnimation !== null) {
+      currentAnimation.removeEventListener('finish', this.onFinishAnimation);
+      currentAnimation.removeEventListener('cancel', this.onCancelAnimation);
+      currentAnimation.cancel();
+    }
+  }
+
+  playAnimation() {
+    /**
+     * Prevent emit start event if playState is running
+     */
+    if (this.currentAnimation.playState === 'running') return;
+    this.onStartAnimation();
+    this.currentAnimation.play();
+  }
+
   setState(element: HTMLElement, newState: IAnimatable) {
     this.element = element;
     this.state = newState;
-  }
 
-  /**
-   * Check if `autoPlay` is enabled to emit the event and play the animation
-   */
-  autoPlay() {
-    if (this.state.autoPlay) {
-      this.onStartAnimation();
-      this.currentAnimation.play();
-    }
+    this.previousAnimation = this.currentAnimation;
+    /**
+     * Check if `autoPlay` is enabled to emit the event and play the animation
+     */
+    if (this.state.autoPlay) this.playAnimation();
   }
 
   onStartAnimation = () => {

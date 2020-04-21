@@ -301,12 +301,7 @@ export class Cube implements IAnimatableComponent {
    */
   @Method()
   async play(): Promise<void> {
-    /**
-     * Prevent emit start event if playState is running
-     */
-    if (this.manager.currentAnimation.playState === 'running') return;
-    this.manager.onStartAnimation();
-    return this.manager.currentAnimation.play();
+    this.manager.playAnimation();
   }
 
   /**
@@ -330,11 +325,7 @@ export class Cube implements IAnimatableComponent {
    */
   @Method()
   async destroy(): Promise<void> {
-    const currentAnimation = this.manager.currentAnimation;
-    await this.clear();
-    if (this.iterations !== Infinity) {
-      currentAnimation.finish();
-    }
+    this.manager.destroyAnimation();
   }
 
   /**
@@ -346,7 +337,6 @@ export class Cube implements IAnimatableComponent {
 
   componentDidLoad() {
     this.manager.setState(this.element, this);
-    this.manager.autoPlay();
   }
 
   /**
@@ -358,7 +348,6 @@ export class Cube implements IAnimatableComponent {
 
   componentDidUpdate() {
     this.manager.setState(this.element, this);
-    this.manager.autoPlay();
   }
 
   componentDidUnload() {
