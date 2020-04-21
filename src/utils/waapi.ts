@@ -85,7 +85,11 @@ export class AnimationManager {
   private element: HTMLElement
   private state: IAnimatable
   private animation: Animation = null
-  private previousAnimation: Animation = null 
+  private className: string
+
+  constructor(initState: IAnimatable) {
+    this.state = initState;
+  }
 
   get currentAnimation(): Animation {
     return this.animation || this.loadAnimation();
@@ -116,12 +120,10 @@ export class AnimationManager {
   }
 
   destroyAnimation() {
-    const currentAnimation = this.previousAnimation || this.animation;
-    if (currentAnimation !== null) {
-      currentAnimation.removeEventListener('finish', this.onFinishAnimation);
-      currentAnimation.removeEventListener('cancel', this.onCancelAnimation);
-      currentAnimation.cancel();
-    }
+    if (this.animation === null) return;
+    const currentAnimation = this.animation;
+    this.clearAnimation();
+    currentAnimation.cancel();
   }
 
   playAnimation() {
@@ -136,29 +138,50 @@ export class AnimationManager {
   setState(element: HTMLElement, newState: IAnimatable) {
     this.element = element;
     this.state = newState;
+  }
 
-    this.previousAnimation = this.currentAnimation;
+  update() {
     /**
-     * Check if `autoPlay` is enabled to emit the event and play the animation
+     * Check if `autoPlay` is enabled to play a new animation and emit the event.
      */
-    if (this.state.autoPlay) this.playAnimation();
+    if (this.state.autoPlay) {
+      this.destroyAnimation();
+      this.playAnimation();
+    }
   }
 
+  /**
+   * Emit `onStart` event and update class name with `fromClassName`.
+   */
   onStartAnimation = () => {
-    const { element, state } = this;
-    state.onStart.emit(element);
-    if (state.fromClassName !== undefined)
-      element.className = state.fromClassName;
+    this.state.onStart.emit(this.element);
+    if (this.state.fromClassName !== undefined) {
+      this.className = this.element.className;
+      this.element.className = this.state.fromClassName;
+    }
   }
 
+  /**
+   * Emit `onCancel` event and restore class name.
+   */
   onCancelAnimation = () => {
     this.state.onCancel.emit(this.element);
+    if (
+      this.state.fromClassName !== undefined &&
+      this.className !== undefined
+    ) {
+      this.element.className = this.className;
+    }
   }
 
+  /**
+   * Emit `onFinish` event and update class name with `toClassName`.
+   */
   onFinishAnimation = () => {
     const { element, state } = this;
     state.onFinish.emit(element);
-    if (state.toClassName !== undefined)
+    if (state.toClassName !== undefined) {
       element.className = state.toClassName;
+    }
   }
 }

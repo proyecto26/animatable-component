@@ -332,22 +332,20 @@ export class Cube implements IAnimatableComponent {
    * Initialize manager
    */
   componentWillLoad() {
-    this.manager = new AnimationManager();
+    this.manager = new AnimationManager(this);
   }
 
   componentDidLoad() {
     this.manager.setState(this.element, this);
+    this.manager.update();
   }
 
-  /**
-   * Clear current animation
-   */
-  async componentWillUpdate() {
-    await this.clear();
+  componentWillUpdate() {
+    this.manager.setState(this.element, this);
   }
 
   componentDidUpdate() {
-    this.manager.setState(this.element, this);
+    this.manager.update();
   }
 
   componentDidUnload() {

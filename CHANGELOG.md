@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.3] - 2020-04-21
+### Fixed
+- Restore class name from `onCancel` event and remove `previousAnimation` from Animation manager.
+
 ## [1.1.2] - 2020-04-21
 ### Fixed
 - Fixed issue from `destroy` method by using `cancel` instead of `finish`.

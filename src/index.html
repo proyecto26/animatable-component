@@ -179,6 +179,8 @@
     #animatable-cube {
       margin: 0 auto;
       margin-bottom: 50px;
+      display: block;
+      cursor: pointer;
     }
 
     body.reverse #direction {
@@ -1070,6 +1072,16 @@
      * Animatable Components
      **/
     const animatableCube = document.querySelector('#animatable-cube');
+
+    animatableCube.addEventListener('click', function () {
+      animatableCube.getPlayState().then(function(playState) {
+        if (playState === 'running') {
+          animatableCube.pause();
+        } else {
+          animatableCube.play();
+        }
+      })
+    })
     
     let currentAnimatable = animatable;
 
@@ -1186,6 +1198,7 @@
       console.log('ANIMATION FINISH', event);
 
       //Remove listener and create my own infinity :)
+      animatable.destroy();
       animatable.autoPlay = false;
       animatable.removeEventListener("finish", startSecondAnimation);
       animatable.options = {
