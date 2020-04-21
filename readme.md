@@ -38,6 +38,7 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
 - Events: https://codepen.io/jdnichollsc/pen/wvagEYQ
 - Paths: https://codepen.io/jdnichollsc/pen/MWwmBzr
 - 3D Clock: https://codepen.io/jdnichollsc/pen/WNvXaYM
+- Cube Component: https://codepen.io/jdnichollsc/pen/mdervLB
 - WorkShop: https://slides.com/juandavidnicholls/waapi-webcomponents
 - Meet `<animatable />`, a tiny Web Component: https://dev.to/jdnichollsc/meet-animatable-a-tiny-web-component-to-use-web-animations-api-as-a-component-1glh
 
