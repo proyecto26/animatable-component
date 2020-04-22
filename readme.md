@@ -289,6 +289,11 @@ export class MyComponent {
 }
 ```
 
+
+## Credits 👍
+* [Animate.css](https://daneden.github.io/animate.css)
+* [Animista](https://animista.net)
+
 ## Supporting 🍻
 I believe in Unicorns 🦄
 Support [me](http://www.paypal.me/jdnichollsc/2), if you do too.
