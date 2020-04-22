@@ -282,7 +282,6 @@
     animatableCube.keyFrames = spinCube;
 
     function playAnimation (animation) {
-      currentAnimatable.destroy();
       if (animation) currentAnimatable.animation = animation;
       currentAnimatable.play();
     }
@@ -339,7 +338,7 @@
     });
     button.addEventListener('click', function(e) {
       e.preventDefault();
-      const animation = selectAnimation.value
+      const animation = selectAnimation.value;
       currentAnimatable.animation = animation;
       currentAnimatable.play();
       animatableButton.play();
@@ -353,7 +352,6 @@
       console.log('ANIMATION FINISH', event);
 
       //Remove listener and create my own infinity :)
-      animatable.destroy();
       animatable.autoPlay = false;
       animatable.removeEventListener("finish", startSecondAnimation);
       animatable.options = {
