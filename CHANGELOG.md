@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.4] - 2020-04-22
+### Fixed
+- Cancel current animation before to play another one, it's required to avoid issues when `iterations` was equal to `Infinity`.
+
 ## [1.1.3] - 2020-04-21
 ### Fixed
 - Restore class name from `onCancel` event and remove `previousAnimation` from Animation manager.

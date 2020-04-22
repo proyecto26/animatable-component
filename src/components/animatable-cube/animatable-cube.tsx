@@ -337,7 +337,7 @@ export class Cube implements IAnimatableComponent {
 
   componentDidLoad() {
     this.manager.setState(this.element, this);
-    this.manager.update();
+    this.manager.savedState();
   }
 
   componentWillUpdate() {
@@ -345,7 +345,7 @@ export class Cube implements IAnimatableComponent {
   }
 
   componentDidUpdate() {
-    this.manager.update();
+    this.manager.savedState();
   }
 
   componentDidUnload() {

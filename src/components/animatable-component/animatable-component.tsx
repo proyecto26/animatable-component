@@ -327,7 +327,7 @@ export class AnimatableComponent implements IAnimatableComponent {
   }
 
   componentDidLoad() {
-    this.manager.update();
+    this.manager.savedState();
   }
 
   componentWillUpdate() {
@@ -335,7 +335,7 @@ export class AnimatableComponent implements IAnimatableComponent {
   }
 
   componentDidUpdate() {
-    this.manager.update();
+    this.manager.savedState();
   }
 
   componentDidUnload() {

@@ -86,6 +86,7 @@ export class AnimationManager {
   private state: IAnimatable
   private animation: Animation = null
   private className: string
+  private isUpdatingState: boolean
 
   constructor(initState: IAnimatable) {
     this.state = initState;
@@ -126,28 +127,38 @@ export class AnimationManager {
     currentAnimation.cancel();
   }
 
+  /**
+   * Emit start event if playState is not running or playing a new animation.
+   */
   playAnimation() {
+    if (
+      this.currentAnimation.playState === 'running' &&
+      !this.isUpdatingState
+    ) return;
     /**
-     * Prevent emit start event if playState is running
+     * Cancel current animation before to create another one
      */
-    if (this.currentAnimation.playState === 'running') return;
-    this.onStartAnimation();
+    if (this.isUpdatingState) {
+      this.destroyAnimation();
+    }
     this.currentAnimation.play();
+    this.onStartAnimation();
   }
 
   setState(element: HTMLElement, newState: IAnimatable) {
+    this.isUpdatingState = true;
     this.element = element;
     this.state = newState;
   }
 
-  update() {
+  savedState() {
     /**
      * Check if `autoPlay` is enabled to play a new animation and emit the event.
      */
     if (this.state.autoPlay) {
-      this.destroyAnimation();
       this.playAnimation();
     }
+    this.isUpdatingState = false;
   }
 
   /**
