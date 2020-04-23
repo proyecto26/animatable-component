@@ -73,6 +73,10 @@
       margin: 10px;
     }
 
+    .loading {
+      display: none;
+    }
+
     header {
       display: block;
     }
@@ -244,7 +248,7 @@
   </script>
 </head>
 <body>
-  <section>
+  <section class="loading">
     <header>
       <animatable-cube
         id="animatable-cube"
@@ -1046,6 +1050,19 @@
     </animatable-component>
   </section>
   <script type="text/javascript">
+    /**
+     * Wait for animatable-component to be loaded
+     **/
+    function animatableComponentLoaded() {
+      document.querySelector('.loading').classList.remove('loading');
+    }
+    
+    if (customElements && customElements.whenDefined) {
+      customElements.whenDefined('animatable-component').then(animatableComponentLoaded);
+    } else {
+      animatableComponentLoaded();
+    }
+
     function trackEvent(eventName, animation) {
       dataLayer.push({
         'event': eventName,
