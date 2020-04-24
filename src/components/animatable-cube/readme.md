@@ -186,6 +186,7 @@ Type: `Promise<void>`
 | Name                                               | Description                                                                                     |
 | -------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `--animatable-cube-align-items`                    | Align items of the cube                                                                         |
+| `--animatable-cube-animation`                      | Animation of the cube                                                                           |
 | `--animatable-cube-back-face-animation`            | Animation of the back face                                                                      |
 | `--animatable-cube-back-face-background`           | Background of the back face                                                                     |
 | `--animatable-cube-bottom-face-animation`          | Animation of the bottom face                                                                    |
@@ -200,8 +201,10 @@ Type: `Promise<void>`
 | `--animatable-cube-face-background`                | Cube faces background                                                                           |
 | `--animatable-cube-face-background-size`           | Cube faces background size                                                                      |
 | `--animatable-cube-face-border`                    | Cube faces border                                                                               |
+| `--animatable-cube-face-transform-origin`          | Establishes the origin of transformation for the cube faces                                     |
 | `--animatable-cube-front-face-animation`           | Animation of the front face                                                                     |
 | `--animatable-cube-front-face-background`          | Background of the front face                                                                    |
+| `--animatable-cube-height`                         | Height of the cube                                                                              |
 | `--animatable-cube-justify-content`                | Justify content of the cube                                                                     |
 | `--animatable-cube-left-face-animation`            | Animation of the left face                                                                      |
 | `--animatable-cube-left-face-background`           | Background of the left face                                                                     |
@@ -214,10 +217,13 @@ Type: `Promise<void>`
 | `--animatable-cube-size`                           | Size of the cube                                                                                |
 | `--animatable-cube-top-face-animation`             | Animation of the top face                                                                       |
 | `--animatable-cube-top-face-background`            | Background of the top face                                                                      |
+| `--animatable-cube-transform`                      | Transform of the cube                                                                           |
+| `--animatable-cube-transform-origin`               | Transform origin of the cube                                                                    |
 | `--animatable-cube-transition-delay`               | Defines when the transition of the cube will start                                              |
 | `--animatable-cube-transition-duration`            | Specifies the duration of the transition to resize the cube                                     |
 | `--animatable-cube-transition-property`            | Specifies the name of the CSS property the cube's transition effect is for                      |
 | `--animatable-cube-transition-timing-function`     | Describes how the intermediate values used during the transition of the cube will be calculated |
+| `--animatable-cube-width`                          | Width of the cube                                                                               |
 
 
 ----------------------------------------------

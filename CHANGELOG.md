@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.5] - 2020-04-23
+### Fixed
+- Fixed styles of the `animatable-cube` component by adding missing css variables as props.
+- Adding [Credits](https://github.com/proyecto26/animatable-component#credits-) and [Enterprise](https://github.com/proyecto26/animatable-component#enterprise-) sections from **README**.
+- Improved demo by waiting `animatable-component` to be loaded as a custom element.
+
 ## [1.1.4] - 2020-04-22
 ### Fixed
 - Cancel current animation before to play another one, it's required to avoid issues when `iterations` was equal to `Infinity`.

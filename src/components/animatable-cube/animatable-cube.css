@@ -4,6 +4,8 @@
 :host {
   /**
    * @prop --animatable-cube-size: Size of the cube
+   * @prop --animatable-cube-width: Width of the cube
+   * @prop --animatable-cube-height: Height of the cube
    * @prop --animatable-cube-perspective: Perspective of the cube
    * @prop --animatable-cube-perspective-origin: Indicates the position of the abscissa and the ordinate of the vanishing point.
    * @prop --animatable-cube-display: Display of the cube
@@ -15,6 +17,9 @@
    * @prop --animatable-cube-justify-content: Justify content of the cube
    * @prop --animatable-cube-margin: Margin of the cube
    * @prop --animatable-cube-padding: Padding of the cube
+   * @prop --animatable-cube-transform: Transform of the cube
+   * @prop --animatable-cube-transform-origin: Transform origin of the cube
+   * @prop --animatable-cube-animation: Animation of the cube
    *
    * @prop --animatable-cube-face-border: Cube faces border
    * @prop --animatable-cube-face-background: Cube faces background
@@ -25,6 +30,7 @@
    * @prop --animatable-cube-face-animation-delay: Defines when the background animation will start
    * @prop --animatable-cube-face-animation-iteration-count: Defines the number of times the background animation cycle is played
    * @prop --animatable-cube-face-animation-direction: Defines the direction of the background animation
+   * @prop --animatable-cube-face-transform-origin: Establishes the origin of transformation for the cube faces
    *
    * @prop --animatable-cube-front-face-background: Background of the front face
    * @prop --animatable-cube-front-face-animation: Animation of the front face
@@ -40,7 +46,7 @@
    * @prop --animatable-cube-bottom-face-animation: Animation of the bottom face
    */
 
-  --size: var(--animatable-cube-size, 100px);
+  --size: var(--animatable-cube-size, var(--animatable-cube-width, var(--animatable-cube-height, 100px)));
   --perspective: var(--animatable-cube-perspective, 1000px);
   --perspective-origin: var(--animatable-cube-perspective-origin, 50% 50%);
 
@@ -54,10 +60,10 @@
   --margin: var(--animatable-cube-margin, 0);
   --padding: var(--animatable-cube-padding, 0);
 
-  --border: var(--animatable-cube-face-border, none);
-  --background: var(--animatable-cube-face-background, white);
-  --background-size: var(--animatable-cube-face-background-size, 100% 100%);
-  --animation: var(
+  --face-border: var(--animatable-cube-face-border, none);
+  --face-background: var(--animatable-cube-face-background, white);
+  --face-background-size: var(--animatable-cube-face-background-size, 100% 100%);
+  --face-animation: var(
     --animatable-cube-face-animation,
     backgroundAnimation
     var(--animatable-cube-face-animation-duration, 0s)
@@ -66,6 +72,9 @@
     var(--animatable-cube-face-animation-iteration-count, infinite)
     var(--animatable-cube-face-animation-direction, alternate)
   );
+
+  --face-size: calc(var(--size)/2);
+  --face-transform-origin: var(--animatable-cube-face-transform-origin, center center);
 
   perspective: var(--perspective);
   perspective-origin: var(--perspective-origin);
@@ -90,70 +99,72 @@
   position: relative;
   background: transparent;
   transform-style: preserve-3d;
-  transform: translateZ(-calc(var(--size)/2));
+  transform: var(--animatable-cube-transform, translateZ(-var(--face-size)));
+  transform-origin: var(--animatable-cube-transform-origin, initial);
   transition: transform var(--transition-duration);
 }
 .face {
-  background: var(--animatable-cube-face-background, transparent);
+  background: var(--animatable-cube-face-background, var(--face-background));
   position: absolute;
   height: 100%;
   width: 100%;
-  border: var(--border);
+  border: var(--face-border);
   transition: transform var(--transition-duration);
+  transform-origin: var(--face-transform-origin);
 }
 .front {
   transform:
     rotateY(0deg)
-    translateZ(calc(var(--size)/2));
+    translateZ(var(--face-size));
   will-change: transform;
-  background: var(--animatable-cube-front-face-background, var(--background));
-  background-size: var(--animatable-cube-front-face-background-size, var(--background-size));
-  animation: var(--animatable-cube-front-face-animation, var(--animation));
+  background: var(--animatable-cube-front-face-background, var(--face-background));
+  background-size: var(--animatable-cube-front-face-background-size, var(--face-background-size));
+  animation: var(--animatable-cube-front-face-animation, var(--face-animation));
 }
 .back {
   transform:
     rotateY(180deg)
-    translateZ(calc(var(--size)/2));
+    translateZ(var(--face-size));
   will-change: transform;
-  background: var(--animatable-cube-back-face-background, var(--background));
-  background-size: var(--animatable-cube-back-face-background-size, var(--background-size));
-  animation: var(--animatable-cube-back-face-animation, var(--animation));
+  background: var(--animatable-cube-back-face-background, var(--face-background));
+  background-size: var(--animatable-cube-back-face-background-size, var(--face-background-size));
+  animation: var(--animatable-cube-back-face-animation, var(--face-animation));
 }
 .right {
   transform:
     rotateY(90deg)
-    translateZ(calc(var(--size)/2));
+    translateZ(var(--face-size));
   will-change: transform;
-  background: var(--animatable-cube-right-face-background, var(--background));
-  background-size: var(--animatable-cube-right-face-background-size, var(--background-size));
-  animation: var(--animatable-cube-right-face-animation, var(--animation));
+  background: var(--animatable-cube-right-face-background, var(--face-background));
+  background-size: var(--animatable-cube-right-face-background-size, var(--face-background-size));
+  animation: var(--animatable-cube-right-face-animation, var(--face-animation));
 }
 .left {
   transform:
     rotateY(-90deg)
-    translateZ(calc(var(--size)/2));
+    translateZ(var(--face-size));
   will-change: transform;
-  background: var(--animatable-cube-left-face-background, var(--background));
-  background-size: var(--animatable-cube-left-face-background-size, var(--background-size));
-  animation: var(--animatable-cube-left-face-animation, var(--animation));
+  background: var(--animatable-cube-left-face-background, var(--face-background));
+  background-size: var(--animatable-cube-left-face-background-size, var(--face-background-size));
+  animation: var(--animatable-cube-left-face-animation, var(--face-animation));
 }
 .top {
   transform:
     rotateX(90deg)
-    translateZ(calc(var(--size)/2));
+    translateZ(var(--face-size));
   will-change: transform;
-  background: var(--animatable-cube-top-face-background, var(--background));
-  background-size: var(--animatable-cube-top-face-background-size, var(--background-size));
-  animation: var(--animatable-cube-top-face-animation, var(--animation));
+  background: var(--animatable-cube-top-face-background, var(--face-background));
+  background-size: var(--animatable-cube-top-face-background-size, var(--face-background-size));
+  animation: var(--animatable-cube-top-face-animation, var(--face-animation));
 }
 .bottom {
   transform:
     rotateX(-90deg)
-    translateZ(calc(var(--size)/2));
+    translateZ(var(--face-size));
   will-change: transform;
-  background: var(--animatable-cube-bottom-face-background, var(--background));
-  background-size: var(--animatable-cube-bottom-face-background-size, var(--background-size));
-  animation: var(--animatable-cube-bottom-face-animation, var(--animation));
+  background: var(--animatable-cube-bottom-face-background, var(--face-background));
+  background-size: var(--animatable-cube-bottom-face-background-size, var(--face-background-size));
+  animation: var(--animatable-cube-bottom-face-animation, var(--face-animation));
 }
 
 /* Animation Keyframes */
