@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.6] - 2020-04-25
+### Fixed
+- Fixed query selector for `animatable-cube` component, to avoid removing styles when `fromClassName` or `toClassName` props are used.
+- Added **PWA** demo using [Ionic](https://www.npmjs.com/package/@ionic/core) components.
+
 ## [1.1.5] - 2020-04-23
 ### Fixed
 - Fixed styles of the `animatable-cube` component by adding missing css variables as props.

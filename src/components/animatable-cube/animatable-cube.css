@@ -91,7 +91,7 @@
   transition-timing-function: var(--transition-timing-function);
 }
 
-.cube {
+:host > div {
   display: block;
   height: 100%;
   width: 100%;

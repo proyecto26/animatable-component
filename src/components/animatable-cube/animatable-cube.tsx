@@ -49,7 +49,7 @@ export class Cube implements IAnimatableComponent {
   @Element() el!: HTMLElement
 
   get element(): HTMLElement {
-    return this.el.shadowRoot.querySelector('.cube');
+    return this.el.shadowRoot.querySelector(':host > div');
   }
 
   /**
@@ -355,7 +355,7 @@ export class Cube implements IAnimatableComponent {
   render() {
     return (
       <Host>
-        <div class="cube">
+        <div>
           <div class="front face">
             <slot name='front-face' />
           </div>

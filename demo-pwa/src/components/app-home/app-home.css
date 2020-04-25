@@ -1,0 +1,16 @@
+.img {
+  height: 200px;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(https://github.com/proyecto26/animatable-component/blob/master/img/animatable.png?raw=true);
+}
+
+ion-label {
+  color: #F35525 !important;
+}
+
+ion-fab-button.ion-padding {
+  padding-left: 12px;
+}

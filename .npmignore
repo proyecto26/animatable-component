@@ -3,5 +3,6 @@
 ./www
 ./react
 
+./demo*
 .github
 .stencil

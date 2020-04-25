@@ -1,0 +1,26 @@
+{
+  "name": "demo-stencil",
+  "private": true,
+  "version": "0.0.1",
+  "description": "PWA demo for Animatable WebComponent",
+  "license": "MIT",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watch",
+    "generate": "stencil generate"
+  },
+  "dependencies": {
+    "web-animations-js": "^2.3.2",
+    "@proyecto26/animatable-component": "file:.."
+  },
+  "devDependencies": {
+    "@ionic/core": "^5.0.7",
+    "ionicons": "^5.0.1",
+    "@stencil/core": "^1.12.2"
+  }
+}
