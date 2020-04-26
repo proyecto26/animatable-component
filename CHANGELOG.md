@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.7] - 2020-04-25
+### Fixed
+- Fixed `createAnimatableComponent` HOC by adding missing `animation` prop.
+
 ## [1.1.6] - 2020-04-25
 ### Fixed
 - Fixed query selector for `animatable-cube` component, to avoid removing styles when `fromClassName` or `toClassName` props are used.
@@ -56,7 +60,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added GitHub page with Google Analytics to track some events.
 - Added README with instructions to integrate the Web component with any other framework (Angular, React, Vue, etc).
 
-[Unreleased]: https://github.com/proyecto26/animatable-component/compare/v1.1.6...HEAD
+[Unreleased]: https://github.com/proyecto26/animatable-component/compare/v1.1.7...HEAD
+[1.1.7]: https://github.com/proyecto26/animatable-component/compare/v1.1.6...v1.1.7
 [1.1.6]: https://github.com/proyecto26/animatable-component/compare/v1.1.5...v1.1.6
 [1.1.5]: https://github.com/proyecto26/animatable-component/compare/v1.1.4...v1.1.5
 [1.1.4]: https://github.com/proyecto26/animatable-component/compare/v1.1.3...v1.1.4

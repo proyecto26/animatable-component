@@ -3,7 +3,8 @@ import {
   EASING,
   ANIMATIONS,
   AnimationsType,
-  EasingType
+  EasingType,
+  createAnimatableComponent
 } from '@proyecto26/animatable-component';
 
 const animations = Object.keys(ANIMATIONS);
@@ -26,6 +27,10 @@ const fillModes: Array<FillMode> = [
   'forwards',
   'none'
 ];
+
+const AnimatableImg = createAnimatableComponent(() => (
+  <div class='img'></div>
+))
 
 @Component({
   tag: 'app-home',
@@ -61,7 +66,7 @@ export class AppHome {
             <ion-card-title>Demo</ion-card-title>
           </ion-card-header>
           <ion-card-content class="ion-text-center">
-            <animatable-component
+            <AnimatableImg
               ref={el => this.animatableEl = el}
               autoPlay
               animation={this.animation}
@@ -75,8 +80,7 @@ export class AppHome {
               fromClassName={this.fromClassName}
               toClassName={this.toClassName}
             >
-              <div class='img'></div>
-            </animatable-component>
+            </AnimatableImg>
             <ion-buttons class="ion-justify-content-center ion-padding">
               <ion-fab-button
                 color='medium'

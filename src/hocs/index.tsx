@@ -19,6 +19,7 @@ export function createAnimatableComponent<Props> (
   return (props: ComponentProps): FunctionalComponent<ComponentProps> => {
     const {
       ref,
+      animation,
       keyFrames,
       keyFramesData,
       options,
@@ -35,18 +36,19 @@ export function createAnimatableComponent<Props> (
       iterationStart,
       iterationComposite,
       autoPlay,
+      fromClassName,
+      toClassName,
       currentTime,
       startTime,
       playbackRate,
       onStart,
-      onCancel,
       onFinish,
-      fromClassName,
-      toClassName,
+      onCancel,
       ...rest
     } = props
     return <animatable-component
       ref={ref}
+      animation={animation}
       keyFrames={keyFrames}
       keyFramesData={keyFramesData}
       options={options}
@@ -63,14 +65,14 @@ export function createAnimatableComponent<Props> (
       iterationStart={iterationStart}
       iterationComposite={iterationComposite}
       autoPlay={autoPlay}
+      fromClassName={fromClassName}
+      toClassName={toClassName}
       currentTime={currentTime}
       startTime={startTime}
       playbackRate={playbackRate}
       onStart={onStart}
-      onCancel={onCancel}
       onFinish={onFinish}
-      fromClassName={fromClassName}
-      toClassName={toClassName}
+      onCancel={onCancel}
     >
       <WrappedComponent {...rest} />
     </animatable-component>
