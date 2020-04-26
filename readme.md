@@ -44,7 +44,7 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
 - Meet `<animatable />`, a tiny Web Component: https://dev.to/jdnichollsc/meet-animatable-a-tiny-web-component-to-use-web-animations-api-as-a-component-1glh
 
 ![Animatable](https://github.com/proyecto26/animatable-component/blob/master/img/demo-pwa.png?raw=true)
-> Includes a PWA demo for debugging animations!
+> Includes a PWA demo for debugging animations! ▶
 
 ## Usage 🎉
 
