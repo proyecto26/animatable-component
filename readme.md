@@ -37,6 +37,7 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
 - Sequence: https://codepen.io/jdnichollsc/pen/OJVWyQm
 - Events: https://codepen.io/jdnichollsc/pen/wvagEYQ
 - Paths: https://codepen.io/jdnichollsc/pen/MWwmBzr
+- Confetti: https://codepen.io/jdnichollsc/pen/RwWVoJN
 - 3D Clock: https://codepen.io/jdnichollsc/pen/WNvXaYM
 - Cube Component: https://codepen.io/jdnichollsc/pen/mdervLB
 - The illusion of life (Appeal): https://codepen.io/jdnichollsc/pen/GRprmVv
