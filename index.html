@@ -358,6 +358,7 @@
       const animation = selectAnimation.value;
       currentAnimatable.animation = animation;
       currentAnimatable.play();
+      animatableButton.pause();
       animatableButton.play();
       /*
        * Track animate button clicks
@@ -398,4 +399,11 @@
     });
     animatable.addEventListener("cancel", function(event) {
       console.log('ANIMATION CANCEL', event)
-    });</script> </body></html>
+    });</script> <script>if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  // auto-unregister service worker during dev mode
+  navigator.serviceWorker.getRegistration().then(function(registration) {
+  if (registration) {
+    registration.unregister().then(function() { location.reload(true) });
+  }
+  });
+}</script></body></html>
