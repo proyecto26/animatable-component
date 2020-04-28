@@ -11,7 +11,7 @@
     gtag('config', 'UA-134081814-5');
   </script>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
   <meta name="description" content="Animate any HTML element using Web Components and Web Animations API" />
   
   <!--  Essential META Tags -->
@@ -52,6 +52,8 @@
     html, body {
       height: 100%;
       width: 100%;
+      overflow: hidden;
+      touch-action: pan-x pan-y;
     }
     body {
       padding: 0px;
@@ -71,6 +73,9 @@
       text-align: center;
       color: white;
       margin: 10px;
+      margin-left: 0;
+      margin-right: 0;
+      overflow: visible;
     }
 
     .loading {
@@ -86,8 +91,8 @@
     }
 
     h1 {
-      white-space:nowrap;
-      overflow:hidden;
+      white-space: nowrap;
+      overflow: hidden;
       font-size: 2.4em;
       margin-bottom: 4rem;
       background-image: linear-gradient(92deg, #f35626 0%,#feab3a 100%);
@@ -1187,14 +1192,12 @@
       trackEvent('change-animation', this.value);
     });
     document.addEventListener("keyup", function(event) {
+      event.preventDefault();
       if (event.keyCode === 13) {
-        event.preventDefault();
         button.click();
       } else if (event.keyCode === 38 || event.keyCode === 40) {
-        event.preventDefault();
         selectAnimation.focus();
       } else if (event.keyCode === 68) {
-        event.preventDefault();
         direction.click();
       }
     });
