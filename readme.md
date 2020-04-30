@@ -40,6 +40,7 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
 - Confetti: https://codepen.io/jdnichollsc/pen/RwWVoJN
 - 3D Clock: https://codepen.io/jdnichollsc/pen/WNvXaYM
 - Cube Component: https://codepen.io/jdnichollsc/pen/mdervLB
+- Multiple Cubes: https://codepen.io/jdnichollsc/pen/XWmaYgM
 - The illusion of life (Appeal): https://codepen.io/jdnichollsc/pen/GRprmVv
 - WorkShop: https://slides.com/juandavidnicholls/waapi-webcomponents
 - Meet `<animatable />`, a tiny Web Component: https://dev.to/jdnichollsc/meet-animatable-a-tiny-web-component-to-use-web-animations-api-as-a-component-1glh
