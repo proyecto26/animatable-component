@@ -34,14 +34,14 @@ With the largest list of [Keyframes](https://developer.mozilla.org/docs/Web/API/
 Do you want to see this web component in action? Visit https://codepen.io/jdnichollsc/full/rNNYBbe yay! 🎉
 
 - Playground: https://codepen.io/jdnichollsc/pen/MWwpGNW
-- Sequence: https://codepen.io/jdnichollsc/pen/OJVWyQm
-- Events: https://codepen.io/jdnichollsc/pen/wvagEYQ
-- Paths: https://codepen.io/jdnichollsc/pen/MWwmBzr
-- Confetti: https://codepen.io/jdnichollsc/pen/RwWVoJN
-- 3D Clock: https://codepen.io/jdnichollsc/pen/WNvXaYM
-- Cube Component: https://codepen.io/jdnichollsc/pen/mdervLB
-- Multiple Cubes: https://codepen.io/jdnichollsc/pen/XWmaYgM
-- The illusion of life (Appeal): https://codepen.io/jdnichollsc/pen/GRprmVv
+- Sequence: https://codepen.io/jdnichollsc/full/OJVWyQm
+- Events: https://codepen.io/jdnichollsc/full/wvagEYQ
+- Paths: https://codepen.io/jdnichollsc/full/MWwmBzr
+- Confetti: https://codepen.io/jdnichollsc/full/RwWVoJN
+- 3D Clock: https://codepen.io/jdnichollsc/full/WNvXaYM
+- Cube Component: https://codepen.io/jdnichollsc/full/mdervLB
+- Multiple Cubes: https://codepen.io/jdnichollsc/full/XWmaYgM
+- The illusion of life (Appeal): https://codepen.io/jdnichollsc/full/GRprmVv
 - Solar System: https://codepen.io/jdnichollsc/full/yLYogYz
 - WorkShop: https://slides.com/juandavidnicholls/waapi-webcomponents
 - Meet `<animatable />`, a tiny Web Component: https://dev.to/jdnichollsc/meet-animatable-a-tiny-web-component-to-use-web-animations-api-as-a-component-1glh
