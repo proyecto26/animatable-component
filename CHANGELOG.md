@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.8] - 2020-05-07
+### Fixed
+- Validate if the manager is initialized before to destroy the animation.
+- Fixed comments of JSDoc.
+
 ## [1.1.7] - 2020-04-25
 ### Fixed
 - Fixed `createAnimatableComponent` HOC by adding missing `animation` prop.

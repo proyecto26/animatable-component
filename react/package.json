@@ -1,7 +1,7 @@
 {
   "name": "@proyecto26/animatable-component-react",
   "sideEffects": false,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React specific wrapper for animatable-component",
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "typescript": "^3.3.4000"
   },
   "dependencies": {
-    "@proyecto26/animatable-component": "^1.1.7"
+    "@proyecto26/animatable-component": "^1.1.8"
   },
   "peerDependencies": {
     "react": "^16.7.0",

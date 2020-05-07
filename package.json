@@ -1,6 +1,6 @@
 {
   "name": "@proyecto26/animatable-component",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "private": false,
   "description": "Animate once, use Everywhere! 💫",
   "author": "Proyecto 26",
@@ -27,14 +27,14 @@
     "lint": "eslint src/**/*{.ts,.tsx}"
   },
   "devDependencies": {
-    "@stencil/core": "^1.12.5",
+    "@stencil/core": "^1.12.7",
     "@stencil/eslint-plugin": "^0.3.1",
-    "@typescript-eslint/eslint-plugin": "^2.28.0",
-    "@typescript-eslint/parser": "^2.28.0",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0",
     "gh-pages": "^2.2.0",
-    "@stencil/react-output-target": "0.0.4"
+    "@stencil/react-output-target": "0.0.6"
   },
   "license": "MIT",
   "repository": {

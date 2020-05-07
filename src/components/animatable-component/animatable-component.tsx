@@ -34,7 +34,7 @@ export class AnimatableComponent implements IAnimatableComponent {
   /**
    * Animation manager for Animatable
    */
-  private manager: AnimationManager
+  private manager?: AnimationManager = null
 
   @Element() el!: HTMLElement
 
@@ -315,7 +315,9 @@ export class AnimatableComponent implements IAnimatableComponent {
    */
   @Method()
   async destroy(): Promise<void> {
-    this.manager.destroyAnimation();
+    if (this.manager !== null) {
+      this.manager.destroyAnimation();
+    }
   }
 
   /**

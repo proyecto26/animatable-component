@@ -4,7 +4,8 @@ import { IAnimatable } from '../models/animatable';
 
 /**
  * Create a new animation.
- * @param param0 - The data of the new animation.
+ * @param element - The element to animate.
+ * @param context - Animatable context.
  */
 function createAnimation (
   element: HTMLElement,
@@ -47,7 +48,7 @@ export function clearPropsWithOptions (
 
 /**
  * Load the options of the animation.
- * @param param0 - The data of the new animation.
+ * @param context - The data of the animation.
  */
 export function getAnimationOptions (
   context: IAnimatable
@@ -81,6 +82,9 @@ export function getAnimationOptions (
   return animationOptions;
 }
 
+/**
+ * A manager to handle the animations of the Components.
+ */
 export class AnimationManager {
   private element: HTMLElement
   private state: IAnimatable
