@@ -90,7 +90,7 @@ import {
 const bounceKeyFrames = KEYFRAMES[ANIMATIONS.BOUNCE];
 const easingOutCubic = EASING_FUNCTIONS[EASING.EASE_OUT_CUBIC];
 
-// Use here any other animation tool :)
+// Use here any other animation tool like Ionic Animations, AnimeJS, GSAP, etc! :)
 ```
 
 ## Getting Started 📖
