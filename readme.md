@@ -38,6 +38,7 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
 - Events: https://codepen.io/jdnichollsc/full/wvagEYQ
 - Paths: https://codepen.io/jdnichollsc/full/MWwmBzr
 - Background Position: https://codepen.io/jdnichollsc/full/wvMJyYQ
+- Carousel: https://codepen.io/jdnichollsc/full/zYrpEyR
 - Confetti: https://codepen.io/jdnichollsc/full/RwWVoJN
 - 3D Clock: https://codepen.io/jdnichollsc/full/WNvXaYM
 - Cube Component: https://codepen.io/jdnichollsc/full/mdervLB
