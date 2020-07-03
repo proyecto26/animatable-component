@@ -42,6 +42,7 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
 - 3D Clock: https://codepen.io/jdnichollsc/full/WNvXaYM
 - Cube Component: https://codepen.io/jdnichollsc/full/mdervLB
 - Multiple Cubes: https://codepen.io/jdnichollsc/full/XWmaYgM
+- The illusion of life (Squash and Stretch): https://codepen.io/jdnichollsc/full/Rwrxjya
 - The illusion of life (Appeal): https://codepen.io/jdnichollsc/full/GRprmVv
 - Solar System: https://codepen.io/jdnichollsc/full/yLYogYz
 - WorkShop: https://slides.com/juandavidnicholls/waapi-webcomponents
