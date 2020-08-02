@@ -1,7 +1,7 @@
 {
   "name": "@proyecto26/animatable-component-react",
   "sideEffects": false,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React specific wrapper for animatable-component",
   "repository": {
     "type": "git",

@@ -5,7 +5,7 @@ import { createReactComponent } from './react-component-lib';
 
 import { JSX } from '@proyecto26/animatable-component';
 
-import { defineCustomElements, applyPolyfills } from '@proyecto26/animatable-component/loader';
+import { applyPolyfills, defineCustomElements } from '@proyecto26/animatable-component/loader';
 
 applyPolyfills().then(() => defineCustomElements());
 export const AnimatableComponent = /*@__PURE__*/createReactComponent<JSX.AnimatableComponent, HTMLAnimatableComponentElement>('animatable-component');

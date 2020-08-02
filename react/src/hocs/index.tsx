@@ -9,7 +9,7 @@ export type AnimatableComponentType = ComponentType<AnimatableProps>;
  * @param WrappedComponent - Component to be animated with Animatable component
  */
 export function createAnimatableComponent<T> (
-  WrappedComponent: ComponentType
+  WrappedComponent: ComponentType<T>
 ) {
   return function WrappedWithAnimatable (props: T & AnimatableProps) {
     const {
@@ -70,7 +70,7 @@ export function createAnimatableComponent<T> (
         onFinish={onFinish}
         onCancel={onCancel}
       >
-        <WrappedComponent {...rest} />
+        <WrappedComponent {...rest as T} />
       </AnimatableComponent>
     );
   };

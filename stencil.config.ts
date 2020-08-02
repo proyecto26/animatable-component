@@ -6,7 +6,9 @@ export const config: Config = {
   outputTargets: [
     reactOutputTarget({
       componentCorePackage: '@proyecto26/animatable-component',
-      proxiesFile: './react/src/components.ts'
+      proxiesFile: './react/src/components.ts',
+      includeDefineCustomElements: true,
+      includePolyfills: true
     }),
     {
       type: 'dist',
