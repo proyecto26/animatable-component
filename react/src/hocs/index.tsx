@@ -10,7 +10,7 @@ export type AnimatableComponentType = ComponentType<AnimatableProps>;
  */
 export function createAnimatableComponent<T> (
   WrappedComponent: ComponentType<T>
-) {
+): ComponentType<T & AnimatableProps> {
   return function WrappedWithAnimatable (props: T & AnimatableProps) {
     const {
       ref,
@@ -74,4 +74,4 @@ export function createAnimatableComponent<T> (
       </AnimatableComponent>
     );
   };
-};
+}
