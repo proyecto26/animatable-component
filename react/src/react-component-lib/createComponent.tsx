@@ -70,7 +70,7 @@ export const createReactComponent = <
         propsToPass = manipulatePropsFunction(this.props, propsToPass);
       }
 
-      const newProps: Omit<StencilReactInternalProps<ElementType>, 'forwardedRef'> = {
+      let newProps: Omit<StencilReactInternalProps<ElementType>, 'forwardedRef'> = {
         ...propsToPass,
         ref: mergeRefs(forwardedRef, this.setComponentElRef),
         style,
