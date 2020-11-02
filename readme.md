@@ -109,7 +109,7 @@ const easingOutCubic = EASING_FUNCTIONS[EASING.EASE_OUT_CUBIC];
 
 ### Script tag
 
-- Put a script tag similar to this `<script src='https://unpkg.com/animatable-component@1.1.8/dist/animatable-component.js'></script>` in the head of your index.html
+- Put a script tag similar to this `<script src='https://unpkg.com/animatable-component@1.1.9/dist/animatable-component.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules

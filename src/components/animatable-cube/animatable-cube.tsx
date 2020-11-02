@@ -333,7 +333,7 @@ export class Cube implements IAnimatableComponent {
   /**
    * Initialize manager
    */
-  componentWillLoad() {
+  connectedCallback() {
     this.manager = new AnimationManager(this);
   }
 
@@ -342,7 +342,7 @@ export class Cube implements IAnimatableComponent {
     this.manager.savedState();
   }
 
-  componentWillUpdate() {
+  componentShouldUpdate() {
     this.manager.setState(this.element, this);
   }
 
@@ -350,7 +350,7 @@ export class Cube implements IAnimatableComponent {
     this.manager.savedState();
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     this.destroy();
   }
 
