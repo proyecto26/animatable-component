@@ -19,8 +19,8 @@
     "@proyecto26/animatable-component": "file:.."
   },
   "devDependencies": {
-    "@ionic/core": "^5.0.7",
-    "ionicons": "^5.0.1",
-    "@stencil/core": "^1.12.2"
+    "@ionic/core": "^5.4.1",
+    "ionicons": "^5.2.3",
+    "@stencil/core": "^2.2.0"
   }
 }
