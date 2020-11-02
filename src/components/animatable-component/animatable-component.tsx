@@ -323,7 +323,7 @@ export class AnimatableComponent implements IAnimatableComponent {
   /**
    * Initialize manager
    */
-  componentWillLoad() {
+  connectedCallback() {
     this.manager = new AnimationManager(this);
     this.manager.setState(this.element, this);
   }
@@ -332,7 +332,7 @@ export class AnimatableComponent implements IAnimatableComponent {
     this.manager.savedState();
   }
 
-  componentWillUpdate() {
+  componentShouldUpdate() {
     this.manager.setState(this.element, this);
   }
 
@@ -340,7 +340,7 @@ export class AnimatableComponent implements IAnimatableComponent {
     this.manager.savedState();
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     this.destroy();
   }
  

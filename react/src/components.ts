@@ -3,7 +3,7 @@
 /* auto-generated react proxies */
 import { createReactComponent } from './react-component-lib';
 
-import { JSX } from '@proyecto26/animatable-component';
+import type { JSX } from '@proyecto26/animatable-component';
 
 import { applyPolyfills, defineCustomElements } from '@proyecto26/animatable-component/loader';
 
