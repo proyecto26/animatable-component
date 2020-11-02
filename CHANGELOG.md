@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Use `disconnectedCallback()` instead of `componentDidUnload()`.
 - Update to `Stencil` v2.0.
-- Fix accesibility issues from GitHub page.
+- Fix accessibility issues from GitHub page.
 
 ## [1.1.8] - 2020-05-07
 ### Fixed
