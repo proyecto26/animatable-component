@@ -299,13 +299,11 @@ export class MyComponent {
 }
 ```
 
-
 ## Credits 👍
 * [Animate.css](https://daneden.github.io/animate.css)
 * [Animista](https://animista.net)
 
-## Contributing
-
+## Contributing ✨
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.  
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated** ❤️.  
 You can learn more about how you can contribute to this project in the [contribution guide](https://github.com/proyecto26/animatable-component/blob/develop/CONTRIBUTING.md).
