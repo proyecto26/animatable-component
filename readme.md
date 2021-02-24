@@ -40,9 +40,10 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
 - Background Position: https://codepen.io/jdnichollsc/full/wvMJyYQ
 - Carousel: https://codepen.io/jdnichollsc/full/zYrpEyR
 - Confetti: https://codepen.io/jdnichollsc/full/RwWVoJN
-- 3D Clock: https://codepen.io/jdnichollsc/full/WNvXaYM
 - Cube Component: https://codepen.io/jdnichollsc/full/mdervLB
 - Multiple Cubes: https://codepen.io/jdnichollsc/full/XWmaYgM
+- 3D Clock: https://codepen.io/jdnichollsc/full/WNvXaYM
+- Cube Runner: https://codepen.io/jdnichollsc/full/BaQmvxL
 - The illusion of life: 
   * Squash and Stretch: https://codepen.io/jdnichollsc/full/Rwrxjya
   * Anticipation: https://codepen.io/jdnichollsc/full/dyGJJYX
