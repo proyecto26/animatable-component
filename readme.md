@@ -49,6 +49,7 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
   * Anticipation: https://codepen.io/jdnichollsc/full/dyGJJYX
   * Appeal: https://codepen.io/jdnichollsc/full/GRprmVv
 - Solar System: https://codepen.io/jdnichollsc/full/yLYogYz
+- Animating other Web Components: https://codepen.io/jdnichollsc/full/mddpzbV
 - WorkShop: https://slides.com/juandavidnicholls/waapi-webcomponents
 - Meet `<animatable />`, a tiny Web Component: https://dev.to/jdnichollsc/meet-animatable-a-tiny-web-component-to-use-web-animations-api-as-a-component-1glh
 
