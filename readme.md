@@ -111,12 +111,12 @@ const easingOutCubic = EASING_FUNCTIONS[EASING.EASE_OUT_CUBIC];
 
 ### Script tag
 
-- Put a script tag similar to this `<script src='https://unpkg.com/animatable-component@1.1.10/dist/animatable-component.js'></script>` in the head of your index.html
+- Put a script tag similar to this `<script src='https://cdn.jsdelivr.net/npm/@proyecto26/animatable-component@1.1.10/dist/animatable-component/animatable-component.esm.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
 - Run `npm install @proyecto26/animatable-component --save`
-- Put a script tag similar to this `<script src='node_modules/@proyecto26/animatable-component/dist/animatable-component.js'></script>` in the head of your index.html
+- Put a script tag similar to this `<script src='node_modules/@proyecto26/animatable-component/dist/animatable-component/animatable-component.esm.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### In a stencil-starter app
