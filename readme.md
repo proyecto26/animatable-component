@@ -40,18 +40,20 @@ Do you want to see this web component in action? Visit https://codepen.io/jdnich
 - Background Position: https://codepen.io/jdnichollsc/full/wvMJyYQ
 - Carousel: https://codepen.io/jdnichollsc/full/zYrpEyR
 - Confetti: https://codepen.io/jdnichollsc/full/RwWVoJN
-- 3D Clock: https://codepen.io/jdnichollsc/full/WNvXaYM
 - Cube Component: https://codepen.io/jdnichollsc/full/mdervLB
 - Multiple Cubes: https://codepen.io/jdnichollsc/full/XWmaYgM
+- 3D Clock: https://codepen.io/jdnichollsc/full/WNvXaYM
+- Cube Runner: https://codepen.io/jdnichollsc/full/PwzWxjv
 - The illusion of life: 
   * Squash and Stretch: https://codepen.io/jdnichollsc/full/Rwrxjya
   * Anticipation: https://codepen.io/jdnichollsc/full/dyGJJYX
   * Appeal: https://codepen.io/jdnichollsc/full/GRprmVv
 - Solar System: https://codepen.io/jdnichollsc/full/yLYogYz
+- Animating other Web Components: https://codepen.io/jdnichollsc/full/mddpzbV
 - WorkShop: https://slides.com/juandavidnicholls/waapi-webcomponents
 - Meet `<animatable />`, a tiny Web Component: https://dev.to/jdnichollsc/meet-animatable-a-tiny-web-component-to-use-web-animations-api-as-a-component-1glh
 
-![Animatable](https://github.com/proyecto26/animatable-component/blob/master/img/demo-pwa.png?raw=true)
+![Animatable](https://github.com/proyecto26/animatable-component/blob/develop/img/demo-pwa.png?raw=true)
 > Includes a PWA demo for debugging animations! ▶
 
 ## Usage 🎉
@@ -109,12 +111,12 @@ const easingOutCubic = EASING_FUNCTIONS[EASING.EASE_OUT_CUBIC];
 
 ### Script tag
 
-- Put a script tag similar to this `<script src='https://unpkg.com/animatable-component@1.1.10/dist/animatable-component.js'></script>` in the head of your index.html
+- Put a script tag similar to this `<script src='https://cdn.jsdelivr.net/npm/@proyecto26/animatable-component@1.1.10/dist/animatable-component/animatable-component.esm.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
 - Run `npm install @proyecto26/animatable-component --save`
-- Put a script tag similar to this `<script src='node_modules/@proyecto26/animatable-component/dist/animatable-component.js'></script>` in the head of your index.html
+- Put a script tag similar to this `<script src='node_modules/@proyecto26/animatable-component/dist/animatable-component/animatable-component.esm.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### In a stencil-starter app
@@ -299,16 +301,26 @@ export class MyComponent {
 }
 ```
 
-
 ## Credits 👍
 * [Animate.css](https://daneden.github.io/animate.css)
 * [Animista](https://animista.net)
+
+## Contributing ✨
+When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.  
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated** ❤️.  
+You can learn more about how you can contribute to this project in the [contribution guide](https://github.com/proyecto26/animatable-component/blob/develop/CONTRIBUTING.md).
 
 ## Supporting 🍻
 I believe in Unicorns 🦄
 Support [me](http://www.paypal.me/jdnichollsc/2), if you do too.
 
-## Enterprise 💼
+Donate **Ethereum**, **ADA**, **BNB**, **SHIBA**, **USDT/USDC**, **DOGE**, etc:
+
+> Wallet address: jdnichollsc.eth
+
+Please let us know your contributions! 🙏
+
+## Enterprise Support 💼
 
 Available as part of the Tidelift Subscription.
 
@@ -316,6 +328,9 @@ The maintainers of `<animatable/>` and thousands of other packages are working w
 
 ## Security contact information 🚨
 To report a security vulnerability, please use the [Tidelift security contact](https://tidelift.com/security). Tidelift will coordinate the fix and disclosure.
+
+## License ⚖️
+This repository is available under the [MIT License](https://github.com/proyecto26/animatable-component/blob/develop/LICENSE).
 
 ## Happy coding 💯
 Made with ❤️
