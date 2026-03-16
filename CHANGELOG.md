@@ -6,6 +6,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-03-16
+### Added
+- add automated release workflow with semantic versioning ([b8a6a76](https://github.com/proyecto26/animatable-component/commit/b8a6a760cb1c9c82f84787a3f483823cab0ce1d3)).
+
+### Changed
+- Update readme.md ([094f83f](https://github.com/proyecto26/animatable-component/commit/094f83f60502948a792811e36f4e7fbf18a45188)).
+- Update readme.md ([8ad561a](https://github.com/proyecto26/animatable-component/commit/8ad561a983005e9b51bdad2920780e2b8cb7b818)).
+- Update FUNDING.yml ([3e74dc2](https://github.com/proyecto26/animatable-component/commit/3e74dc289f88758ecb6bec94edce77952adeb76f)).
+- Update readme.md ([903cc87](https://github.com/proyecto26/animatable-component/commit/903cc8709f0cfdb03788b2de731af8ba7cec26f4)).
+- Update readme.md ([852fcfe](https://github.com/proyecto26/animatable-component/commit/852fcfef96cd2711903960d5069d15bb165fde5e)).
+- Fix scripts to be used from HTML ([6b59be0](https://github.com/proyecto26/animatable-component/commit/6b59be046655e3117f2f817d84c43f2bbd7de3b4)).
+- Update readme.md ([274340c](https://github.com/proyecto26/animatable-component/commit/274340cc43e95053984ca9bbcfa032960bb1506e)).
+- Update readme.md ([c0e6bf6](https://github.com/proyecto26/animatable-component/commit/c0e6bf68dac5aefd9dbd0ee36dfe41a4a4272b12)).
+- Update readme.md ([fd4d8d5](https://github.com/proyecto26/animatable-component/commit/fd4d8d52e0482eb18519ef10daa4839785fdb340)).
+- Update readme.md ([5a61df9](https://github.com/proyecto26/animatable-component/commit/5a61df95e6cecc9592245f0175cf65fda1214695)).
+- Update readme.md ([96f4d22](https://github.com/proyecto26/animatable-component/commit/96f4d228ffdc18e39de7fb199589a8496d95008d)).
+- Update readme.md ([24937ba](https://github.com/proyecto26/animatable-component/commit/24937ba5e823f0e8ab3eb13dacc30397d8c185d2)).
+
+
+
+
 ## [1.1.10] - 2020-11-02
 ### Fixed
 - Fixed import for components types.
@@ -75,7 +96,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added GitHub page with Google Analytics to track some events.
 - Added README with instructions to integrate the Web component with any other framework (Angular, React, Vue, etc).
 
-[Unreleased]: https://github.com/proyecto26/animatable-component/compare/v1.1.10...HEAD
+[Unreleased]: https://github.com/proyecto26/animatable-component/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/proyecto26/animatable-component/compare/v1.1.10...v1.2.0
 [1.1.10]: https://github.com/proyecto26/animatable-component/compare/v1.1.9...v1.1.10
 [1.1.9]: https://github.com/proyecto26/animatable-component/compare/v1.1.8...v1.1.9
 [1.1.8]: https://github.com/proyecto26/animatable-component/compare/v1.1.7...v1.1.8
